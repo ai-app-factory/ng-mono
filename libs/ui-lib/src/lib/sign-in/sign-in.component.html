@@ -1,1 +1,35 @@
-<p>sign-in works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Sign In</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="password" name="password" required>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Sign In</button>
+    </form>
+
+    <div class="social-signin">
+      <button mat-raised-button (click)="signInWithGoogle()" class="google-signin">
+        <img src="assets/google-logo.png" alt="Google Logo" class="social-icon">
+        Sign in with Google
+      </button>
+      <button mat-raised-button (click)="signInWithGithub()" class="github-signin">
+        <img src="assets/github-logo.png" alt="GitHub Logo" class="social-icon">
+        Sign in with GitHub
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

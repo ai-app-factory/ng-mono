@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+mat-card {
+  max-width: 400px;
+  width: 100%;
+}
+
+mat-card-content {
+  form {
+    display: flex;
+    flex-direction: column;
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+    }
+  }
+}
+
+.social-signin {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .google-signin {
+    background-color: #fff;
+    color: #757575;
+  }
+
+  .github-signin {
+    background-color: #24292e;
+    color: #fff;
+  }
+}
