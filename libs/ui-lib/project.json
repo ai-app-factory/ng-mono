@@ -17,24 +17,53 @@
       "executor": "@nx/eslint:lint"
     },
     "storybook": {
-          "builder": "@storybook/angular:start-storybook",
-          "options": {
-            "configDir": ".storybook",
-            "browserTarget": "ui-lib:build",
-            "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6006
-          }
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/ui-lib/.storybook",
+        "browserTarget": "ui-lib:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     },
     "build-storybook": {
-          "builder": "@storybook/angular:build-storybook",
-          "options": {
-            "configDir": ".storybook",
-            "browserTarget": "ui-lib:build",
-            "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "storybook-static"
-          }
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/ui-lib",
+        "configDir": "libs/ui-lib/.storybook",
+        "browserTarget": "ui-lib:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/ui-lib/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "ui-lib:build-storybook",
+        "staticFilePath": "dist/storybook/ui-lib",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "ui-lib:build-storybook:ci"
+        }
+      }
     }
   }
 }
