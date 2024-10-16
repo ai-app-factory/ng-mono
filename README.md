@@ -46,13 +46,23 @@ Use the plugin's generator to create new projects.
 To generate a new application, use:
 
 ```sh
-npx nx g @nx/angular:app demo
+nx g @nx/angular:app demo
 ```
 
 To generate a new library, use:
 
 ```sh
-npx nx g @nx/angular:lib mylib
+nx g @nx/angular:lib mylib
+```
+
+To generate a new component use:
+```sh
+nx g @nx/angular:component component-name --style scss --directory libs/ui-lib/src/lib/component-name
+```
+
+To add storybook configuration to any library use:
+```sh
+nx g @nx/angular:storybook-configuration project-name
 ```
 
 You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
