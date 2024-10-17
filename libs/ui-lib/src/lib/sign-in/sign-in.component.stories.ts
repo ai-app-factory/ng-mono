@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { SignInComponent } from './sign-in.component';
 
 import { within } from '@storybook/testing-library';
