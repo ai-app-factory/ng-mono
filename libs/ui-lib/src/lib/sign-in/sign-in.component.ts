@@ -47,7 +47,11 @@ export class SignInComponent {
   async onSubmit() {
 
     try {
-
+      if (this.isSignIn) {
+        await signInWithEmailAndPassword(this.auth, this.email, this.password);
+      } else {
+        await createUserWithEmailAndPassword(this.auth, this.email, this.password);
+      }
     } catch (error) {
       console.error('error: ', error);
     }
