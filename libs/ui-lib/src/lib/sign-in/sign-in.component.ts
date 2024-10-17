@@ -29,7 +29,7 @@ import { AUTH } from './auth.token';
     MatIconModule,
   ],
   templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.css',
+  styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent {
   private auth: Auth = inject(Auth);
