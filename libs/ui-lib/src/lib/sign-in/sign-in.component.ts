@@ -32,7 +32,8 @@ import { AUTH } from './auth.token';
   styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent {
-  private auth: Auth = inject(Auth);
+  constructor(@Inject(AUTH) private auth: Auth) {}
+  // private auth: Auth = inject(Auth);
   email = '';
   password = '';
   confirmPassword = '';
