@@ -7,6 +7,11 @@ import { expect } from '@storybook/jest';
 const meta: Meta<SignInComponent> = {
   component: SignInComponent,
   title: 'SignInComponent',
+  decorators: [
+    moduleMetadata({
+      providers: [{ provide: AUTH, useValue: mockAuth }],
+    }),
+  ]
 };
 export default meta;
 type Story = StoryObj<SignInComponent>;
