@@ -14,6 +14,7 @@ import {
   GithubAuthProvider,
   signInWithPopup
 } from '@angular/fire/auth';
+import { AUTH } from './auth.token';
 
 @Component({
   selector: 'lib-sign-in',
