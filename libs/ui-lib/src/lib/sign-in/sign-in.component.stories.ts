@@ -1,6 +1,6 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { SignInComponent } from './sign-in.component';
-
+import { AUTH } from './auth.token';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
