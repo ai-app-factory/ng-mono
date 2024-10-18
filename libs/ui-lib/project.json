@@ -19,6 +19,7 @@
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
       "options": {
+        "styles": ["./node_modules/@angular/material/prebuilt-themes/rose-red.css"],
         "port": 4400,
         "configDir": "libs/ui-lib/.storybook",
         "browserTarget": "ui-lib:build-storybook",
@@ -34,6 +35,7 @@
       "executor": "@storybook/angular:build-storybook",
       "outputs": ["{options.outputDir}"],
       "options": {
+        "styles": ["./node_modules/@angular/material/prebuilt-themes/azure-blue.css"],
         "outputDir": "dist/storybook/ui-lib",
         "configDir": "libs/ui-lib/.storybook",
         "browserTarget": "ui-lib:build-storybook",
