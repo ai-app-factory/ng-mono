@@ -9,7 +9,7 @@ const meta: Meta<BasicMuiButtonComponent> = {
   title: 'BasicMuiButtonComponent',
   argTypes: {
     disabled: { control: 'boolean' },
-    label: { control: 'text' },
+    label: { control: 'text' }
   },
 };
 export default meta;
