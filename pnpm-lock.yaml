@@ -133,16 +133,16 @@ importers:
         specifier: ~18.2.0
         version: 18.2.4(chokidar@3.6.0)
       '@storybook/addon-essentials':
-        specifier: ^8.2.8
+        specifier: 8.3.0
         version: 8.3.0(storybook@8.3.0)(webpack-sources@3.2.3)
       '@storybook/addon-interactions':
         specifier: ^8.2.8
         version: 8.3.0(storybook@8.3.0)
       '@storybook/angular':
-        specifier: ^8.2.8
+        specifier: 8.3.0
         version: 8.3.0(petgeboyawwdqpl5zn2ulevhqm)
       '@storybook/core-server':
-        specifier: ^8.2.8
+        specifier: 8.3.0
         version: 8.3.0(storybook@8.3.0)
       '@storybook/jest':
         specifier: ^0.2.3
