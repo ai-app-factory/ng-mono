@@ -1,1 +1,44 @@
-<p>check-box works!</p>
+<!-- <span>
+  <mat-checkbox
+    [checked]="task.completed"
+    [disabled]="disabled"
+    [indeterminate]="partiallyComplete()"
+    (change)="update($event.checked)">
+    {{task.name}}
+  </mat-checkbox>
+</span>
+<span>
+  <ul>
+    @for (let subtask of task.subtasks; let i = $index) {
+      <li>
+        <mat-checkbox
+          [checked]="subtask.completed"
+          [disabled]="disabled"
+          (change)="update($event.checked, i)">
+          {{subtask.name}}
+        </mat-checkbox>
+      </li>
+    }
+  </ul>
+</span> -->
+<span>
+  <mat-checkbox
+    [checked]="task.completed"
+    [disabled]="disabled"
+    [indeterminate]="partiallyComplete()"
+    (change)="update($event.checked)">
+    {{task.name}}
+  </mat-checkbox>
+</span>
+<span>
+  <ul>
+    <li *ngFor="let subtask of task.subtasks; let i = index">
+      <mat-checkbox
+        [checked]="subtask.completed"
+        [disabled]="disabled"
+        (change)="update($event.checked, i)">
+        {{subtask.name}}
+      </mat-checkbox>
+    </li>
+  </ul>
+</span>
