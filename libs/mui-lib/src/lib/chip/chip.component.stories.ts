@@ -7,6 +7,18 @@ import { expect } from '@storybook/jest';
 const meta: Meta<ChipComponent> = {
   component: ChipComponent,
   title: 'ChipComponent',
+  argTypes: {
+    labels: {
+      control: {
+        type: 'text',
+      },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 };
 export default meta;
 type Story = StoryObj<ChipComponent>;
@@ -22,3 +34,10 @@ export const Heading: Story = {
     expect(canvas.getByText(/chip works!/gi)).toBeTruthy();
   },
 };
+
+export const DisabledChip: Story = {
+  args: {
+    disabled: true
+  }
+};
+
