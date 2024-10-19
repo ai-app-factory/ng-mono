@@ -23,16 +23,6 @@ const meta: Meta<AvatarChipComponent> = {
         type: 'boolean',
       },
     },
-    selectable: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    selected: {
-      control: {
-        type: 'boolean',
-      },
-    },
     disabled: {
       control: {
         type: 'boolean',
@@ -47,18 +37,10 @@ export const Primary: Story = {
   args: {},
 };
 
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/avatar-chip works!/gi)).toBeTruthy();
-  },
-};
 
 export const DisabledChip: Story = {
   args: {
     removable: false,
-    selectable: false,
     disabled: true
   }
 };
