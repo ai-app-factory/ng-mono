@@ -1,0 +1,13 @@
+<div>
+  <label>{{label}}</label>
+  <label>{{slider.value}} </label>
+</div>
+<mat-slider
+    [disabled]="disabled"
+    [max]="max"
+    [min]="min"
+    [step]="step"
+    [discrete]="thumbLabel"
+    [showTickMarks]="showTicks">
+  <input matSliderThumb [(ngModel)]="value" #slider>
+</mat-slider>
