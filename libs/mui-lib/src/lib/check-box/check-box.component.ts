@@ -32,7 +32,7 @@ export class CheckBoxComponent {
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
   @Input() task: Task = {
-    name: 'Task 1', completed: false,
+    name: 'Parent Task 1', completed: false,
     subtasks: [
       { name: 'Subtask 1', completed: false },
       { name: 'Subtask 2', completed: false },
