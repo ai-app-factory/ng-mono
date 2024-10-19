@@ -14,7 +14,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
   styleUrl: './raised-mui-button.component.scss',
 })
 export class RaisedMuiButtonComponent {
-  @Input() disabled: boolean = false;
+  @Input() disabled?: boolean = false;
   @Input() label: string = 'Raised';
   @Input() link: string = 'www.google.com';
 }
