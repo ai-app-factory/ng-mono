@@ -1,0 +1,13 @@
+<mat-chip-set
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="drop($event)"
+>
+  @for (item of items; track item.name) {
+    <mat-chip
+      [disabled]="disabled"
+      class="example-box"
+      cdkDrag>{{item.name}}
+    </mat-chip>
+  }
+</mat-chip-set>
