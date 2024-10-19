@@ -22,7 +22,7 @@
         "port": 4400,
         "configDir": "libs/mui-lib/.storybook",
         "browserTarget": "mui-lib:build-storybook",
-        "compodoc": false
+        "compodoc": true
       },
       "configurations": {
         "ci": {
