@@ -22,7 +22,8 @@
         "port": 4400,
         "configDir": "libs/mui-lib/.storybook",
         "browserTarget": "mui-lib:build-storybook",
-        "compodoc": true
+        "compodoc": true,
+        "styles": ["./node_modules/@angular/material/prebuilt-themes/rose-red.css"]
       },
       "configurations": {
         "ci": {
