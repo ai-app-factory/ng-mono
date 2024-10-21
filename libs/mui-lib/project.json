@@ -23,7 +23,13 @@
         "configDir": "libs/mui-lib/.storybook",
         "browserTarget": "mui-lib:build-storybook",
         "compodoc": false,
-        "styles": ["./node_modules/@angular/material/prebuilt-themes/rose-red.css"]
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
+          "libs/mui-lib/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/mui-lib/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
@@ -38,7 +44,14 @@
         "outputDir": "dist/storybook/mui-lib",
         "configDir": "libs/mui-lib/.storybook",
         "browserTarget": "mui-lib:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
+          "libs/mui-lib/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/mui-lib/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
