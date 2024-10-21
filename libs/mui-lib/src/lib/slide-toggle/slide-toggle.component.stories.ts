@@ -43,7 +43,7 @@ export const CheckedDisabledToggle: Story = {
 
 export const NewLabelForToggle: Story = {
   args: {
-    disabled: true,
+    disabled: false,
     checked: true,
     label: "New Label for Toggle"
   }
