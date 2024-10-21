@@ -1,19 +1,13 @@
-<mat-form-field>
-  <mat-label>Tooltip position</mat-label>
-  <mat-select [formControl]="position">
-    @for (positionOption of positionOptions; track positionOption) {
-      <mat-option [value]="positionOption">{{positionOption}}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
+<button
+  mat-raised-button #tooltip="matTooltip"
+  matTooltip="{{tip}}"
+  [matTooltipPosition]="position"
+  [matTooltipHideDelay]="hideDelay"
+  [matTooltipShowDelay]="showDelay"
+  aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+  class="example-button"
+  [disabled]="disabled"
+>
+  {{tool}}
+</button>
 
-<div class="example-container" cdkScrollable>
-  <button mat-raised-button #tooltip="matTooltip"
-          matTooltip="{{tip}}"
-          [matTooltipPosition]="position.value!"
-          matTooltipHideDelay="100000"
-          aria-label="Button that displays a tooltip that hides when scrolled out of the container"
-          class="example-button">
-    {{tool}}
-  </button>
-</div>

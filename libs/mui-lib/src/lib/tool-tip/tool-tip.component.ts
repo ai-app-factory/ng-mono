@@ -26,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 export class ToolTipComponent {
   @Input() tool: string = 'Tool';
   @Input() tip: string = 'Tip about how to use the tool';
-
-  positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
-  position = new FormControl(this.positionOptions[0]);
+  @Input() position: TooltipPosition = 'below';
+  @Input() disabled: boolean = false;
+  @Input() showDelay: number = 1000;
+  @Input() hideDelay: number = 10000;
 }
