@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule, ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'lib-progress-spinner',
@@ -15,5 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class ProgressSpinnerComponent {
   @Input() diameter: number = 50;
   @Input() strokeWidth: number = 4;
+  @Input() mode: ProgressSpinnerMode = 'indeterminate';
+  @Input() value?: number | null;
   // TODO: Add mode input later for determinate and indeterminate modes
 }

@@ -18,6 +18,20 @@ const meta: Meta<ProgressSpinnerComponent> = {
         type: 'number',
       },
     },
+    mode: {
+      options: ['determinate', 'indeterminate'],
+      control: {
+        type: 'radio',
+      },
+    },
+    value: {
+      control: {
+        type: 'range',
+        min: 0,
+        max:100,
+        step: 10
+      },
+    },
   },
 };
 export default meta;
@@ -35,6 +49,23 @@ export const Primary: Story = {
 export const SmallSpinner: Story = {
   args: {
     diameter: 20, // Example property for size
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('progressbar')).toBeTruthy();
+  },
+};
+
+export const DeterminateSpinner: Story = {
+  args: {
+    // Example property for mode
+    mode: 'determinate',
+
+    // Example property for value
+    value: 50,
+
+    diameter: 10,
+    strokeWidth: 5
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
