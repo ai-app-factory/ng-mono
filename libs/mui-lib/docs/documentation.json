@@ -194,21 +194,21 @@
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    disabled: true\n  },\n\n  play: async (\n    {\n      canvasElement\n    }\n  ) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Option 1\")).toBeTruthy();\n  }\n}"
-            },
-            {
-                "name": "Disabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/raised-button/raised-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Raised Button',\n    disabled: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Raised Button\")).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    disabled: true\n  },\n\n  play: async (\n    {\n      canvasElement\n    }\n  ) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Option 1\")).toBeTruthy();\n  }\n}"
             },
             {
                 "name": "Disabled",
@@ -414,6 +414,16 @@
                 "name": "Heading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/tabs works!/gi)).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/tool-tip/tool-tip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -504,21 +514,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CardComponent>",
-                "defaultValue": "{\n  component: CardComponent,\n  title: 'CardComponent',\n  argTypes: {\n    title: { control: 'text' },\n    subtitle: { control: 'text' },\n    content: { control: 'text' },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/check-box/check-box.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<CheckBoxComponent>",
                 "defaultValue": "{\n  component: CheckBoxComponent,\n  title: 'CheckBoxComponent',\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardComponent>",
+                "defaultValue": "{\n  component: CardComponent,\n  title: 'CardComponent',\n  argTypes: {\n    title: { control: 'text' },\n    subtitle: { control: 'text' },\n    content: { control: 'text' },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -594,16 +604,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<RadioButtonComponent>",
-                "defaultValue": "{\n  component: RadioButtonComponent,\n  title: 'RadioButtonComponent',\n  argTypes: {\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/raised-button/raised-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -624,11 +624,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<SnackBarComponent>",
-                "defaultValue": "{\n  component: SnackBarComponent,\n  title: 'SnackBarComponent',\n  argTypes: {\n    snackbarLabel: {\n      control: { type: 'text' },\n    },\n    message: {\n      control: { type: 'text' },\n    },\n    action: {\n      control: { type: 'text' },\n    },\n    duration: {\n      control: { type: 'number' },\n    },\n    horizontalPosition: {\n      control: { type: 'select' },\n      options: ['start', 'center', 'end', 'left', 'right'],\n    },\n    verticalPosition: {\n      control: { type: 'select' },\n      options: ['top', 'bottom'],\n    },\n    disabled: {\n      control: { type: 'boolean' },\n    },\n  },\n}"
+                "type": "Meta<RadioButtonComponent>",
+                "defaultValue": "{\n  component: RadioButtonComponent,\n  title: 'RadioButtonComponent',\n  argTypes: {\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -644,11 +644,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SnackBarComponent>",
+                "defaultValue": "{\n  component: SnackBarComponent,\n  title: 'SnackBarComponent',\n  argTypes: {\n    snackbarLabel: {\n      control: { type: 'text' },\n    },\n    message: {\n      control: { type: 'text' },\n    },\n    action: {\n      control: { type: 'text' },\n    },\n    duration: {\n      control: { type: 'number' },\n    },\n    horizontalPosition: {\n      control: { type: 'select' },\n      options: ['start', 'center', 'end', 'left', 'right'],\n    },\n    verticalPosition: {\n      control: { type: 'select' },\n      options: ['top', 'bottom'],\n    },\n    disabled: {\n      control: { type: 'boolean' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<StackedChipsComponent>",
                 "defaultValue": "{\n  component: StackedChipsComponent,\n  title: 'StackedChipsComponent',\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsComponent>",
+                "defaultValue": "{\n  component: TabsComponent,\n  title: 'TabsComponent',\n}"
             },
             {
                 "name": "meta",
@@ -754,21 +774,21 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/check-box/check-box.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Task 1\")).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n}"
             },
             {
                 "name": "Primary",
@@ -844,16 +864,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText('Option 1')).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/raised-button/raised-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -874,11 +884,11 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
+                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText('Option 1')).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -894,7 +904,27 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1081,8 +1111,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CardComponent>",
-                "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
+                "rawtype": "StoryObj<CheckBoxComponent>",
+                "file": "libs/mui-lib/src/lib/check-box/check-box.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1092,8 +1122,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CheckBoxComponent>",
-                "file": "libs/mui-lib/src/lib/check-box/check-box.component.stories.ts",
+                "rawtype": "StoryObj<CardComponent>",
+                "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1180,17 +1210,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<RadioButtonComponent>",
-                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<RaisedButtonComponent>",
                 "file": "libs/mui-lib/src/lib/raised-button/raised-button.component.stories.ts",
                 "deprecated": false,
@@ -1213,8 +1232,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<SnackBarComponent>",
-                "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                "rawtype": "StoryObj<RadioButtonComponent>",
+                "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1235,8 +1254,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<SnackBarComponent>",
+                "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<StackedChipsComponent>",
                 "file": "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsComponent>",
+                "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2319,6 +2360,38 @@
                     "type": "Story",
                     "defaultValue": "{\n  args: {},\n}"
                 }
+            ],
+            "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts": [
+                {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/tabs works!/gi)).toBeTruthy();\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsComponent>",
+                    "defaultValue": "{\n  component: TabsComponent,\n  title: 'TabsComponent',\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n}"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -2376,19 +2449,6 @@
                     "kind": 183
                 }
             ],
-            "libs/mui-lib/src/lib/card/card.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardComponent>",
-                    "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/mui-lib/src/lib/check-box/check-box.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2396,6 +2456,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CheckBoxComponent>",
                     "file": "libs/mui-lib/src/lib/check-box/check-box.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/card/card.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardComponent>",
+                    "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2493,19 +2566,6 @@
                     "kind": 183
                 }
             ],
-            "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<RadioButtonComponent>",
-                    "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/mui-lib/src/lib/raised-button/raised-button.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2532,13 +2592,13 @@
                     "kind": 183
                 }
             ],
-            "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts": [
+            "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<SnackBarComponent>",
-                    "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                    "rawtype": "StoryObj<RadioButtonComponent>",
+                    "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2558,6 +2618,19 @@
                     "kind": 183
                 }
             ],
+            "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SnackBarComponent>",
+                    "file": "libs/mui-lib/src/lib/snack-bar/snack-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2565,6 +2638,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<StackedChipsComponent>",
                     "file": "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsComponent>",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3703,6 +3789,46 @@
             },
             {
                 "filePath": "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
