@@ -36,6 +36,7 @@
     "@angular/cli": "~18.2.0",
     "@angular/compiler-cli": "~18.2.0",
     "@angular/language-service": "~18.2.0",
+    "@compodoc/compodoc": "^1.1.26",
     "@nx/angular": "19.7.3",
     "@nx/devkit": "19.7.3",
     "@nx/eslint": "19.7.3",
