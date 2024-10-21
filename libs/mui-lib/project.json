@@ -22,7 +22,13 @@
         "port": 4400,
         "configDir": "libs/mui-lib/.storybook",
         "browserTarget": "mui-lib:build-storybook",
-        "compodoc": false,
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/mui-lib/docs"
+        ],
         "styles": [
           "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
           "libs/mui-lib/src/lib/styles.scss"
@@ -44,7 +50,7 @@
         "outputDir": "dist/storybook/mui-lib",
         "configDir": "libs/mui-lib/.storybook",
         "browserTarget": "mui-lib:build-storybook",
-        "compodoc": false,
+        "compodoc": true,
         "styles": [
           "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
           "libs/mui-lib/src/lib/styles.scss"
