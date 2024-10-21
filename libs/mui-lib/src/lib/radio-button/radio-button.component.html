@@ -1,0 +1,15 @@
+<mat-radio-group 
+    aria-label="Select an option" 
+    [(ngModel)]="optionSelected">
+        @for (option of options; track option) {
+            <mat-radio-button 
+                class="example-radio-button" 
+                [value]="option" 
+                [disabled]="disabled">
+                    {{option}}
+            </mat-radio-button>
+        }
+</mat-radio-group>
+
+<div>You selected: {{optionSelected}}</div>
+  
