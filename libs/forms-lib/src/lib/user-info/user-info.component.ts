@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'lib-forms-lib',
+  selector: 'lib-user-info',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './forms-lib.component.html',
-  styleUrl: './forms-lib.component.css',
+  templateUrl: './user-info.component.html',
+  styleUrl: './user-info.component.scss',
 })
-export class FormsLibComponent {}
+export class UserInfoComponent {}
