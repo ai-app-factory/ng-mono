@@ -5,7 +5,8 @@
   <input
     matInput
     [placeholder]="placeholder"
-    [value]="value"
+    [(ngModel)]="value"
+    (input)="onValueChange($event)"
     [disabled]="disabled"
   >
 </mat-form-field>

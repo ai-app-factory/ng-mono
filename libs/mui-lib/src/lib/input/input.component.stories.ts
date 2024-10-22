@@ -31,6 +31,8 @@ const meta: Meta<InputComponent> = {
     valueChange: {
       action: 'valueChange',
     },
+
+
   },
 };
 export default meta;
@@ -61,12 +63,4 @@ export const NewLabel: Story = {
   }
 };
 
-export const NewValue: Story = {
-  args: {
-    disabled: false,
-    placeholder: "this is the placeholder text",
-    label: "New Label",
-    value: "new value"
-  }
-};
 

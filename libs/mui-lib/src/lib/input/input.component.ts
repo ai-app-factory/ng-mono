@@ -24,4 +24,11 @@ export class InputComponent {
   @Input() value: string = '';
 
   @Output() valueChange = new EventEmitter<string>();
+
+  onValueChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.value = inputElement.value?.trim();
+    this.valueChange.emit(this.value);
+    console.log('Value Changed', this.value);
+  }
 }
