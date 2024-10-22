@@ -141,6 +141,16 @@
                 "defaultValue": "{\n  args: {\n    \n  },\n\n  play: async (\n    {\n      canvasElement\n    }\n  ) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Option 1\")).toBeTruthy();\n  }\n}"
             },
             {
+                "name": "CustomPlaceHolderText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    disabled: true,\n    placeholder: \"this is the placeholder text\"\n  }\n}"
+            },
+            {
                 "name": "decorators",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -189,6 +199,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n\n  args: {\n    label: 'Button Text',\n    disabled: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText('Button Text')).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    disabled: true\n  }\n}"
             },
             {
                 "name": "Disabled",
@@ -384,31 +404,11 @@
                 "name": "Heading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/input works!/gi)).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "Heading",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/range-slider/range-slider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/range-slider works!/gi)).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "Heading",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/slide-toggle/slide-toggle.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/slide-toggle works!/gi)).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Heading",
@@ -494,21 +494,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BasicButtonComponent>",
-                "defaultValue": "{\n  component: BasicButtonComponent,\n  title: 'BasicButtonComponent',\n  argTypes: {\n    label: { control: 'text' },\n    disabled: { control: 'boolean' },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AvatarChipComponent>",
                 "defaultValue": "{\n  component: AvatarChipComponent,\n  title: 'AvatarChipComponent',\n  argTypes: {\n    avatar: {\n      control: {\n        type: 'text',\n      },\n    },\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    removable: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BasicButtonComponent>",
+                "defaultValue": "{\n  component: BasicButtonComponent,\n  title: 'BasicButtonComponent',\n  argTypes: {\n    label: { control: 'text' },\n    disabled: { control: 'boolean' },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -608,7 +608,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InputComponent>",
-                "defaultValue": "{\n  component: InputComponent,\n  title: 'InputComponent',\n}"
+                "defaultValue": "{\n  component: InputComponent,\n  title: 'InputComponent',\n  argTypes: {\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    placeholder: {\n      control: {\n        type: 'text',\n      },\n    },\n    value: {\n      control: {\n        type: 'text',\n      },\n    },\n    valueChange: {\n      action: 'valueChange',\n    },\n\n\n  },\n}"
             },
             {
                 "name": "meta",
@@ -761,6 +761,16 @@
                 "defaultValue": "{\n  args: {\n    label: \"New Chip\"\n  }\n}"
             },
             {
+                "name": "NewLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    disabled: false,\n    placeholder: \"this is the placeholder text\",\n    label: \"New Label\"\n  }\n}"
+            },
+            {
                 "name": "NewLabelForToggle",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -784,21 +794,21 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button Text',\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Button Text\")).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button Text',\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Button Text\")).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -1147,8 +1157,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BasicButtonComponent>",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "rawtype": "StoryObj<AvatarChipComponent>",
+                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1158,8 +1168,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarChipComponent>",
-                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                "rawtype": "StoryObj<BasicButtonComponent>",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1920,6 +1930,58 @@
                     "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText('Option 1')).toBeTruthy();\n  },\n}"
                 }
             ],
+            "libs/mui-lib/src/lib/input/input.component.stories.ts": [
+                {
+                    "name": "CustomPlaceHolderText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    disabled: true,\n    placeholder: \"this is the placeholder text\"\n  }\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    disabled: true\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\n  component: InputComponent,\n  title: 'InputComponent',\n  argTypes: {\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    placeholder: {\n      control: {\n        type: 'text',\n      },\n    },\n    value: {\n      control: {\n        type: 'text',\n      },\n    },\n    valueChange: {\n      action: 'valueChange',\n    },\n\n\n  },\n}"
+                },
+                {
+                    "name": "NewLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    disabled: false,\n    placeholder: \"this is the placeholder text\",\n    label: \"New Label\"\n  }\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n}"
+                }
+            ],
             "libs/mui-lib/.storybook/preview.ts": [
                 {
                     "name": "decorators",
@@ -2442,38 +2504,6 @@
                     "defaultValue": "{\n  args: {},\n}"
                 }
             ],
-            "libs/mui-lib/src/lib/input/input.component.stories.ts": [
-                {
-                    "name": "Heading",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/input works!/gi)).toBeTruthy();\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<InputComponent>",
-                    "defaultValue": "{\n  component: InputComponent,\n  title: 'InputComponent',\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/input/input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n}"
-                }
-            ],
             "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts": [
                 {
                     "name": "Heading",
@@ -2538,38 +2568,6 @@
                     "defaultValue": "{\n  args: {},\n}"
                 }
             ],
-            "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts": [
-                {
-                    "name": "Heading",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/tabs works!/gi)).toBeTruthy();\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TabsComponent>",
-                    "defaultValue": "{\n  component: TabsComponent,\n  title: 'TabsComponent',\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n}"
-                }
-            ],
             "libs/mui-lib/src/lib/select/select.component.stories.ts": [
                 {
                     "name": "meta",
@@ -2591,24 +2589,33 @@
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    list: [\n      'Apple',\n      'Banana',\n      'Cherry',\n      'Date',\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const selectElement = canvas.getByRole('combobox');\n    expect(selectElement).toBeTruthy();\n  },\n}"
                 }
+            ],
+            "libs/mui-lib/src/lib/table/table.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/table/table.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TableComponent>",
+                    "defaultValue": "{\n  component: TableComponent,\n  title: 'TableComponent',\n  argTypes: {\n    displayedColumns: {\n      control: {\n        type: 'object',\n      },\n    },\n    dataSource: {\n      control: {\n        type: 'object',\n      },\n    },\n  },\n\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/table/table.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n  },\n\n}"
+                }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BasicButtonComponent>",
-                    "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2616,6 +2623,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AvatarChipComponent>",
                     "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BasicButtonComponent>",
+                    "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3530,7 +3550,17 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Heading",
+                "name": "CustomPlaceHolderText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3541,6 +3571,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NewLabel",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
