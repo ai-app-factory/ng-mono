@@ -40,3 +40,33 @@ export const Primary: Story = {
   args: {},
 };
 
+export const Disabled: Story = {
+  args: {
+    disabled: true
+  }
+};
+
+export const CustomPlaceHolderText: Story = {
+  args: {
+    disabled: true,
+    placeholder: "this is the placeholder text"
+  }
+};
+
+export const NewLabel: Story = {
+  args: {
+    disabled: false,
+    placeholder: "this is the placeholder text",
+    label: "New Label"
+  }
+};
+
+export const NewValue: Story = {
+  args: {
+    disabled: false,
+    placeholder: "this is the placeholder text",
+    label: "New Label",
+    value: "new value"
+  }
+};
+
