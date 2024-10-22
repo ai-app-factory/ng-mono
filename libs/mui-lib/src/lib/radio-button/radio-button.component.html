@@ -1,15 +1,24 @@
-<mat-radio-group 
-    aria-label="Select an option" 
-    [(ngModel)]="optionSelected">
-        @for (option of options; track option) {
-            <mat-radio-button 
-                class="example-radio-button" 
-                [value]="option" 
+<div class="radio-button-container">
+  @if (displayName) {
+    <mat-label class="radio-group-label">{{name}}</mat-label>
+  }
+  <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      [(ngModel)]="optionSelected"
+      >
+          @for (option of listOfOptions; track option) {
+            <mat-radio-button
+                aria-label="{{option}}"
+                class="example-radio-button"
+                [value]="option"
                 [disabled]="disabled">
                     {{option}}
             </mat-radio-button>
-        }
-</mat-radio-group>
+          }
+  </mat-radio-group>
+</div>
 
-<div>You selected: {{optionSelected}}</div>
-  
+@if (displaySelectedOption) {
+  <div class="selected-option">You selected: {{optionSelected}}</div>
+}
+

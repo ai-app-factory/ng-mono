@@ -13,13 +13,27 @@ const meta: Meta<RadioButtonComponent> = {
         type: 'boolean',
       },
     },
+    name: {
+      control: {
+        type: 'text',
+      },
+    },
+    listOfOptions: {
+      options: ['Option 1', 'Option 2', 'Option 3'],
+      control: {
+        type: 'radio',
+      },
+    },
   },
 };
 export default meta;
 type Story = StoryObj<RadioButtonComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: 'Radio Group',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText('Option 1')).toBeTruthy();
@@ -28,7 +42,7 @@ export const Primary: Story = {
 
 export const CustomLabels: Story = {
   args: {
-    
+
   },
 
   play: async (
