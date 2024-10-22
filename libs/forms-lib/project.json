@@ -5,6 +5,7 @@
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
+  "implicitDependencies": ["mui-lib"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
