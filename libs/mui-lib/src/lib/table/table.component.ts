@@ -16,9 +16,9 @@ import { PeriodicElement, ELEMENT_DATA } from './models/element-data';
   styleUrl: './table.component.scss',
 })
 export class TableComponent implements AfterViewInit {
-  @Input()
-  displayedColumns!: PeriodicElement[];
-  @Input() dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
