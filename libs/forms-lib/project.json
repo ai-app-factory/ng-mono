@@ -16,6 +16,63 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
+          "libs/forms-lib/src/lib/styles.scss"
+        ],
+        "port": 4400,
+        "configDir": "libs/forms-lib/.storybook",
+        "browserTarget": "forms-lib:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
+          "libs/forms-lib/src/lib/styles.scss"
+        ],
+        "outputDir": "dist/storybook/forms-lib",
+        "configDir": "libs/forms-lib/.storybook",
+        "browserTarget": "forms-lib:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/forms-lib/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "forms-lib:build-storybook",
+        "staticFilePath": "dist/storybook/forms-lib",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "forms-lib:build-storybook:ci"
+        }
+      }
     }
   }
 }
