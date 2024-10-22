@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -17,7 +17,11 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './input.component.scss',
 })
 export class InputComponent {
-  @Output() value: string = '';
-  @Output() placeholder: string = 'Enter text';
-  
+
+  @Input() label: string = 'Input Label';
+  @Input() disabled: boolean = false;
+  @Input() placeholder: string = 'Enter text';
+  @Input() value: string = '';
+
+  @Output() valueChange = new EventEmitter<string>();
 }
