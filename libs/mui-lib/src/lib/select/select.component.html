@@ -1,0 +1,9 @@
+<h4>Basic mat-select</h4>
+<mat-form-field>
+  <mat-label>DropDown</mat-label>
+  <mat-select>
+    @for (item of list; track item) {
+      <mat-option [value]="item">{{item}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
