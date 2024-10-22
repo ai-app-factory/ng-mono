@@ -364,6 +364,16 @@
                 "name": "Heading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/card/card.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -539,6 +549,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<BasicToolbarComponent>",
                 "defaultValue": "{\n  component: BasicToolbarComponent,\n  title: 'BasicToolbarComponent',\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n  argTypes: {\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    buttonType: {\n      options: [\n        ButtonType.RAISED,\n        ButtonType.FAB,\n        ButtonType.BUTTON,\n        ButtonType.FLAT,\n        ButtonType.STROKED\n      ],\n      control: {\n        type: 'radio',\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -835,6 +855,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/basic-toolbar/basic-toolbar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1203,6 +1233,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<BasicToolbarComponent>",
                 "file": "libs/mui-lib/src/lib/basic-toolbar/basic-toolbar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2440,6 +2481,38 @@
                     "defaultValue": "{\n  args: {},\n}"
                 }
             ],
+            "libs/mui-lib/src/lib/button/button.component.stories.ts": [
+                {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n  argTypes: {\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    buttonType: {\n      options: [\n        ButtonType.RAISED,\n        ButtonType.FAB,\n        ButtonType.BUTTON,\n        ButtonType.FLAT,\n        ButtonType.STROKED\n      ],\n      control: {\n        type: 'radio',\n      },\n    },\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n}"
+                }
+            ],
             "libs/mui-lib/src/lib/chip-drag-drop/chip-drag-drop.component.stories.ts": [
                 {
                     "name": "Heading",
@@ -2675,6 +2748,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BasicToolbarComponent>",
                     "file": "libs/mui-lib/src/lib/basic-toolbar/basic-toolbar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/button/button.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "libs/mui-lib/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3227,6 +3313,46 @@
             },
             {
                 "filePath": "libs/mui-lib/src/lib/basic-toolbar/basic-toolbar.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/button/button.component.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
