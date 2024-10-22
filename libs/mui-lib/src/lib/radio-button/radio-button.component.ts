@@ -79,7 +79,7 @@ export class RadioButtonComponent {
    * @type boolean
    * @section lib-radio-button
    */
-  @Input() displayName: boolean = true;
+  @Input() displayGroupName: boolean = true;
 
 
   /**
