@@ -1,1 +1,22 @@
-<p>user-info works!</p>
+<form [formGroup]="userInfoForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" type="tel" />
+    </mat-form-field>
+
+    <lib-check-box [checked]="false" [disabled]="false" [task]="{ name: 'Accept Terms', completed: false }"></lib-check-box>
+
+    <lib-radio-button [disabled]="false" [options]="['Option 1', 'Option 2', 'Option 3']"></lib-radio-button>
+  
+    <lib-basic-button></lib-basic-button>
+  </form>
