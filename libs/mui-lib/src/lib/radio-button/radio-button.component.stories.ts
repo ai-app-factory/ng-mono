@@ -18,12 +18,39 @@ const meta: Meta<RadioButtonComponent> = {
         type: 'text',
       },
     },
-    listOfOptions: {
-      options: ['Option 1', 'Option 2', 'Option 3'],
+
+    labelPosition: {
       control: {
-        type: 'radio',
+        type: 'inline-radio',
+        options: ['before', 'after'],
       },
     },
+    required: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    value: {
+      control: {
+        type: 'text',
+      },
+    },
+    displaySelectedOption: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    displayGroupName: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    listOfOptions: {
+      control: {
+        type: 'object',
+      },
+    },
+
   },
 };
 export default meta;
@@ -42,7 +69,8 @@ export const Primary: Story = {
 
 export const CustomLabels: Story = {
   args: {
-
+    name: 'New Radio Group',
+    listOfOptions: ['Option A', 'Option B', 'Option C'],
   },
 
   play: async (
@@ -57,7 +85,94 @@ export const CustomLabels: Story = {
 
 export const Disabled: Story = {
   args: {
-    disabled: true
+    disabled: true,
+    name: 'Disabled Radio Group',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Option 1")).toBeTruthy();
+  }
+};
+
+export const Required: Story = {
+  args: {
+    required: true,
+    name: 'Required Radio Group',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Option 1")).toBeTruthy();
+  }
+};
+
+export const DisplaySelectedOption: Story = {
+  args: {
+    displaySelectedOption: true,
+    name: 'Radio Group',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Option 1")).toBeTruthy();
+  }
+};
+
+export const DisplayGroupName: Story = {
+  args: {
+    displayGroupName: true,
+    name: 'Radio Group Name',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Option 1")).toBeTruthy();
+  }
+};
+
+export const BeforeLabel: Story = {
+  args: {
+    labelPosition: 'before',
+    name: 'Radio Group',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Option 1")).toBeTruthy();
+  }
+};
+
+export const AfterLabel: Story = {
+  args: {
+    labelPosition: 'after',
+    name: 'Radio Group',
+    listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
 
   play: async (
