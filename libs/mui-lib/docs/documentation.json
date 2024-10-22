@@ -414,6 +414,16 @@
                 "name": "Heading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/slide-toggle/slide-toggle.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/slide-toggle works!/gi)).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/stacked-chips/stacked-chips.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -484,21 +494,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarChipComponent>",
-                "defaultValue": "{\n  component: AvatarChipComponent,\n  title: 'AvatarChipComponent',\n  argTypes: {\n    avatar: {\n      control: {\n        type: 'text',\n      },\n    },\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    removable: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BasicButtonComponent>",
                 "defaultValue": "{\n  component: BasicButtonComponent,\n  title: 'BasicButtonComponent',\n  argTypes: {\n    label: { control: 'text' },\n    disabled: { control: 'boolean' },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarChipComponent>",
+                "defaultValue": "{\n  component: AvatarChipComponent,\n  title: 'AvatarChipComponent',\n  argTypes: {\n    avatar: {\n      control: {\n        type: 'text',\n      },\n    },\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    removable: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -654,6 +664,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/select/select.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SelectComponent>",
+                "defaultValue": "{\n  component: SelectComponent,\n  title: 'SelectComponent',\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/slide-toggle/slide-toggle.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -764,21 +784,21 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Button Text',\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Button Text\")).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n}"
             },
             {
                 "name": "Primary",
@@ -929,6 +949,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/select/select.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    list: [\n      'Apple',\n      'Banana',\n      'Cherry',\n      'Date',\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const selectElement = canvas.getByRole('combobox');\n    expect(selectElement).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -1117,8 +1147,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarChipComponent>",
-                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                "rawtype": "StoryObj<BasicButtonComponent>",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1128,8 +1158,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BasicButtonComponent>",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "rawtype": "StoryObj<AvatarChipComponent>",
+                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1295,6 +1325,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RangeSliderComponent>",
                 "file": "libs/mui-lib/src/lib/range-slider/range-slider.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SelectComponent>",
+                "file": "libs/mui-lib/src/lib/select/select.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2497,45 +2538,64 @@
                     "defaultValue": "{\n  args: {},\n}"
                 }
             ],
-            "libs/mui-lib/src/lib/table/table.component.stories.ts": [
+            "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts": [
+                {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/tabs works!/gi)).toBeTruthy();\n  },\n}"
+                },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/table/table.component.stories.ts",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TableComponent>",
-                    "defaultValue": "{\n  component: TableComponent,\n  title: 'TableComponent',\n  argTypes: {\n    displayedColumns: {\n      control: {\n        type: 'object',\n      },\n    },\n    dataSource: {\n      control: {\n        type: 'object',\n      },\n    },\n  },\n\n}"
+                    "type": "Meta<TabsComponent>",
+                    "defaultValue": "{\n  component: TabsComponent,\n  title: 'TabsComponent',\n}"
                 },
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/mui-lib/src/lib/table/table.component.stories.ts",
+                    "file": "libs/mui-lib/src/lib/tabs/tabs.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n  },\n\n}"
+                    "defaultValue": "{\n  args: {},\n}"
+                }
+            ],
+            "libs/mui-lib/src/lib/select/select.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/select/select.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SelectComponent>",
+                    "defaultValue": "{\n  component: SelectComponent,\n  title: 'SelectComponent',\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/mui-lib/src/lib/select/select.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    list: [\n      'Apple',\n      'Banana',\n      'Cherry',\n      'Date',\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const selectElement = canvas.getByRole('combobox');\n    expect(selectElement).toBeTruthy();\n  },\n}"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarChipComponent>",
-                    "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2543,6 +2603,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BasicButtonComponent>",
                     "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarChipComponent>",
+                    "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2738,6 +2811,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RangeSliderComponent>",
                     "file": "libs/mui-lib/src/lib/range-slider/range-slider.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/select/select.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SelectComponent>",
+                    "file": "libs/mui-lib/src/lib/select/select.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3771,6 +3857,36 @@
             },
             {
                 "filePath": "libs/mui-lib/src/lib/range-slider/range-slider.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/select/select.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/select/select.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/mui-lib/src/lib/select/select.component.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
