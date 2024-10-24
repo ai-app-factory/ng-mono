@@ -1,22 +1,37 @@
-<form [formGroup]="userInfoForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" />
-    </mat-form-field>
+<form [formGroup]="userInfoForm" (ngSubmit)="onSubmit()" class="user-info-form">
+    <div class="form-group">
+      <lib-input 
+        [label]="firstNameLabel" 
+        [placeholder]="firstNamePlaceholder">
+      </lib-input>
+    </div>
   
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" type="email" />
-    </mat-form-field>
+    <div class="form-group">
+      <lib-input 
+        [label]="emailLabel" 
+        [placeholder]="emailPlaceholder">
+      </lib-input>
+    </div>
   
-    <mat-form-field appearance="fill">
-      <mat-label>Phone</mat-label>
-      <input matInput formControlName="phone" type="tel" />
-    </mat-form-field>
-
-    <lib-check-box [checked]="false" [disabled]="false" [task]="{ name: 'Accept Terms', completed: false }"></lib-check-box>
-
-    <lib-radio-button [disabled]="false" [options]="['Option 1', 'Option 2', 'Option 3']"></lib-radio-button>
+    <div class="form-group">
+      <p>Gender</p>
+      <lib-radio-button [options]="genderOptions"></lib-radio-button>
+    </div>
   
-    <lib-basic-button></lib-basic-button>
+    <div class="form-group">
+      <lib-basic-slider [label]="ageLabel"></lib-basic-slider>
+    </div>
+  
+    <div class="form-group" *ngFor="let task of tasks">
+      <lib-check-box [checked]="task.completed" [disabled]="false" [task]="task"></lib-check-box>
+    </div>
+  
+    <div class="form-group">
+      <p>Date of Birth</p>
+      <lib-date-picker></lib-date-picker>
+    </div>
+  
+    <div class="form-group">
+      <lib-basic-button></lib-basic-button>
+    </div>
   </form>
