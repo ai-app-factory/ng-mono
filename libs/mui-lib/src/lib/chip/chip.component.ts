@@ -7,10 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-export interface Item {
-  name: string;
-}
-
 @Component({
   selector: 'lib-chip',
   standalone: true,
@@ -28,21 +24,18 @@ export interface Item {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChipComponent {
-  readonly keywords = signal(['angular', 'how-to', 'tutorial', 'accessibility']);
-  readonly formControl = new FormControl(['angular']);
-  @Input() labels: Item[]  = [
-    {name: 'Angular'},
-    {name: 'React'},
-    {name: 'Vue'},
-    {name: 'Svelte'},
-    {name: 'Ember'},
-  ];
+
+  readonly formControl = new FormControl();
+  @Input() set keywords(value: string[]) {
+    this._keywords.set(value);
+  }
+  public _keywords = signal(['angular', 'react', 'vue']);
   @Input() disabled = false;
 
   announcer = inject(LiveAnnouncer);
 
   removeChip(keyword: string) {
-    this.keywords.update(keywords => {
+    this._keywords.update(keywords => {
       const index = keywords.indexOf(keyword);
       if (index < 0) {
         return keywords;
@@ -57,7 +50,7 @@ export class ChipComponent {
     const value = (event.value || '').trim();
 
     if (value) {
-      this.keywords.update(keywords => {
+      this._keywords.update(keywords => {
         keywords.push(value);
         this.announcer.announce(`Added ${value}`);
         return [...keywords];
