@@ -17,6 +17,10 @@ const meta: Meta<CheckBoxComponent> = {
     task: {
       control: 'object',
     },
+    labelPosition: {
+      options: ['before', 'after'],
+      control: 'radio',
+    }
   },
 };
 export default meta;
@@ -98,4 +102,35 @@ export const CheckboxWithSubtasks: Story = {
     expect(canvas.getByText("Subtask 1")).toBeTruthy();
     expect(canvas.getByText("Subtask 2")).toBeTruthy();
   },
+};
+
+export const LabelPositionBefore: Story = {
+  args: {
+    task: {
+      "name": "Parent Task 1",
+      "completed": false,
+
+      "subtasks": [{
+        "name": "Subtask 1",
+        "completed": false
+      }, {
+        "name": "Subtask 2",
+        "completed": false
+      }, {
+        "name": "Subtask 3",
+        "completed": true
+      }]
+    },
+
+    labelPosition: "before"
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Task 1")).toBeTruthy();
+  }
 };

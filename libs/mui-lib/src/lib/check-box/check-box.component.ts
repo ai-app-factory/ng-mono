@@ -33,6 +33,7 @@ export interface Task {
 export class CheckBoxComponent {
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() labelPosition: 'before' | 'after' = 'after';
   @Input() set task(task: Task) {
     this._task.set(task);
   }
