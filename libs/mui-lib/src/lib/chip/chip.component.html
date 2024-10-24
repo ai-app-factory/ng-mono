@@ -5,9 +5,9 @@
 <mat-form-field class="example-form-field">
   <mat-label>keywords</mat-label>
   <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl">
-    @for (item of labels; track item) {
-      <mat-chip-row (removed)="removeChip(item.name)">
-        {{item.name}}
+    @for (keyword of _keywords(); track keyword) {
+      <mat-chip-row (removed)="removeChip(keyword)">
+        {{keyword}}
         <button matChipRemove aria-label="'remove ' + item.label">
           <mat-icon>cancel</mat-icon>
         </button>

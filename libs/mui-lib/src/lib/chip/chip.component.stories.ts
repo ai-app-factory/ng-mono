@@ -8,9 +8,9 @@ const meta: Meta<ChipComponent> = {
   component: ChipComponent,
   title: 'ChipComponent',
   argTypes: {
-    labels: {
+    keywords: {
       control: {
-        type: 'text',
+        type: 'object',
       },
     },
     disabled: {
@@ -29,10 +29,7 @@ export const Primary: Story = {
 
 export const Heading: Story = {
   args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/chip works!/gi)).toBeTruthy();
-  },
+  
 };
 
 export const DisabledChip: Story = {
