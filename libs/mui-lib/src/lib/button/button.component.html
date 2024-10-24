@@ -20,6 +20,11 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
       </button>
     }
+    @case ('mat-mini-fab') {
+      <button mat-mini-fab [disabled]="disabled" (click)="onButtonPress()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      </button>
+    }
     @case ('mat-stroked-button') {
       <button mat-stroked-button [disabled]="disabled" (click)="onButtonPress()">
         {{label}}

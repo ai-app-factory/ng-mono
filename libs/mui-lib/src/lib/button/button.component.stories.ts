@@ -24,7 +24,8 @@ const meta: Meta<ButtonComponent> = {
         ButtonType.FAB,
         ButtonType.BUTTON,
         ButtonType.FLAT,
-        ButtonType.STROKED
+        ButtonType.STROKED,
+        ButtonType.MINI_FAB
       ],
       control: {
         type: 'radio',

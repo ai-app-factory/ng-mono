@@ -10,6 +10,7 @@ export enum ButtonType {
   BUTTON = 'mat-button',
   FLAT = 'mat-flat-button',
   STROKED = 'mat-stroked-button',
+  MINI_FAB = 'mat-mini-fab',
 }
 
 @Component({
