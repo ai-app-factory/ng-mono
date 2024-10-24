@@ -6,6 +6,7 @@
       [indeterminate]="partiallyComplete()"
       (change)="update($event.checked)"
       [disabled]="disabled"
+      [labelPosition]="labelPosition"
     >
       {{_task().name}}
     </mat-checkbox>
@@ -19,6 +20,7 @@
               [checked]="subtask.completed"
               (change)="update($event.checked, i)"
               [disabled]="disabled"
+              [labelPosition]="labelPosition"
               >
               {{subtask.name}}
             </mat-checkbox>
