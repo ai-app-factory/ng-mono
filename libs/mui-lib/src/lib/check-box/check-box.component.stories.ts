@@ -7,12 +7,33 @@ import { expect } from '@storybook/jest';
 const meta: Meta<CheckBoxComponent> = {
   component: CheckBoxComponent,
   title: 'CheckBoxComponent',
+  argTypes: {
+    checked: {
+      control: 'boolean',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    task: {
+      control: 'object',
+    },
+  },
 };
 export default meta;
 type Story = StoryObj<CheckBoxComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    task: {
+      name: 'Parent Task 1',
+      completed: false,
+      subtasks: [
+        { name: 'Subtask 1', completed: false },
+        { name: 'Subtask 2', completed: false },
+        { name: 'Subtask 3', completed: true },
+      ],
+    },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText("Task 1")).toBeTruthy();
@@ -22,7 +43,13 @@ export const Primary: Story = {
 export const DisabledCheckbox: Story = {
   args: {
     disabled: true,
-    task: { name: 'Task 1', completed: false },
+
+    task: {
+      "name": "Task 1",
+      "completed": false
+    },
+
+    checked: false
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

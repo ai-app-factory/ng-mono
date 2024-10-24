@@ -1,0 +1,49 @@
+<section>
+  <h4>{{groupLabel}}</h4>
+  @switch (selection) {
+    @case ('single') {
+      <mat-button-toggle-group
+        [disabled]="disabled"
+        [hideSingleSelectionIndicator]="hideSelectionIndicator"
+        [(ngModel)]="selectedOption"
+      >
+        @if (options.length) {
+          @for (option of options; track option) {
+            <mat-button-toggle
+              [value]="option"
+            >
+              {{option}}
+            </mat-button-toggle>
+          }
+        }
+
+      </mat-button-toggle-group>
+    }
+    @case ('multiple') {
+      <mat-button-toggle-group
+        [disabled]="disabled"
+        [multiple]="true"
+        [hideMultipleSelectionIndicator]="hideSelectionIndicator"
+        [(ngModel)]="selectedOptions"
+      >
+        @if (options.length) {
+          @for (option of options; track option) {
+            <mat-button-toggle
+              [value]="option"
+            >
+              {{option}}
+            </mat-button-toggle>
+          }
+        }
+      </mat-button-toggle-group>
+    }
+  }
+</section>
+<div>
+  @if (selection === 'single') {
+    <p>Selected option: {{selectedOption}}</p>
+  }
+  @else {
+    <p>Selected options: {{selectedOptions}}</p>
+  }
+</div>

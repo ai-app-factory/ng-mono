@@ -5,6 +5,8 @@ import {
   signal,
   Input,
   Output,
+  EventEmitter,
+  Signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
@@ -31,29 +33,44 @@ export interface Task {
 export class CheckBoxComponent {
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
-  @Input() task: Task = {
+  @Input() set task(task: Task) {
+    this._task.set(task);
+  }
+
+
+  public _task = signal<Task>({
     name: 'Parent Task 1', completed: false,
     subtasks: [
       { name: 'Subtask 1', completed: false },
       { name: 'Subtask 2', completed: false },
       { name: 'Subtask 3', completed: true }
     ]
-  };
+  });
+
+  @Output() taskChange = new EventEmitter<Task>();
 
   readonly partiallyComplete = computed(() => {
-    if (!this.task.subtasks) {
+    const task = this._task();
+    if (!task.subtasks) {
       return false;
     }
-    return this.task.subtasks.some(t => t.completed) && !this.task.subtasks.every(t => t.completed);
+    return task.subtasks.some(
+      subtask => subtask.completed) &&
+      !task.subtasks.every(
+        subtask => subtask.completed
+      );
   });
 
   update(completed: boolean, index?: number) {
-    if (index === undefined) {
-      this.task.completed = completed;
-      this.task.subtasks?.forEach(subtask => subtask.completed = completed);
-    } else {
-      this.task.subtasks![index].completed = completed;
-      this.task.completed = this.task.subtasks?.every(subtask => subtask.completed) ?? false;
-    }
+    this._task.update(task => {
+      if (index === undefined) {
+        task.completed = completed;
+        task.subtasks?.forEach(subtask => subtask.completed = completed);
+      } else {
+        task.subtasks![index].completed = completed;
+        task.completed = task.subtasks?.every(subtask => subtask.completed) ?? true;
+      }
+      return {...task};
+    });
   }
 }
