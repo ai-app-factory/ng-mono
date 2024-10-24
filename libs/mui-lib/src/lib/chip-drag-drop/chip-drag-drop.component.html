@@ -1,6 +1,6 @@
 <mat-chip-set
   cdkDropList
-  cdkDropListOrientation="horizontal"
+  [cdkDropListOrientation]="listOrientation"
   (cdkDropListDropped)="drop($event)"
 >
   @for (item of items; track item.name) {

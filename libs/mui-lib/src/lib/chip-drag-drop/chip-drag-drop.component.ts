@@ -20,6 +20,9 @@ export interface item {
   styleUrl: './chip-drag-drop.component.scss',
 })
 export class ChipDragDropComponent {
+  
+  @Input() listOrientation: 'horizontal' | 'vertical' = 'horizontal';
+
   @Input() items: item[] = [
     {name: 'Apple'},
     {name: 'Banana'},
@@ -29,7 +32,7 @@ export class ChipDragDropComponent {
   ];
 
   @Input() disabled = false;
-  
+
   drop(event: CdkDragDrop<item[]>) {
     moveItemInArray(this.items, event.previousIndex, event.currentIndex);
   }

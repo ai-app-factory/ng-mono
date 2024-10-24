@@ -18,17 +18,65 @@ const meta: Meta<ChipDragDropComponent> = {
         type: 'boolean',
       },
     },
+    listOrientation: {
+      options: ['horizontal', 'vertical'],
+      control: {
+        type: 'radio',
+      },
+    }
   },
 };
 export default meta;
 type Story = StoryObj<ChipDragDropComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    items: [
+      {name: 'Apple'},
+      {name: 'Banana'},
+      {name: 'Grapes'},
+      {name: 'Orange'},
+      {name: 'Pineapple'},
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Apple")).toBeTruthy();
+  }
 };
 
 export const Heading: Story = {
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Apple")).toBeTruthy();
+  },
+};
+
+export const DisabledChipDragDrop: Story = {
+  args: {
+    disabled: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Apple")).toBeTruthy();
+  },
+};
+
+export const VerticalChipDragDrop: Story = {
+  args: {
+    listOrientation: 'vertical',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Apple")).toBeTruthy();
+  },
+};
+
+export const HorizontalChipDragDrop: Story = {
+  args: {
+    listOrientation: 'horizontal',
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText("Apple")).toBeTruthy();
