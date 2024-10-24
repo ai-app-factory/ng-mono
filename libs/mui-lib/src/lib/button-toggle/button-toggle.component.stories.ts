@@ -57,3 +57,37 @@ export const Primary: Story = {
 export const Heading: Story = {
   args: {},
 };
+
+export const MultipleSelectedOptions: Story = {
+  args: {
+    selection: "multiple"
+  }
+};
+
+export const SingleSelectedOption: Story = {
+  args: {
+    selection: "single"
+  }
+};
+
+export const SingleSelectionIndicatorHidden: Story = {
+  args: {
+    selection: "single",
+    hideSelectionIndicator: true
+  }
+};
+
+export const MultipleSelectionIndicatorHidden: Story = {
+  args: {
+    selection: "multiple",
+    hideSelectionIndicator: true
+  }
+};
+
+export const CustomGroupLabel: Story = {
+  args: {
+    selection: "multiple",
+    hideSelectionIndicator: true,
+    groupLabel: "Custom Group Label"
+  }
+};
