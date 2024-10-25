@@ -624,21 +624,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BasicButtonComponent>",
-                "defaultValue": "{\n  component: BasicButtonComponent,\n  title: 'BasicButtonComponent',\n  argTypes: {\n    label: { control: 'text' },\n    disabled: { control: 'boolean' },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AvatarChipComponent>",
                 "defaultValue": "{\n  component: AvatarChipComponent,\n  title: 'AvatarChipComponent',\n  argTypes: {\n    avatar: {\n      control: {\n        type: 'text',\n      },\n    },\n    label: {\n      control: {\n        type: 'text',\n      },\n    },\n    removable: {\n      control: {\n        type: 'boolean',\n      },\n    },\n    disabled: {\n      control: {\n        type: 'boolean',\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BasicButtonComponent>",
+                "defaultValue": "{\n  component: BasicButtonComponent,\n  title: 'BasicButtonComponent',\n  argTypes: {\n    label: { control: 'text' },\n    disabled: { control: 'boolean' },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -774,6 +774,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProgressSpinnerComponent>",
+                "defaultValue": "{\n  component: ProgressSpinnerComponent,\n  title: 'ProgressSpinnerComponent',\n  argTypes: {\n    diameter: {\n      control: {\n        type: 'number',\n      },\n    },\n    strokeWidth: {\n      control: {\n        type: 'number',\n      },\n    },\n    mode: {\n      options: ['determinate', 'indeterminate'],\n      control: {\n        type: 'radio',\n      },\n    },\n    value: {\n      control: {\n        type: 'range',\n        min: 0,\n        max:100,\n        step: 10\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -799,16 +809,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<RangeSliderComponent>",
                 "defaultValue": "{\n  component: RangeSliderComponent,\n  title: 'RangeSliderComponent',\n  argTypes: {\n    disabled: {\n      control: 'boolean',\n    },\n    max: {\n      control: 'number',\n    },\n    min: {\n      control: 'number',\n    },\n    showTicks: {\n      control: 'boolean',\n    },\n    step: {\n      control: 'number',\n    },\n    thumbLabel: {\n      control: 'boolean',\n    },\n    startValue: {\n      control: 'number',\n    },\n    endValue: {\n      control: 'number',\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ProgressSpinnerComponent>",
-                "defaultValue": "{\n  component: ProgressSpinnerComponent,\n  title: 'ProgressSpinnerComponent',\n  argTypes: {\n    diameter: {\n      control: {\n        type: 'number',\n      },\n    },\n    strokeWidth: {\n      control: {\n        type: 'number',\n      },\n    },\n    mode: {\n      options: ['determinate', 'indeterminate'],\n      control: {\n        type: 'radio',\n      },\n    },\n    value: {\n      control: {\n        type: 'range',\n        min: 0,\n        max:100,\n        step: 10\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -974,21 +974,21 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button Text',\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Button Text\")).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button Text',\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Button Text\")).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -1078,7 +1078,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    items: [\n      {name: 'Apple'},\n      {name: 'Banana'},\n      {name: 'Grapes'},\n      {name: 'Orange'},\n      {name: 'Pineapple'},\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Apple\")).toBeTruthy();\n  }\n}"
+                "defaultValue": "{\n  args: {\n    items: [\n      'Apple',\n      'Banana',\n      'Grapes',\n      'Orange',\n      'Pineapple',\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Apple\")).toBeTruthy();\n  }\n}"
             },
             {
                 "name": "Primary",
@@ -1124,6 +1124,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByRole('progressbar')).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1149,16 +1159,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {},\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByRole('progressbar')).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -1427,8 +1427,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BasicButtonComponent>",
-                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
+                "rawtype": "StoryObj<AvatarChipComponent>",
+                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1438,8 +1438,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarChipComponent>",
-                "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                "rawtype": "StoryObj<BasicButtonComponent>",
+                "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1592,6 +1592,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ProgressSpinnerComponent>",
+                "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<RadioButtonComponent>",
                 "file": "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts",
                 "deprecated": false,
@@ -1616,17 +1627,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RangeSliderComponent>",
                 "file": "libs/mui-lib/src/lib/range-slider/range-slider.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressSpinnerComponent>",
-                "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2797,7 +2797,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    items: [\n      {name: 'Apple'},\n      {name: 'Banana'},\n      {name: 'Grapes'},\n      {name: 'Orange'},\n      {name: 'Pineapple'},\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Apple\")).toBeTruthy();\n  }\n}"
+                    "defaultValue": "{\n  args: {\n    items: [\n      'Apple',\n      'Banana',\n      'Grapes',\n      'Orange',\n      'Pineapple',\n    ],\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(\"Apple\")).toBeTruthy();\n  }\n}"
                 },
                 {
                     "name": "VerticalChipDragDrop",
@@ -3182,19 +3182,6 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BasicButtonComponent>",
-                    "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts": [
                 {
                     "name": "Story",
@@ -3202,6 +3189,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AvatarChipComponent>",
                     "file": "libs/mui-lib/src/lib/avatar-chip/avatar-chip.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BasicButtonComponent>",
+                    "file": "libs/mui-lib/src/lib/basic-button/basic-button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3377,6 +3377,19 @@
                     "kind": 183
                 }
             ],
+            "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProgressSpinnerComponent>",
+                    "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "libs/mui-lib/src/lib/radio-button/radio-button.component.stories.ts": [
                 {
                     "name": "Story",
@@ -3410,19 +3423,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RangeSliderComponent>",
                     "file": "libs/mui-lib/src/lib/range-slider/range-slider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgressSpinnerComponent>",
-                    "file": "libs/mui-lib/src/lib/progress-spinner/progress-spinner.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
