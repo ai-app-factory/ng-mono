@@ -32,11 +32,11 @@ type Story = StoryObj<ChipDragDropComponent>;
 export const Primary: Story = {
   args: {
     items: [
-      {name: 'Apple'},
-      {name: 'Banana'},
-      {name: 'Grapes'},
-      {name: 'Orange'},
-      {name: 'Pineapple'},
+      'Apple',
+      'Banana',
+      'Grapes',
+      'Orange',
+      'Pineapple',
     ],
   },
   play: async ({ canvasElement }) => {
