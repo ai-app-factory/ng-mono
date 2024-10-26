@@ -45,3 +45,5 @@ Thumbs.db
 
 
 storybook-static
+
+/libs/mui-lib/docs/*
