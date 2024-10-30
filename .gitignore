@@ -16,6 +16,9 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
+documentation.json
+libs/mui-lib/docs/documentation.json
+libs/forms-lib/docs/documentation.json
 
 # IDE - VSCode
 .vscode/*
