@@ -13,7 +13,11 @@ export interface AvatarChip {
 @Component({
   selector: 'lib-avatar-chip',
   standalone: true,
-  imports: [CommonModule, MatChipsModule],
+  imports: [
+    CommonModule,
+    MatChipsModule,
+    MatIconModule
+  ],
   templateUrl: './avatar-chip.component.html',
   styleUrl: './avatar-chip.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
