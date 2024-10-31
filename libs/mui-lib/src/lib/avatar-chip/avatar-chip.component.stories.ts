@@ -18,6 +18,11 @@ const meta: Meta<AvatarChipComponent> = {
         type: 'boolean',
       },
     },
+    avatarChips: {
+      control: {
+        type: 'object'
+      }
+    }
   },
 };
 export default meta;
