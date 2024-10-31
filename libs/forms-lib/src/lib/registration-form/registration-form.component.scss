@@ -1,0 +1,27 @@
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .phone-number-group {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    width: 100%;
+  }
+  
+  .flex-item {
+    flex: 1;
+  }
+  
+  .country-code {
+    width: 80px;
+  }

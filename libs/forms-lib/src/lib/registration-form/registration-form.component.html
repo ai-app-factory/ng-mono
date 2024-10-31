@@ -1,0 +1,44 @@
+<form class="registration-form">
+  <div class="form-row">
+    <lib-input
+      label="First Name"
+      placeholder="Enter your first name"
+      [(value)]="firstName"
+      (valueChange)="onFirstNameChange($event)"
+    ></lib-input>
+
+    <lib-input
+      label="Last Name"
+      placeholder="Enter your last name"
+      [(value)]="lastName"
+      (valueChange)="onLastNameChange($event)"
+      class="example-full-width"
+    ></lib-input>
+  </div>
+
+  <div class="form-row">
+    <lib-input
+      label="Email"
+      placeholder="Enter your email"
+      [(value)]="email"
+      (valueChange)="onEmailChange($event)"
+    ></lib-input>
+
+    <div class="phone-number-group">
+      <lib-input
+        label="Country Code"
+        placeholder="+1"
+        [(value)]="countryCode"
+        (valueChange)="onCountryCodeChange($event)"
+        class="country-code"
+      ></lib-input>
+
+      <lib-input
+        label="Phone Number"
+        placeholder="Enter your phone number"
+        [(value)]="phoneNumber"
+        (valueChange)="onPhoneNumberChange($event)"
+      ></lib-input>
+    </div>
+  </div>
+</form>
