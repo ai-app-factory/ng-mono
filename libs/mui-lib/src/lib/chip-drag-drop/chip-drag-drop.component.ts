@@ -1,7 +1,12 @@
 import { Component, ChangeDetectionStrategy, signal, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
-import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDropList,
+  moveItemInArray
+} from '@angular/cdk/drag-drop';
 
 
 @Component({
