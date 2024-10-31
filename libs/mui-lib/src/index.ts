@@ -14,4 +14,5 @@ export * from './lib/snack-bar/snack-bar.component';
 export * from './lib/tool-tip/tool-tip.component';
 export * from './lib/tabs/tabs.component';
 export * from './lib/raised-button/raised-button.component';
+export * from './lib/card/card.component';
 
