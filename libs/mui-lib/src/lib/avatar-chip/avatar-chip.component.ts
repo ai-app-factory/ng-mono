@@ -15,4 +15,15 @@ export class AvatarChipComponent {
   @Input() label: string = "Shiba Inu";
   @Input() removable: boolean = true;
   @Input() disabled: boolean = false;
+
+  removeChip(avatarChip: AvatarChip) {
+    this._avatarChips.update(chips => {
+      const index = chips.indexOf(avatarChip);
+      if (index < 0) {
+        return chips;
+      }
+      chips.splice(index, 1);
+      return [...chips];
+    });
+  }
 }
