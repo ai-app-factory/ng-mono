@@ -31,6 +31,7 @@ export class ChipComponent {
   }
   public _keywords = signal(['angular', 'react', 'vue']);
   @Input() disabled = false;
+  @Input() label = 'Keywords';
 
   announcer = inject(LiveAnnouncer);
 
