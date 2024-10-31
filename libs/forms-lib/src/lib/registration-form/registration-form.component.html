@@ -41,4 +41,44 @@
       ></lib-input>
     </div>
   </div>
+
+  <div class="form-row" >
+    <lib-date-picker
+      label="Birthdate"
+      [(ngModel)]="birthDate"
+      (ngModelChange)="onBirthDateChange($event)"
+      class="flex-item"
+    ></lib-date-picker>
+
+    <lib-select
+        [list]="educationLevels"
+        label="Educational Qualifications"
+        [(ngModel)]="educationLevel"
+        (ngModelChange)="onEducationLevelChange($event)"
+        class="flex-item"
+    ></lib-select>
+    </div> 
+    <div class="form-row">
+        <lib-chip
+          label="Programming Languages That you would like to learn"
+          [keywords]="programmingLanguages"
+          (keywordsChange)="programmingLanguages = $event"
+        ></lib-chip>
+      </div>
+    <div class="form-row" style="justify-content: center; margin-top: 20px;">
+        <lib-slide-toggle
+          label="Accept Terms and Conditions"
+          [(checked)]="agreeTerms"
+          (checkedChange)="onAgreeTermsChange($event)"
+        ></lib-slide-toggle>
+    </div>
+    <div class="form-row" style="justify-content: center; margin-top: 20px;">
+        <lib-button
+          label="Register"
+          [buttonType]="'mat-raised-button'"
+          (buttonClick)="registerUser()"
+        ></lib-button>
+    </div>
+
+
 </form>
