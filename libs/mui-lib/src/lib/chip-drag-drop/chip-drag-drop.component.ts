@@ -20,6 +20,7 @@ import {
   ],
   templateUrl: './chip-drag-drop.component.html',
   styleUrl: './chip-drag-drop.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChipDragDropComponent {
 
