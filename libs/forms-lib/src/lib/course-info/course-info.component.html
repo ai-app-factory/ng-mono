@@ -1,0 +1,5 @@
+<lib-tabs [tabs]="courseTabs">
+    <div *ngFor="let review of reviews">
+        <lib-card [title]="review.title" [subtitle]="review.subtitle" [content]="review.content"></lib-card>
+    </div>
+  </lib-tabs>
