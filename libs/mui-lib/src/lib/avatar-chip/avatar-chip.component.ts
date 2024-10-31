@@ -19,8 +19,24 @@ export interface AvatarChip {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarChipComponent {
-  @Input() avatar: string | null = null;
-  @Input() label: string = "Shiba Inu";
+
+
+  @Input() set avatarChips(avatarChips: AvatarChip[]) {
+    this._avatarChips.set(avatarChips);
+  }
+  public _avatarChips  = signal<AvatarChip[]>([
+    {
+      label: 'Shiba Inu',
+      avatarUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+      alt: 'Photo of Shiba Inu'
+    },
+    {
+      label: 'Husky',
+      avatarUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+      alt: 'Photo of Husky'
+    }
+  ]);
+
   @Input() removable: boolean = true;
   @Input() disabled: boolean = false;
 
