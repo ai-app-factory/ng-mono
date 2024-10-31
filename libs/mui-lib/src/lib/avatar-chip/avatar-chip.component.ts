@@ -1,6 +1,14 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatChipsModule} from '@angular/material/chips';
+import {MatChipEvent, MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+
+
+export interface AvatarChip {
+  label: string,
+  avatarUrl: string,
+  alt?: string | undefined
+}
 
 @Component({
   selector: 'lib-avatar-chip',
