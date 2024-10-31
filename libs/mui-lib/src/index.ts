@@ -15,4 +15,8 @@ export * from './lib/tool-tip/tool-tip.component';
 export * from './lib/tabs/tabs.component';
 export * from './lib/raised-button/raised-button.component';
 export * from './lib/card/card.component';
+export * from './lib/select/select.component';
+export * from './lib/slide-toggle/slide-toggle.component';
+export * from './lib/button/button.component';
+export * from './lib/chip/chip.component';
 
