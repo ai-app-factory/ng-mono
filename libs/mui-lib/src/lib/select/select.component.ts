@@ -25,6 +25,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrl: './select.component.scss',
 })
 export class SelectComponent {
+  @Input() label: string = 'Select Label';
   @Input() list: string[] = [
     'Apple',
     'Banana',
