@@ -20,14 +20,23 @@
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
       "options": {
-        "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/azure-blue.css",
-          "libs/forms-lib/src/lib/styles.scss"
-        ],
         "port": 4400,
         "configDir": "libs/forms-lib/.storybook",
         "browserTarget": "forms-lib:build-storybook",
-        "compodoc": false
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/forms-lib/docs"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/forms-lib/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/forms-lib/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
@@ -39,14 +48,17 @@
       "executor": "@storybook/angular:build-storybook",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
-          "libs/forms-lib/src/lib/styles.scss"
-        ],
         "outputDir": "dist/storybook/forms-lib",
         "configDir": "libs/forms-lib/.storybook",
         "browserTarget": "forms-lib:build-storybook",
-        "compodoc": false
+        "compodoc": true,
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/forms-lib/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/forms-lib/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
