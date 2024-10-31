@@ -8,16 +8,6 @@ const meta: Meta<AvatarChipComponent> = {
   component: AvatarChipComponent,
   title: 'AvatarChipComponent',
   argTypes: {
-    avatar: {
-      control: {
-        type: 'text',
-      },
-    },
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
     removable: {
       control: {
         type: 'boolean',
