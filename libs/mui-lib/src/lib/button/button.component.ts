@@ -33,7 +33,7 @@ export class ButtonComponent {
   @Input() disabled: boolean = false;
   @Input() buttonType: ButtonType = ButtonType.RAISED;
 
-  @Output() buttonClick = new EventEmitter<string>();
+  @Output() buttonClick = new EventEmitter<any>();
 
   async onButtonPress() {
     this.buttonClick.emit("Button Pressed from ButtonComponent");

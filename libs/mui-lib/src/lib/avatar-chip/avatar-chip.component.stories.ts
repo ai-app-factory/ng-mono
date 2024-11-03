@@ -8,16 +8,6 @@ const meta: Meta<AvatarChipComponent> = {
   component: AvatarChipComponent,
   title: 'AvatarChipComponent',
   argTypes: {
-    avatar: {
-      control: {
-        type: 'text',
-      },
-    },
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
     removable: {
       control: {
         type: 'boolean',
@@ -28,6 +18,11 @@ const meta: Meta<AvatarChipComponent> = {
         type: 'boolean',
       },
     },
+    avatarChips: {
+      control: {
+        type: 'object'
+      }
+    }
   },
 };
 export default meta;
@@ -47,6 +42,15 @@ export const DisabledChip: Story = {
 
 export const NewChipLabel: Story = {
   args: {
-    label: "New Chip"
+    avatarChips: [
+      {
+        label: "New Label One",
+        avatarUrl: "https://material.angular.io/assets/img/examples/shiba1.jpg"
+      },
+      {
+        label: "new label two",
+        avatarUrl: "https://material.angular.io/assets/img/examples/shiba1.jpg"
+      }
+    ]
   }
 };

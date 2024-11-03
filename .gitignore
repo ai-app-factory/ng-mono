@@ -36,7 +36,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-
+libs/mui-lib/docs/*
 # System Files
 .DS_Store
 Thumbs.db
@@ -48,3 +48,5 @@ Thumbs.db
 
 
 storybook-static
+
+/libs/mui-lib/docs/*

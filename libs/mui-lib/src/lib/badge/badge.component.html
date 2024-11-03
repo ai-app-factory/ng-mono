@@ -1,0 +1,41 @@
+<div>
+  @switch (badgeFor) {
+    @case ('button') {
+      <button
+        mat-raised-button
+        [matBadge]="content"
+        [matBadgeDisabled]="disabled"
+        [matBadgeHidden]="hidden"
+        [matBadgePosition]="position"
+        [matBadgeSize]="size"
+        [matBadgeOverlap]="overlap"
+      >
+        {{hostLabel}}
+      </button>
+    }
+    @case ('text') {
+      <div
+        [matBadge]="content"
+        [matBadgeDisabled]="disabled"
+        [matBadgeHidden]="hidden"
+        [matBadgeOverlap]="overlap"
+        [matBadgeSize]="size"
+        [matBadgePosition]="position"
+      >
+        {{hostLabel}}
+      </div>
+    }
+    @case ('icon') {
+      <mat-icon
+        [matBadge]="content"
+        [matBadgeHidden]="hidden"
+        [matBadgeSize]="size"
+        [matBadgeOverlap]="overlap"
+        [matBadgePosition]="position"
+        [matBadgeDisabled]="disabled"
+      >
+        {{icon}}
+      </mat-icon>
+    }
+  }
+</div>

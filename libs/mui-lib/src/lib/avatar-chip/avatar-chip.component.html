@@ -1,14 +1,37 @@
 <mat-chip-set aria-label="Dog selection">
-  <mat-chip
-  [disabled]="disabled"
-  [removable]="removable"
-  >
-    <img
-      matChipAvatar
-      src="https://material.angular.io/assets/img/examples/shiba1.jpg"
-      alt="Photo of a Shiba Inu"
-    />
-    {{label}}
-  </mat-chip>
-
+  @if (removable) {
+    @for (avatarChip of _avatarChips(); track avatarChip) {
+      <mat-chip-row
+        [disabled]="disabled"
+        removable="true"
+        (removed)="removeChip(avatarChip)"
+      >
+        <img
+          matChipAvatar
+          [src]="avatarChip.avatarUrl"
+          [alt]="avatarChip.alt"
+        />
+          {{avatarChip.label}}
+        <button matChipRemove aria-label="'remove ' + keyword">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+  }
+  @else {
+    @for (avatarChip of _avatarChips(); track avatarChip) {
+      <mat-chip-row
+        [disabled]="disabled"
+        removable="false"
+        (removed)="removeChip(avatarChip)"
+      >
+        <img
+          matChipAvatar
+          [src]="avatarChip.avatarUrl"
+          [alt]="avatarChip.alt"
+        />
+          {{avatarChip.label}}
+      </mat-chip-row>
+    }
+  }
 </mat-chip-set>

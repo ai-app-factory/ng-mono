@@ -1,7 +1,12 @@
 import { Component, ChangeDetectionStrategy, signal, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
-import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDropList,
+  moveItemInArray
+} from '@angular/cdk/drag-drop';
 
 
 @Component({
@@ -15,6 +20,7 @@ import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/d
   ],
   templateUrl: './chip-drag-drop.component.html',
   styleUrl: './chip-drag-drop.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChipDragDropComponent {
 
