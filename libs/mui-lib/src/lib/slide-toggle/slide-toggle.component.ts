@@ -13,4 +13,7 @@ export class SlideToggleComponent {
   @Input() label: string = 'Slide Toggle';
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() labelPosition: 'before' | 'after' = 'after';
+  @Input() hideIcon: boolean = false;
+  @Input() required: boolean = false;
 }
