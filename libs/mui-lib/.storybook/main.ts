@@ -1,7 +1,16 @@
 import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
-  stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  core: {
+    builder: {
+      name: '@storybook/builder-webpack5',
+      options: {
+        fsCache: true,
+        lazyCompilation: true,
+      },
+    },
+  },
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',

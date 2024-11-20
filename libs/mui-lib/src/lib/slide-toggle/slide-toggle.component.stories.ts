@@ -8,9 +8,37 @@ const meta: Meta<SlideToggleComponent> = {
   component: SlideToggleComponent,
   title: 'SlideToggleComponent',
   argTypes: {
-    label: { control: 'text' },
-    checked: { control: 'boolean' },
-    disabled: { control: 'boolean' },
+    label: {
+      control: 'text' ,
+      default: 'Slide Toggle',
+      description: 'The label for the slide toggle'
+    },
+    checked: {
+      control: 'boolean',
+      description: 'Whether the slide toggle is checked',
+      default: false
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the slide toggle is disabled',
+      default: false
+    },
+    labelPosition: {
+      control: 'radio',
+      options: ['before', 'after'],
+      description: 'The position of the label wrt the slide toggle',
+      default: 'after'
+    },
+    hideIcon: {
+      control: 'boolean',
+      description: 'Whether the icon is hidden',
+      default: false
+    },
+    required: {
+      control: 'boolean',
+      description: 'Whether the slide toggle is required',
+      default: false
+    },
   },
 };
 export default meta;
