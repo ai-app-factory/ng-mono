@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { AvatarChipComponent } from './avatar-chip.component';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 
 const meta: Meta<AvatarChipComponent> = {
   component: AvatarChipComponent,
