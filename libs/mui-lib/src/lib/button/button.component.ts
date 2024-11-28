@@ -27,6 +27,18 @@ export enum ButtonType {
   ICON = 'mat-icon-button',
 }
 
+/**
+ * Button Component
+ * @class
+ * @property {string} label - The label of the button
+ * @property {boolean} disabled - Whether the button is disabled
+ * @property {ButtonType} buttonType - The type of button
+ * @property {string | null} icon - The icon of the button
+ * @property {boolean} disableRipple - Whether the ripple effect is disabled
+ * @property {boolean} disabledInteractive - Whether the button is interactive when disabled
+ * @property {EventEmitter<any>} buttonClick - The event emitter for button click
+ * @method onButtonPress - The method to handle button press
+ */
 @Component({
   selector: 'lib-button',
   standalone: true,
