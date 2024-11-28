@@ -4,6 +4,10 @@ import { ButtonComponent } from './button.component';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
+/**
+ * The `ButtonComponent` is a simple button that can be used to trigger an action.
+ * <p>@class ButtonComponent</p>
+ */
 const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
   title: 'ButtonComponent',
