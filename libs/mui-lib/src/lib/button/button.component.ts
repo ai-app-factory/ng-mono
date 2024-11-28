@@ -6,7 +6,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 /**
  * Button Types
- * @enum {string}
+ * @enum {string} ButtonType
  * @readonly
  * @type ButtonType = 'mat-raised-button' | 'mat-fab' | 'mat-button' | 'mat-flat-button' | 'mat-stroked-button' | 'mat-mini-fab' | 'mat-icon-button'
  * @field RAISED - mat-raised-button
@@ -29,7 +29,7 @@ export enum ButtonType {
 
 /**
  * Button Component
- * @class
+ * @class ButtonComponent
  * @property {string} label - The label of the button
  * @property {boolean} disabled - Whether the button is disabled
  * @property {ButtonType} buttonType - The type of button
