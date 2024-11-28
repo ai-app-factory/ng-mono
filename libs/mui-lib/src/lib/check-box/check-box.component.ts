@@ -6,7 +6,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  Signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
