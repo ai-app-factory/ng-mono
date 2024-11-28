@@ -1,1 +1,57 @@
-<p>check-box works!</p>
+@if (displayGroupLabel) {
+  <h4>{{ groupLabel }}</h4>
+}
+@for (task of _tasks(); track task; let i = $index) {
+  <mat-checkbox
+    [checked]="task.completed"
+    [indeterminate]="partiallyComplete(i)"
+    (change)="update($event.checked, i)"
+    [disabled]="disabled"
+    [labelPosition]="labelPosition"
+    [disableRipple]="disableRipple"
+    [disabledInteractive]="disabledInteractive"
+    [required]="required"
+  >
+    {{ task.name }}
+  </mat-checkbox>
+  @if (task.subtasks?.length) {
+    <ul>
+      @for (subtask of task.subtasks; track subtask; let j = $index) {
+        <p>
+          <mat-checkbox
+            [checked]="subtask.completed"
+            (change)="update($event.checked, i, j)"
+            [disabled]="disabled"
+            [labelPosition]="labelPosition"
+            [disableRipple]="disableRipple"
+            [disabledInteractive]="disabledInteractive"
+            [required]="required"
+          >
+            {{ subtask.name }}
+          </mat-checkbox>
+        </p>
+      }
+    </ul>
+  }
+}
+@if (showSelected) {
+  <div>
+    <h4>Selected Tasks:</h4>
+    <ul>
+      @for (task of _tasks(); track task; let i = $index) {
+        @if (task.completed) {
+          <li>{{ task.name }}</li>
+        }
+        @if (task.subtasks?.length) {
+          <ul>
+            @for (subtask of task.subtasks; track subtask; let j = $index) {
+              @if (subtask.completed) {
+                <li>{{ subtask.name }}</li>
+              }
+            }
+          </ul>
+        }
+      }
+    </ul>
+  </div>
+}
