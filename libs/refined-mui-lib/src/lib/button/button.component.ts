@@ -21,7 +21,12 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'lib-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatButton,
+    MatIconModule
+  ],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
