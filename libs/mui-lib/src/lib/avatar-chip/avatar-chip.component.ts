@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatChipEvent, MatChipsModule} from '@angular/material/chips';
+import { MatChipEvent, MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 
 
