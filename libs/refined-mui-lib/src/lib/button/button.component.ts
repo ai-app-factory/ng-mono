@@ -30,4 +30,28 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
-export class ButtonComponent {}
+export class ButtonComponent {
+  @Input() label: string = 'Button Text';
+  @Input() disabled: boolean = false;
+  @Input() disabledInteractive: boolean = false;
+  @Input() disableRipple: boolean = false;
+  @Input() buttonType:
+    'mat-raised-button' |
+    'mat-fab' |
+    'mat-button' |
+    'mat-flat-button' |
+    'mat-stroked-button' |
+    'mat-mini-fab' |
+    'mat-icon-button' = 'mat-raised-button';
+  @Input() icon: string | null = 'home';
+  @Input() onClick: () => void = () => {};
+
+  @Output() buttonClick = new EventEmitter<any>();
+
+  onButtonPress() {
+    this.buttonClick.emit('Button Pressed from ButtonComponent');
+    if (this.onClick) {
+      this.onClick();
+    }
+  }
+}
