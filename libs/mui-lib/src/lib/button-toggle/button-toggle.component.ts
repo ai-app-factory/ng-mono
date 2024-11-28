@@ -19,6 +19,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonToggleComponent {
+  @Input() displayGroupLabel: boolean = true;
+  @Input() displaySelectedOptions: boolean = true;
   @Input() groupLabel: string = 'Select an option';
   @Input() selection: 'single' | 'multiple' = 'single';
   @Input() options: string[] = [

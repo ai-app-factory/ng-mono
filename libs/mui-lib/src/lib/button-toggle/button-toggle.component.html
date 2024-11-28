@@ -1,5 +1,7 @@
 <section>
-  <h4>{{groupLabel}}</h4>
+  @if (displayGroupLabel) {
+    <h4>{{groupLabel}}</h4>
+  }
   @switch (selection) {
     @case ('single') {
       <mat-button-toggle-group
@@ -43,11 +45,13 @@
     }
   }
 </section>
-<div>
-  @if (selection === 'single') {
-    <p>Selected option: {{selectedOption}}</p>
-  }
-  @else {
-    <p>Selected options: {{selectedOptions}}</p>
-  }
-</div>
+@if (displaySelectedOptions) {
+  <div>
+    @if (selection === 'single') {
+      <p>Selected option: {{selectedOption}}</p>
+    }
+    @else {
+      <p>Selected options: {{selectedOptions}}</p>
+    }
+  </div>
+}

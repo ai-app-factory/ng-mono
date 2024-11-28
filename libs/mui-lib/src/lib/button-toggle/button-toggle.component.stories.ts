@@ -8,6 +8,16 @@ const meta: Meta<ButtonToggleComponent> = {
   component: ButtonToggleComponent,
   title: 'ButtonToggleComponent',
   argTypes: {
+    displayGroupLabel: {
+      table: {
+        defaultValue: { summary: 'true' },
+        type: { summary: 'boolean' },
+      },
+      control: {
+        type: 'boolean',
+      },
+      description: 'Whether to display the group label',
+    },
     groupLabel: {
       control: {
         type: 'text',
@@ -40,10 +50,24 @@ const meta: Meta<ButtonToggleComponent> = {
       defaultValue: '',
     },
     hideSelectionIndicator: {
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      description: 'Whether to hide the selection indicator',
+    },
+    displaySelectedOptions: {
+      table: {
+        defaultValue: { summary: 'true' },
+        type: { summary: 'boolean' },
+      },
+      control: {
+        type: 'boolean',
+      },
+      description: 'Whether to display the selected options',
     },
   },
 };
