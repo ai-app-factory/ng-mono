@@ -24,3 +24,16 @@ export const decorators = [
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../docs/documentation.json';
 setCompodocJson(docJson);
+
+const preview: Preview = {
+  parameters: {
+    controls: { expanded: true },
+    docs: {
+      toc: true,
+      page: DocumentationTemplate,
+    },
+
+  },
+};
+
+export default preview;
