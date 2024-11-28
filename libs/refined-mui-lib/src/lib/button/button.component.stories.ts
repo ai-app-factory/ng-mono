@@ -9,6 +9,8 @@ import { expect } from '@storybook/jest';
  * <p>@class ButtonComponent</p>
  */
 const meta: Meta<ButtonComponent> = {
+
+  title: 'ButtonComponent',
   component: ButtonComponent,
   title: 'ButtonComponent',
 };
