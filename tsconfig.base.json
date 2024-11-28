@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@ng-mono/mui-lib": ["libs/mui-lib/src/index.ts"],
+      "@ng-mono/refined-mui-lib": ["libs/refined-mui-lib/src/index.ts"],
       "@ng-mono/ui-lib": ["libs/ui-lib/src/index.ts"]
     }
   },
