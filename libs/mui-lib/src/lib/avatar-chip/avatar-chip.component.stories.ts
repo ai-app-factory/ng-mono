@@ -7,14 +7,24 @@ const meta: Meta<AvatarChipComponent> = {
   title: 'AvatarChipComponent',
   argTypes: {
     removable: {
+      table: {
+        defaultValue: { summary: 'true' },
+        type: { summary: 'boolean' },
+      },
       control: {
         type: 'boolean',
       },
+      description: 'Whether the chip is removable'
     },
     disabled: {
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
       control: {
         type: 'boolean',
       },
+      description: 'Whether the chip is disabled'
     },
     avatarChips: {
       control: {
