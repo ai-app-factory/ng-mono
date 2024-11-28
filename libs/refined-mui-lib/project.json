@@ -15,6 +15,66 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/refined-mui-lib/.storybook",
+        "browserTarget": "refined-mui-lib:build-storybook",
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/refined-mui-lib/docs"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/refined-mui-lib/src/lib/styles.scss"
+        ]
+      },
+
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/refined-mui-lib",
+        "configDir": "libs/refined-mui-lib/.storybook",
+        "browserTarget": "refined-mui-lib:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/refined-mui-lib/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "refined-mui-lib:build-storybook",
+        "staticFilePath": "dist/storybook/refined-mui-lib",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "refined-mui-lib:build-storybook:ci"
+        }
+      }
     }
   }
 }

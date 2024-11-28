@@ -1,1 +1,2 @@
-export * from './lib/refined-mui-lib/refined-mui-lib.component';
+export * from './lib/button/button.component';
+
