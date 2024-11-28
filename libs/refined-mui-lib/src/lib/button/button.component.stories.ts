@@ -94,9 +94,6 @@ const meta: Meta<ButtonComponent> = {
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-export const Primary: Story = {
-  args: {},
-};
 
 export const Heading: Story = {
   args: {},
