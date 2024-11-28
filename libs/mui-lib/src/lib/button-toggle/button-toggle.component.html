@@ -3,6 +3,8 @@
   @switch (selection) {
     @case ('single') {
       <mat-button-toggle-group
+        [vertical]="vertical"
+        [disabledInteractive]="disabledInteractive"
         [disabled]="disabled"
         [hideSingleSelectionIndicator]="hideSelectionIndicator"
         [(ngModel)]="selectedOption"
@@ -21,7 +23,9 @@
     }
     @case ('multiple') {
       <mat-button-toggle-group
+        [vertical]="vertical"
         [disabled]="disabled"
+        [disabledInteractive]="disabledInteractive"
         [multiple]="true"
         [hideMultipleSelectionIndicator]="hideSelectionIndicator"
         [(ngModel)]="selectedOptions"

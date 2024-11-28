@@ -29,6 +29,8 @@ export class ButtonToggleComponent {
   @Input() disabled: boolean = false;
   @Input() value: string = '';
   @Input() hideSelectionIndicator: boolean = false;
+  @Input() vertical: boolean = false;
+  @Input() disabledInteractive: boolean = false;
 
 
   @Output() valueChange = new EventEmitter<string>();
