@@ -11,6 +11,7 @@ export enum ButtonType {
   FLAT = 'mat-flat-button',
   STROKED = 'mat-stroked-button',
   MINI_FAB = 'mat-mini-fab',
+  ICON = 'mat-icon-button',
 }
 
 @Component({

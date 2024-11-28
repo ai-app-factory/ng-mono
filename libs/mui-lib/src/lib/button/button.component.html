@@ -30,6 +30,11 @@
         {{label}}
       </button>
     }
+    @case ('mat-icon-button') {
+      <button mat-icon-button [disabled]="disabled" (click)="onButtonPress()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      </button>
+    }
     @default {
       <button mat-button [disabled]="disabled" (click)="onButtonPress()">
         {{label}}
