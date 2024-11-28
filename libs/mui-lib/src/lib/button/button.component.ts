@@ -59,7 +59,7 @@ export class ButtonComponent {
   @Input() disabled: boolean = false;
   @Input() buttonType: ButtonType = ButtonType.RAISED;
 
-  @Input() icon: string = '';
+  @Input() icon: string = 'home';
   @Input() disableRipple: boolean = false;
   @Input() disabledInteractive: boolean = false;
 
