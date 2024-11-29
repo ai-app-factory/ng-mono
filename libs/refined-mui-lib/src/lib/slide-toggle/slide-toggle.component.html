@@ -1,1 +1,35 @@
-<p>slide-toggle works!</p>
+@if (displayGroupLabel) {
+  <h4>{{ groupLabel }}</h4>
+}
+  <form
+    [formGroup]="_formGroup()"
+    (ngSubmit)="alertFormValues(_formGroup())"
+    ngNativeValidate
+  >
+    @for (slideToggle of _slideToggles(); track slideToggle; let i = $index) {
+      <p>
+        <mat-slide-toggle
+          [checked]="slideToggle.checked"
+          [disabled]="slideToggle.disabled"
+          [labelPosition]="slideToggle.labelPosition ? slideToggle.labelPosition : labelPosition"
+          [required]="slideToggle.required ? slideToggle.required : required"
+          (change)="onChange($event, slideToggle.formControlName!)"
+          [formControlName]="slideToggle.formControlName!"
+          [disableRipple]="disableRipple"
+          [disabledInteractive]="disabledInteractive"
+          [hideIcon]="slideToggle.hideIcon ? slideToggle.hideIcon : hideIcon"
+        >
+          {{slideToggle.label}}
+        </mat-slide-toggle>
+      </p>
+    }
+    @if (displayResult) {
+      <p>Form Group Status, i.e. check validation: {{_formGroup().status}}</p>
+      <p>Form Group Values: {{_formGroup().value | json}}</p>
+      <button type="submit">Submit</button>
+    }
+
+  </form>
+
+
+
