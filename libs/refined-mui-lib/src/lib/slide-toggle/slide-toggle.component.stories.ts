@@ -237,42 +237,6 @@ export const Unchecked: Story = {
 export const AllDisabled: Story = {
   args: {
     disabled: true,
-    slideToggles: [
-      {
-        label: 'Slide Toggle 1',
-        checked: false,
-        formControlName: 'slideToggle1',
-        disabled: false,
-        required: false,
-        hideIcon: false,
-        labelPosition: 'after',
-        disableRipple: false,
-        disabledInteractive: false,
-    },
-      {
-        label: 'Slide Toggle 2',
-        checked: true,
-        formControlName: 'slideToggle2',
-        disabled: false,
-        required: false,
-        hideIcon: false,
-        labelPosition: 'after',
-        disableRipple: false,
-        disabledInteractive: false
-      },
-      {
-        label: 'Slide Toggle 3',
-        checked: false,
-        formControlName: 'slideToggle3',
-        disabled: false,
-        required: false,
-        hideIcon: false,
-        labelPosition: 'after',
-        disableRipple: false,
-        disabledInteractive: false
-      },
-    ],
-
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -508,41 +472,6 @@ export const DisableRipple: Story = {
 
 export const DisabledInteractive: Story = {
   args: {
-    slideToggles: [
-      {
-        label: 'Slide Toggle 1',
-        checked: false,
-        formControlName: 'slideToggle1',
-        disabled: false,
-        required: false,
-        hideIcon: false,
-        labelPosition: 'after',
-        disableRipple: false,
-        disabledInteractive: false,
-    },
-      {
-        label: 'Slide Toggle 2',
-        checked: true,
-        formControlName: 'slideToggle2',
-        disabled: false,
-        required: false,
-        hideIcon: false,
-        labelPosition: 'after',
-        disableRipple: false,
-        disabledInteractive: false
-      },
-      {
-        label: 'Slide Toggle 3',
-        checked: false,
-        formControlName: 'slideToggle3',
-        disabled: false,
-        required: false,
-        hideIcon: false,
-        labelPosition: 'after',
-        disableRipple: false,
-        disabledInteractive: false
-      },
-    ],
     disabledInteractive: true,
     disabled: true
   },
