@@ -50,7 +50,7 @@ export const Disabled: Story = {
 
 export const CustomPlaceHolderText: Story = {
   args: {
-    disabled: true,
+    disabled: false,
     placeholder: "this is the placeholder text"
   }
 };
