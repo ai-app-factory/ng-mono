@@ -1,0 +1,19 @@
+@switch (progressType) {
+  @case ('bar') {
+    <mat-progress-bar
+      [mode]="progressBarMode!"
+      [bufferValue]="bufferValue"
+      [value]="value"
+    >
+    </mat-progress-bar>
+  }
+  @case ('spinner') {
+    <mat-spinner
+      [diameter]="diameter"
+      [strokeWidth]="strokeWidth"
+      [mode]="progressSpinnerMode!"
+      [value]="value"
+    >
+    </mat-spinner>
+  }
+}
