@@ -1,6 +1,6 @@
 import {Component, inject, Input, signal, ChangeDetectionStrategy} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule, FormControl} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {
   MatSlideToggleModule,
@@ -108,6 +108,15 @@ export class SlideToggleComponent implements SlideToggle {
 
   onChange($event: MatSlideToggleChange, controlName: string) {
     this._formGroup().controls[controlName].setValue($event.checked);
+  }
+
+  toggleDisabled(): any {
+    if (!this.disabled) {
+      new FormControl({value: false, disabled: true})
+    }
+    new FormControl(
+      {value:false, disabled: false}
+    )
   }
 
   alertFormValues(formGroup: FormGroup) {

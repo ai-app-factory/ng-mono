@@ -10,7 +10,7 @@
       <p>
         <mat-slide-toggle
           [checked]="slideToggle.checked"
-          [disabled]="disabled"
+          [formControl]="toggleDisabled()"
           [labelPosition]="labelPosition"
           [required]="slideToggle.required ? slideToggle.required : required"
           (change)="onChange($event, slideToggle.formControlName!)"
