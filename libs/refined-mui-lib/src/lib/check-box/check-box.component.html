@@ -38,13 +38,13 @@
   <div>
     <h4>Selected Tasks:</h4>
     <ul>
-      @for (task of _tasks(); track task; let i = $index) {
+      @for (task of _tasks(); track task) {
         @if (task.completed) {
           <li>{{ task.name }}</li>
         }
         @if (task.subtasks?.length) {
           <ul>
-            @for (subtask of task.subtasks; track subtask; let j = $index) {
+            @for (subtask of task.subtasks; track subtask) {
               @if (subtask.completed) {
                 <li>{{ subtask.name }}</li>
               }
