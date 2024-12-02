@@ -50,8 +50,21 @@
           [disableRipple]="disableRipple"
           [disabled]="disabled"
           [selectable]="selectable"
+          (removed)="removeChip(chip)"
         >
+        @if (withAvatar) {
+          <img
+            matChipAvatar
+            [src]="chip.imageSrc"
+            [alt]="chip.alt"
+          />
+        }
           {{chip.label}}
+        @if (removable) {
+          <button matChipRemove aria-label="'remove ' + chip.label">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        }
         </mat-chip-option>
       }
     </mat-chip-listbox>
@@ -68,8 +81,21 @@
         <mat-chip-row
           cdkDrag
           [disableRipple]="disableRipple"
+          (removed)="removeChip(chip)"
         >
-          {{chip.label}}
+          @if (withAvatar) {
+            <img
+              matChipAvatar
+              [src]="chip.imageSrc"
+              [alt]="chip.alt"
+            />
+          }
+            {{chip.label}}
+          @if (removable) {
+            <button matChipRemove aria-label="'remove ' + chip.label">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          }
         </mat-chip-row>
       }
     </mat-chip-set>
@@ -84,7 +110,19 @@
           [removable]="removable"
           (removed)="removeChip(chip)"
         >
-          {{chip.label}}
+          @if (withAvatar) {
+            <img
+              matChipAvatar
+              [src]="chip.imageSrc"
+              [alt]="chip.alt"
+            />
+          }
+            {{chip.label}}
+          @if (removable) {
+            <button matChipRemove aria-label="'remove ' + chip.label">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          }
         </mat-chip>
       }
     </mat-chip-set>
