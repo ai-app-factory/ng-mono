@@ -222,7 +222,16 @@ export const StackedChips: Story = {
     chipType: "stacked",
     withAvatar: true,
     removable: false,
-    disabled: false
+    disabled: false,
+    chips: [
+      { label: 'Shiba Inu', imageSrc: 'https://material.angular.io/assets/img/examples/shiba1.jpg', alt: 'Photo of Shiba Inu' },
+      { label: 'Husky', imageSrc: 'https://material.angular.io/assets/img/examples/husky1.jpg', alt: 'Photo of Husky' },
+      { label: 'Akita Inu', imageSrc: 'https://material.angular.io/assets/img/examples/akita1.jpg', alt: 'Photo of Akita Inu' },
+      { label: 'Golden Retriever', imageSrc: 'https://material.angular.io/assets/img/examples/golden-retriever1.jpg', alt: 'Photo of Golden Retriever' },
+      { label: 'Bulldog', imageSrc: 'https://material.angular.io/assets/img/examples/bulldog1.jpg', alt: 'Photo of Bulldog' },
+      { label: 'Pug', imageSrc: 'https://material.angular.io/assets/img/examples/pug1.jpg', alt: 'Photo of Pug' },
+
+    ],
   },
 
   play: async (
