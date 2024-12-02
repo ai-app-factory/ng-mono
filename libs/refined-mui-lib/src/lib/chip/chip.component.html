@@ -1,9 +1,9 @@
+@if (groupLabel !== '') {
+  <mat-label>{{groupLabel}}</mat-label>
+}
 @switch (chipType) {
   @case ('with-input') {
     <mat-form-field>
-      @if (groupLabel !== '') {
-        <mat-label>{{groupLabel}}</mat-label>
-      }
       <mat-chip-grid #chipGrid [formControl]="formControl">
         @for (chip of _chips(); track chip) {
           <mat-chip-row
