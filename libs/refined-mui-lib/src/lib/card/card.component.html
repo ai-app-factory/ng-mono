@@ -1,1 +1,123 @@
-<p>card works!</p>
+@switch (cardType) {
+  @case ('default') {
+    <mat-card>
+      @if (title || subTitle) {
+        <mat-card-header>
+          @if (title) {
+            <mat-card-title>{{ title }}</mat-card-title>
+          }
+
+          @if (subTitle) {
+            <mat-card-subtitle>{{ subTitle }}</mat-card-subtitle>
+          }
+        </mat-card-header>
+      }
+      @if (cardImage) {
+        @switch (imageSize) {
+          @case ('small') {
+            <img mat-card-sm-image [src]="cardImage" [alt]="" />
+          }
+          @case ('medium') {
+            <img mat-card-md-image [src]="cardImage" [alt]="" />
+          }
+          @case ('large') {
+            <img mat-card-lg-image [src]="cardImage" [alt]="" />
+          }
+          @case ('extra-large') {
+            <img mat-card-xl-image [src]="cardImage" [alt]="" />
+          }
+        }
+      }
+
+      @if (content) {
+        <mat-card-content>{{ content }}</mat-card-content>
+      }
+    </mat-card>
+
+  }
+  @case ('with-chips') {
+    <mat-card>
+      @if (title || subTitle) {
+        <mat-card-header>
+          @if (title) {
+            <mat-card-title>{{ title }}</mat-card-title>
+          }
+
+          @if (subTitle) {
+            <mat-card-subtitle>{{ subTitle }}</mat-card-subtitle>
+          }
+        </mat-card-header>
+      }
+      @if (cardImage) {
+        @switch (imageSize) {
+          @case ('small') {
+            <img mat-card-sm-image [src]="cardImage" [alt]="" />
+          }
+          @case ('medium') {
+            <img mat-card-md-image [src]="cardImage" [alt]="" />
+          }
+          @case ('large') {
+            <img mat-card-lg-image [src]="cardImage" [alt]="" />
+          }
+          @case ('extra-large') {
+            <img mat-card-xl-image [src]="cardImage" [alt]="" />
+          }
+        }
+      }
+
+      @if (content) {
+        <mat-card-content>{{ content }}</mat-card-content>
+      }
+
+      @if (chips && chips.length) {
+        <mat-card-footer>
+          @for (chip of chips; track chip) {
+            <lib-chip [chip].label="chip" [chip].withAvatar="true" [chip].removable="true"></lib-chip>
+          }
+        </mat-card-footer>
+      }
+    </mat-card>
+  }
+  @case ('with-buttons') {
+    <mat-card>
+      @if (title || subTitle) {
+        <mat-card-header>
+          @if (title) {
+            <mat-card-title>{{ title }}</mat-card-title>
+          }
+
+          @if (subTitle) {
+            <mat-card-subtitle>{{ subTitle }}</mat-card-subtitle>
+          }
+        </mat-card-header>
+      }
+      @if (cardImage) {
+        @switch (imageSize) {
+          @case ('small') {
+            <img mat-card-sm-image [src]="cardImage" [alt]="" />
+          }
+          @case ('medium') {
+            <img mat-card-md-image [src]="cardImage" [alt]="" />
+          }
+          @case ('large') {
+            <img mat-card-lg-image [src]="cardImage" [alt]="" />
+          }
+          @case ('extra-large') {
+            <img mat-card-xl-image [src]="cardImage" [alt]="" />
+          }
+        }
+      }
+
+      @if (content) {
+        <mat-card-content>{{ content }}</mat-card-content>
+      }
+
+      @if (actions && actions.length) {
+        @for (action of actions; track action) {
+          <lib-button [buttons].label="action" [buttonType]="'mat-raised-button'"></lib-button>
+        }
+
+      }
+    </mat-card>
+  }
+}
