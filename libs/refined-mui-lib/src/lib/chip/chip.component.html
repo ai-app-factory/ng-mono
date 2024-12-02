@@ -1,0 +1,92 @@
+@switch (chipType) {
+  @case ('with-input') {
+    <mat-form-field>
+      @if (groupLabel !== '') {
+        <mat-label>{{groupLabel}}</mat-label>
+      }
+      <mat-chip-grid #chipGrid [formControl]="formControl">
+        @for (chip of _chips(); track chip) {
+          <mat-chip-row
+            (removed)="removeChip(chip)"
+            [removable]="removable"
+            [editable]="editable"
+            [disabled]="disabled"
+            [disableRipple]="disableRipple"
+            (edited)="editChip(chip, $event)"
+          >
+            @if (withAvatar) {
+              <img
+                matChipAvatar
+                [src]="chip.imageSrc"
+                [alt]="chip.alt"
+              />
+            }
+            {{chip.label}}
+            @if (removable) {
+              <button matChipRemove aria-label="'remove ' + chip.label">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            }
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+      <input
+        placeholder="New Chips..."
+        [matChipInputFor]="chipGrid"
+        (matChipInputTokenEnd)="addChip($event)"
+      />
+    </mat-form-field>
+  }
+
+  @case ('stacked') {
+    <mat-chip-listbox
+      class="mat-mdc-chip-set-stacked"
+      [selectable]="selectable"
+      [hideSingleSelectionIndicator]="hideSingleSelectionIndicator"
+      [multiple]="multipleSelection"
+    >
+      @for (chip of _chips(); track chip) {
+        <mat-chip-option
+          [disableRipple]="disableRipple"
+          [disabled]="disabled"
+          [selectable]="selectable"
+        >
+          {{chip.label}}
+        </mat-chip-option>
+      }
+    </mat-chip-listbox>
+
+  }
+
+  @case ('with-drag-drop') {
+    <mat-chip-set
+      cdkDropList
+      [cdkDropListOrientation]="dropListOrientation"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (chip of _chips(); track chip) {
+        <mat-chip-row
+          cdkDrag
+          [disableRipple]="disableRipple"
+        >
+          {{chip.label}}
+        </mat-chip-row>
+      }
+    </mat-chip-set>
+  }
+
+  @case ('basic') {
+    <mat-chip-set>
+      @for (chip of _chips(); track chip) {
+        <mat-chip
+          [disabled]="disabled"
+          [disableRipple]="disableRipple"
+          [removable]="removable"
+          (removed)="removeChip(chip)"
+        >
+          {{chip.label}}
+        </mat-chip>
+      }
+    </mat-chip-set>
+  }
+}
