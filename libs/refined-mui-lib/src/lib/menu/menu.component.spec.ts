@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChipDragDropComponent } from './chip-drag-drop.component';
+import { MenuComponent } from './menu.component';
 
-describe('ChipDragDropComponent', () => {
-  let component: ChipDragDropComponent;
-  let fixture: ComponentFixture<ChipDragDropComponent>;
+describe('MenuComponent', () => {
+  let component: MenuComponent;
+  let fixture: ComponentFixture<MenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChipDragDropComponent],
+      imports: [MenuComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ChipDragDropComponent);
+    fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
