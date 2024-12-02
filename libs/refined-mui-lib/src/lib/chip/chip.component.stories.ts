@@ -323,7 +323,25 @@ export const EditableChipHusky: Story = {
     }
   ) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText("Shiba Inu")).toBeTruthy();
+    const chip = canvas.getByText('Shiba Inu');
+  expect(chip).toBeTruthy();
+
+  // Simulate double-click to edit the chip
+  await userEvent.dblClick(chip);
+
+  //
+
+  // Simulate typing the new value
+  const input = canvas.getByText('Shiba Inu');
+  // Clear the existing value and add Akita Inu
+  await userEvent.clear(input);
+  await userEvent.type(input, 'Akita Inu');
+
+  // Simulate pressing Enter to save the new value
+  await userEvent.keyboard('{Enter}');
+
+  // Verify the updated value
+  expect(canvas.getByText('Akita Inu')).toBeTruthy();
   }
 };
 
