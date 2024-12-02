@@ -113,9 +113,12 @@
       }
 
       @if (actions && actions.length) {
-        @for (action of actions; track action) {
-          <lib-button [buttons].label="action" [buttonType]="'mat-raised-button'"></lib-button>
-        }
+        <mat-card-actions>
+          @for (action of actions; track action) {
+            <lib-button [buttons].label="action" [buttonType]="'mat-raised-button'"></lib-button>
+          }
+        </mat-card-actions>
+
 
       }
     </mat-card>
