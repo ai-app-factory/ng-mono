@@ -1,1 +1,45 @@
-<p>slider works!</p>
+
+  @if (sliderType === 'basic') {
+    @if (displayLabel) {
+      @if (label) {
+        <p>{{label}}</p>
+      }
+    }
+    @if (showSliderValues) {
+      <p>Value: {{slider.value}}</p>
+    }
+    <mat-slider
+      [disabled]="disabled"
+      [max]="max"
+      [min]="min"
+      [step]="step"
+      [discrete]="discrete"
+      [showTickMarks]="showTicks"
+    >
+      <input matSliderThumb [(ngModel)]="value" #slider>
+    </mat-slider>
+  }
+
+  @else if  (sliderType === 'range') {
+    @if (displayLabel) {
+      @if (label) {
+        <p>Select from range</p>
+      }
+    }
+    @if (showSliderValues) {
+      <p>{{"Start Value: " + startSlider.value}}</p>
+      <p>{{"End Value: " + endSlider.value}}</p>
+    }
+    <mat-slider
+      [disabled]="disabled"
+      [max]="max"
+      [min]="min"
+      [step]="step"
+      [discrete]="discrete"
+      [showTickMarks]="showTicks"
+    >
+      <input matSliderStartThumb [(ngModel)]="startValue" #startSlider>
+      <input matSliderEndThumb [(ngModel)]="endValue" #endSlider>
+    </mat-slider>
+  }
+
