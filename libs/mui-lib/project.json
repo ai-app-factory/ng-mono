@@ -31,7 +31,8 @@
         ],
         "styles": [
           "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
-          "libs/mui-lib/src/lib/styles.scss"
+          "libs/mui-lib/src/lib/styles.scss",
+          "libs/mui-lib/src/lib/theme.scss"
         ],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/mui-lib/src/lib"]
