@@ -48,3 +48,4 @@ storybook-static
 
 /libs/mui-lib/docs/*
 documentation.json
+libs/mui-lib/docs/documentation.json
