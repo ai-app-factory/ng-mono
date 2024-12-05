@@ -29,7 +29,7 @@ export type MenuCloseReason = void | 'click' | 'keydown' | 'tab';
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent {
-  @Input() menuType: 'icon' | 'text' = 'icon';
+  @Input() menuType: 'icon' | 'nested' = 'icon';
   @Input() xPosition: 'before' | 'after' = 'before';
   @Input() yPosition: 'above' | 'below' = 'below';
   @Input() overlapTrigger: boolean = false;
