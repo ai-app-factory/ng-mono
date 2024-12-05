@@ -6,7 +6,8 @@ import { expect } from '@storybook/jest';
 
 /**
  * The `ButtonComponent` is a simple button that can be used to trigger an action.
- * <p>@class ButtonComponent</p>
+ * Use buttonType to change the style of the button.
+ * 
  */
 const meta: Meta<ButtonComponent> = {
 
