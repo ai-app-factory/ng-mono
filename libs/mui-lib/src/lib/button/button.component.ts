@@ -63,6 +63,8 @@ export class ButtonComponent {
   @Input() disableRipple: boolean = false;
   @Input() disabledInteractive: boolean = false;
 
+  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+
   @Output() buttonClick = new EventEmitter<any>();
 
   async onButtonPress() {

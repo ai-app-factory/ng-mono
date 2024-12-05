@@ -1,0 +1,58 @@
+@use '@angular/material' as mat;
+@use '/home/sud/projects/ng-mono/libs/mui-lib/src/lib/theme.scss' as *;
+
+// Define variables for height and font-size
+$small-height: 24px;
+$small-font-size: 12px;
+$medium-height: 32px;
+$medium-font-size: 14px;
+$large-height: 40px;
+$large-font-size: 16px;
+
+// Define a mixin for button states
+@mixin button-states($color, $hover-color, $active-color) {
+  background-color: $color;
+  &:hover {
+    background-color: $hover-color;
+  }
+  &:active {
+    background-color: $active-color;
+  }
+}
+
+// Define a mixin for button sizes with complex logic
+@mixin button-size($size) {
+  @if $size == 'small' {
+    height: $small-height;
+    font-size: $small-font-size;
+  } @else if $size == 'medium' {
+    height: $medium-height;
+    font-size: $medium-font-size;
+  } @else if $size == 'large' {
+    height: $large-height;
+    font-size: $large-font-size;
+  } @else {
+    @error "Unknown size: #{$size}";
+  }
+}
+
+:host {
+  @include mat.all-component-themes($light-theme);
+  display: block;
+  padding: 8px;
+}
+
+button {
+  &.small {
+    @include button-size('small');
+    @include button-states(#e0e0e0, #d5d5d5, #c0c0c0);
+  }
+  &.medium {
+    @include button-size('medium');
+    @include button-states(#b0b0b0, #a5a5a5, #909090);
+  }
+  &.large {
+    @include button-size('large');
+    @include button-states(#808080, #757575, #606060);
+  }
+}

@@ -28,6 +28,17 @@ const meta: Meta<ButtonComponent> = {
       },
       description: 'Whether the button is disabled'
     },
+    size: {
+      table: {
+        defaultValue: { summary: 'medium' },
+        type: { summary: 'string' },
+      },
+      options: ['small', 'medium', 'large'],
+      control: {
+        type: 'radio',
+      },
+      description: 'The size of the button'
+    },
     buttonType: {
       table: {
         defaultValue: { summary: 'ButtonType.Raised' },
