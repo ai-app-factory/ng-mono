@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$pallete: mat.$spring-green-palette;
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $pallete,
+    tertiary: mat.$orange-palette,
+  ),
+  typography: (
+    brand-family: 'Sans-serif',
+  ),
+
+));
+
+// Define a light theme
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $pallete,
+  ),
+));
