@@ -20,6 +20,12 @@ const meta: Meta<AvatarChipComponent> = {
       control: {
         type: 'object'
       }
+    },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: {
+        type: 'radio'
+      }
     }
   },
 };

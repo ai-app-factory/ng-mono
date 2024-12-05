@@ -1,0 +1,50 @@
+// avatar-chip.component.scss
+@use '@angular/material' as mat;
+@use '/home/sud/projects/ng-mono/libs/mui-lib/src/lib/theme.scss' as *;
+
+
+
+:host {
+    @include mat.all-component-themes($dark-theme);
+    display: block;
+    padding: 8px;
+  }
+
+  mat-chip-row {
+    &.small {
+      height: 24px;
+      font-size: 1px; // Adjust font size for smaller chips
+    }
+
+    &.medium {
+      height: 32px;
+      font-size: 16px;
+    }
+
+    &.large {
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+
+  mat-chip-avatar {
+    &.small {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.medium {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.large {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  button[matChipRemove] {
+    font-size: inherit; // Ensure the button scales with the chip size
+  }
+

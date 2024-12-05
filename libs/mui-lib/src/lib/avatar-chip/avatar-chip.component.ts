@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, signal, ViewEncapsulation  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatChipEvent, MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
@@ -43,6 +43,7 @@ export class AvatarChipComponent {
 
   @Input() removable: boolean = true;
   @Input() disabled: boolean = false;
+  @Input() size: 'small' | 'medium' | 'large' = 'medium';
 
   removeChip(avatarChip: AvatarChip) {
     this._avatarChips.update(chips => {

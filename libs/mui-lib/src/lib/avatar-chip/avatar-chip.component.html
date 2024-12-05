@@ -5,11 +5,13 @@
         [disabled]="disabled"
         removable="true"
         (removed)="removeChip(avatarChip)"
+        [ngClass]="size"
       >
         <img
           matChipAvatar
           [src]="avatarChip.avatarUrl"
           [alt]="avatarChip.alt"
+          [ngClass]="size"
         />
           {{avatarChip.label}}
         <button matChipRemove aria-label="'remove ' + keyword">
@@ -24,11 +26,13 @@
         [disabled]="disabled"
         removable="false"
         (removed)="removeChip(avatarChip)"
+        [ngClass]="size"
       >
         <img
           matChipAvatar
           [src]="avatarChip.avatarUrl"
           [alt]="avatarChip.alt"
+          [ngClass]="size"
         />
           {{avatarChip.label}}
       </mat-chip-row>
