@@ -137,3 +137,99 @@ export const Heading: Story = {
     expect(canvas.getByText(/slider works!/gi)).toBeTruthy();
   },
 };
+
+export const WithTicks: Story = {
+  args: {
+    sliderType: "basic",
+    disabled: false,
+    max: 100,
+    min: 0,
+    showTicks: true,
+    step: 10,
+    thumbLabel: false,
+    discrete: false,
+    label: "Slider",
+    showSliderValues: false,
+    displayLabel: true
+  }
+};
+
+export const WithSliderValue: Story = {
+  args: {
+    sliderType: "basic",
+    disabled: false,
+    max: 100,
+    min: 0,
+    showTicks: true,
+    step: 10,
+    thumbLabel: false,
+    discrete: false,
+    label: "Slider",
+    showSliderValues: true,
+    displayLabel: true
+  }
+};
+
+export const DisabledSlider: Story = {
+  args: {
+    sliderType: "basic",
+    disabled: true,
+    max: 100,
+    min: 0,
+    showTicks: true,
+    step: 10,
+    thumbLabel: false,
+    discrete: false,
+    label: "Slider",
+    showSliderValues: true,
+    displayLabel: true
+  }
+};
+
+export const RangedSliderWithTicks: Story = {
+  args: {
+    sliderType: "range",
+    disabled: false,
+    max: 100,
+    min: 0,
+    showTicks: true,
+    step: 10,
+    thumbLabel: false,
+    discrete: false,
+    label: "Slider",
+    showSliderValues: true,
+    displayLabel: true
+  }
+};
+
+export const StartValue50EndValue1000Step50: Story = {
+  args: {
+    sliderType: "range",
+    disabled: false,
+    max: 1000,
+    min: 50,
+    showTicks: true,
+    step: 50,
+    thumbLabel: false,
+    discrete: false,
+    label: "Slider",
+    showSliderValues: true,
+    displayLabel: true
+  }
+};
+
+export const WithThumbLabel: Story = {
+  args: {
+    sliderType: "basic",
+    disabled: false,
+    max: 1000,
+    min: 50,
+    showTicks: true,
+    step: 50,
+    thumbLabel: true,
+    discrete: true,
+    label: "Slider",
+    showSliderValues: true,
+    displayLabel: true
+  }
+};
