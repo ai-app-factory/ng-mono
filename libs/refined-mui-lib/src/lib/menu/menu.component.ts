@@ -19,7 +19,12 @@ export type MenuCloseReason = void | 'click' | 'keydown' | 'tab';
 @Component({
   selector: 'lib-menu',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
