@@ -23,4 +23,53 @@ export type MenuCloseReason = void | 'click' | 'keydown' | 'tab';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
-export class MenuComponent {}
+export class MenuComponent {
+  @Input() menuType: 'icon' | 'text' = 'icon';
+  @Input() xPosition: 'before' | 'after' = 'before';
+  @Input() yPosition: 'above' | 'below' = 'below';
+  @Input() overlapTrigger: boolean = false;
+
+  @Output() closed: EventEmitter<MenuCloseReason> = new EventEmitter<MenuCloseReason>();
+
+  @Input() set menus(menus: Menu[]) {
+    this._menus.set(menus);
+  }
+
+  protected _menus = signal<Menu[]>([
+    {
+      title: 'Home',
+      icon: 'home',
+      link: '/',
+    },
+    {
+      title: 'About',
+      icon: 'info',
+      link: '/about',
+    },
+    {
+      title: 'Contact',
+      icon: 'contact',
+      link: '/contact',
+      children: [
+        {
+          title: 'Email',
+          link: '/contact/email',
+          icon: 'email',
+        },
+        {
+          title: 'Phone',
+          link: '/contact/phone',
+          icon: 'phone',
+        },
+        {
+          title: 'Fax',
+          link: '/contact/fax',
+          icon: 'fax',
+          disabled: true,
+        }
+      ]
+    },
+  ]);
+
+
+}
