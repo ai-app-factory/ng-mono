@@ -72,7 +72,7 @@
       @if (chips && chips.length) {
         <mat-card-footer>
           @for (chip of chips; track chip) {
-            <lib-chip [chip].label="chip" [chip].withAvatar="true" [chip].removable="true"></lib-chip>
+            <lib-chip [chip].label="chip.label"></lib-chip>
           }
         </mat-card-footer>
       }
@@ -115,7 +115,7 @@
       @if (actions && actions.length) {
         <mat-card-actions>
           @for (action of actions; track action) {
-            <lib-button [buttons].label="action" [buttonType]="'mat-raised-button'"></lib-button>
+            <lib-button [label]="action.label" [buttonType]="'mat-raised-button'"></lib-button>
           }
         </mat-card-actions>
 

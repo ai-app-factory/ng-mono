@@ -29,33 +29,9 @@ export class CardComponent {
   @Input() imageSize?: 'small' | 'medium' | 'large' | 'extra-large' = 'medium';
 
   @Input() actions?: ButtonComponent[] = [
-    {
-      label: 'Action 1', buttonType: 'mat-raised-button', disabled: false, disabledInteractive: false, disableRipple: false,
-      icon: null,
-      onClick: function (): void {
-        throw new Error('Function not implemented.');
-      },
-      buttonClick: new EventEmitter<any>(),
-      onButtonPress: function (): void {
-        throw new Error('Function not implemented.');
-      }
-    },
-    {
-      label: 'Action 2', buttonType: 'mat-raised-button', disabled: false, disabledInteractive: false, disableRipple: false,
-      icon: null,
-      onClick: function (): void {
-        throw new Error('Function not implemented.');
-      },
-      buttonClick: new EventEmitter<any>(),
-      onButtonPress: function (): void {
-        throw new Error('Function not implemented.');
-      }
-    }
 
   ];
   @Input() chips?: ChipComponent[] = [
-    new ChipComponent(),
-    new ChipComponent()
   ];
 
 
