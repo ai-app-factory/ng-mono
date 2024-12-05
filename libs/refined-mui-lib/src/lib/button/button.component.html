@@ -76,4 +76,19 @@
       {{ label }}
     </button>
   }
+  @case ('mat-menu-item') {
+    <button
+      mat-menu-item
+      [disabled]="disabled"
+      (click)="onButtonPress()"
+    >
+      @if (icon) {
+        <mat-icon>{{ icon }}</mat-icon>
+        <span>{{ label }}</span>
+      }
+      @else {
+        {{ label }}
+      }
+    </button>
+  }
 }

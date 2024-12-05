@@ -42,7 +42,8 @@ export class ButtonComponent {
     'mat-flat-button' |
     'mat-stroked-button' |
     'mat-mini-fab' |
-    'mat-icon-button' = 'mat-raised-button';
+    'mat-icon-button' |
+    'mat-menu-item' = 'mat-raised-button';
   @Input() icon: string | null = 'home';
   @Input() onClick: () => void = () => {};
 

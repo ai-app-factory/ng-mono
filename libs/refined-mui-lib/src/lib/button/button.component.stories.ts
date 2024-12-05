@@ -65,7 +65,8 @@ const meta: Meta<ButtonComponent> = {
         'mat-flat-button',
         'mat-stroked-button',
         'mat-mini-fab',
-        'mat-icon-button'
+        'mat-icon-button',
+        'mat-menu-item',
       ],
       control: {
         type: 'radio'
@@ -240,4 +241,39 @@ export const DisableRipple: Story = {
   args: {
     disableRipple: true,
   },
+};
+
+export const MatMenuItem: Story = {
+  args: {
+    icon: "home",
+    buttonType: "mat-menu-item",
+    label: "home"
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("home")).toBeTruthy();
+  }
+};
+
+export const DisabledMenuItem: Story = {
+  args: {
+    icon: "home",
+    buttonType: "mat-menu-item",
+    disabled: true,
+    label: "home"
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("home")).toBeTruthy();
+  }
 };
