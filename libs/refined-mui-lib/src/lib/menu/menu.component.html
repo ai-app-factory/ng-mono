@@ -1,1 +1,22 @@
-<p>menu works!</p>
+@switch (menuType) {
+  @case('icon') {
+    @for (menu of _menus(); track menu) {
+      <lib-button
+        [icon]="menu.icon!"
+        [label]="menu.label"
+        [disabled]="menu.disabled!"
+        [buttonType]="'mat-menu-item'"
+      ></lib-button>
+    }
+
+  }
+
+  @case ('nested') {
+    @for (menu of _menus(); track menu) {
+
+    }
+  }
+}
+
+<mat-menu #menu="matMenu">
+  <ng-content></ng-content>
