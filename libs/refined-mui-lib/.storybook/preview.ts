@@ -27,7 +27,13 @@ setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
-    controls: { expanded: true },
+    controls: {
+      expanded: true,
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      }
+    },
     docs: {
       toc: true,
       page: DocumentationTemplate,
