@@ -49,6 +49,7 @@ export class ButtonComponent {
 
   @Output() buttonClick = new EventEmitter<any>();
 
+  @Input() color: string = '#000000';
   onButtonPress() {
     this.buttonClick.emit('Button Pressed from ButtonComponent');
     if (this.onClick) {
