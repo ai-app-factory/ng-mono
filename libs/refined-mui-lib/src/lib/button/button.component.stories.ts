@@ -91,6 +91,10 @@ const meta: Meta<ButtonComponent> = {
       },
       description: 'The function to call when the button is clicked',
     },
+    color: {
+      control: { type: 'color' }, // Enables the color picker
+    },
+
   },
 };
 export default meta;
