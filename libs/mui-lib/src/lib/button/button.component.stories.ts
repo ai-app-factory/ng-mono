@@ -30,12 +30,14 @@ const meta: Meta<ButtonComponent> = {
     },
     size: {
       table: {
-        defaultValue: { summary: 'medium' },
+        defaultValue: { summary: '5' },
         type: { summary: 'string' },
       },
-      options: ['small', 'medium', 'large'],
       control: {
-        type: 'radio',
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
       description: 'The size of the button'
     },
@@ -82,7 +84,8 @@ const meta: Meta<ButtonComponent> = {
   args: {
     label: 'Click me',
     disabled: false,
-    buttonType: ButtonType.RAISED
+    buttonType: ButtonType.RAISED,
+    size: 5,
   }
 };
 export default meta;

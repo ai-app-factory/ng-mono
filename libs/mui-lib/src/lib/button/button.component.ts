@@ -63,7 +63,21 @@ export class ButtonComponent {
   @Input() disableRipple: boolean = false;
   @Input() disabledInteractive: boolean = false;
 
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+  private _size: number = 5;
+
+  @Input() set size (value: number) {
+    if (value < 1 || value > 10) {
+      console.warn('Size must be between 1 and 10');
+      this._size = 5;
+    }
+    else{
+      this._size = value;
+    }
+  }
+
+  get size(): number {
+    return this._size;
+  }
 
   @Output() buttonClick = new EventEmitter<any>();
 
