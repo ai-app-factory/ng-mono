@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { ButtonComponent } from '../button/button.component';
 import { Chip, ChipComponent } from '../chip/chip.component';
 
