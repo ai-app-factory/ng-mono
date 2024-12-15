@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatMenuModule} from '@angular/material/menu';
+import {MatMenu, MatMenuModule, MatMenuPanel} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ButtonComponent } from '../button/button.component';
@@ -32,16 +32,11 @@ export type MenuCloseReason = void | 'click' | 'keydown' | 'tab';
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent {
-  @Input() menuType: 'icon' | 'nested' = 'icon';
-  @Input() xPosition: 'before' | 'after' = 'before';
-  @Input() yPosition: 'above' | 'below' = 'below';
-  @Input() overlapTrigger: boolean = false;
+  @Input() menuTitle?: string = 'Menu';
+  @Input() menuIcon?: string = 'more_vert';
+  @Input() menuOnIcon: boolean = false;
+  // @Input() menu!: MatMenuPanel<any>;
 
-  @Output() closed: EventEmitter<MenuCloseReason> = new EventEmitter<MenuCloseReason>();
-
-  @Input() set menus(menus: Menu[]) {
-    this._menus.set(menus);
-  }
 
   protected _menus = signal<Menu[]>([
     {
@@ -78,6 +73,26 @@ export class MenuComponent {
       ]
     },
   ]);
+
+  @Input() menuType: 'icon' | 'nested' = 'icon';
+  @Input() xPosition: 'before' | 'after' = 'after';
+  @Input() yPosition: 'above' | 'below' = 'below';
+  @Input() overlapTrigger: boolean = false;
+
+  protected _menuTrigger = signal<MatMenuPanel<any> | null>(null);
+  @Input() disabled: boolean = false;
+  @Output() closed: EventEmitter<MenuCloseReason>
+    = new EventEmitter<MenuCloseReason>();
+
+  @Input() set menus(menus: Menu[]) {
+    this._menus.set(menus);
+  }
+
+  @Input() set menuTrigger(trigger: MatMenuPanel<any>) {
+    this._menuTrigger.set(trigger);
+  }
+
+  // @ViewChild('menu', { static: true }) menu!: MatMenu;
 
 
 }

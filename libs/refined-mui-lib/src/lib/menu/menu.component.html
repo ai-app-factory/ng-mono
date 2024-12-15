@@ -1,22 +1,50 @@
-@switch (menuType) {
-  @case('icon') {
-    @for (menu of _menus(); track menu) {
+@if (menuOnIcon) {
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>{{ menuIcon }}</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    @for (item of _menus(); track item) {
+      <!-- <button mat-menu-item>{{ item.label }}</button> -->
       <lib-button
-        [icon]="menu.icon!"
-        [label]="menu.label"
-        [disabled]="menu.disabled!"
+        [label]="item.label"
+        [icon]="item.icon!"
+        [disabled]="item.disabled!"
         [buttonType]="'mat-menu-item'"
-      ></lib-button>
+      >
+      </lib-button>
     }
+  </mat-menu>
+} @else {
+  <button mat-button [matMenuTriggerFor]="menu">{{ menuTitle }}</button>
+  <mat-menu #menu="matMenu">
+    @for (item of _menus(); track item) {
+      <!-- <button mat-menu-item>{{ item.label }}</button> -->
+      <!-- <lib-button
+        [label]="item.label"
+        [disabled]="item.disabled!"
+        [buttonType]="'mat-menu-item'"
+      >
+      </lib-button> -->
+      <button
+        mat-menu-item
+        [disabled]="item.disabled!"
 
-  }
-
-  @case ('nested') {
-    @for (menu of _menus(); track menu) {
-
+      >
+        {{ item.label }}
+      </button>
+      @if (item.children?.length) {
+        <mat-menu #subMenu="matMenu">
+          @for (child of item.children; track child) {
+            <!-- <button mat-menu-item>{{ child.label }}</button> -->
+            <lib-button
+              [label]="child.label"
+              [disabled]="child.disabled!"
+              [buttonType]="'mat-menu-item'"
+            >
+            </lib-button>
+          }
+        </mat-menu>
+      }
     }
-  }
+  </mat-menu>
 }
-
-<mat-menu #menu="matMenu">
-  <ng-content></ng-content>
