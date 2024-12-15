@@ -130,6 +130,10 @@ export const Basic: Story = {
   }
 };
 
+/**
+ * This story demonstrates a group of chips with a custom label.
+ * with the following input `groupLabel: "My favorite Dogs"`.
+ */
 export const WithGroupLabel: Story = {
   args: {
     groupLabel: "My favorite Dogs",
