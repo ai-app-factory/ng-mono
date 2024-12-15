@@ -92,7 +92,7 @@ export const Checked: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: true
+      checked: true
     }],
 
   },
@@ -107,7 +107,7 @@ export const Unchecked: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
 
   },
@@ -122,7 +122,7 @@ export const Disabled: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     disabled: true
 
@@ -138,7 +138,7 @@ export const CheckedDisabled: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: true
+      checked: true
     }],
     disabled: true
 
@@ -154,10 +154,10 @@ export const Indeterminate: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false,
+      checked: false,
       subtasks: [
-        { name: 'Subtask 1', completed: false },
-        { name: 'Subtask 2', completed: true }
+        { name: 'Subtask 1', checked: false },
+        { name: 'Subtask 2', checked: true }
       ]
 
     }],
@@ -175,10 +175,10 @@ export const IndeterminateDisabled: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false,
+      checked: false,
       subtasks: [
-        { name: 'Subtask 1', completed: false },
-        { name: 'Subtask 2', completed: true }
+        { name: 'Subtask 1', checked: false },
+        { name: 'Subtask 2', checked: true }
       ]
 
     }],
@@ -196,7 +196,7 @@ export const Required: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     required: true
 
@@ -212,7 +212,7 @@ export const DisabledRipple: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     disableRipple: true
 
@@ -228,7 +228,7 @@ export const DisabledInteractive: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     disabledInteractive: true,
     disabled: true
@@ -245,7 +245,7 @@ export const CustomGroupLabel: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     groupLabel: 'Group Label'
 
@@ -261,7 +261,7 @@ export const NoGroupLabel: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     displayGroupLabel: false
 
@@ -277,10 +277,10 @@ export const BeforeLabel: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false,
+      checked: false,
       subtasks: [
-        { name: 'Subtask 1', completed: false },
-        { name: 'Subtask 2', completed: true }
+        { name: 'Subtask 1', checked: false },
+        { name: 'Subtask 2', checked: true }
       ]
     }],
     labelPosition: 'before'
@@ -297,7 +297,7 @@ export const HideSelected: Story = {
 
     tasks: [{
       name: 'Option 1',
-      completed: false
+      checked: false
     }],
     showSelected: false
 
