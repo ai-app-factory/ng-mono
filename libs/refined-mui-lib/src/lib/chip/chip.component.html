@@ -51,6 +51,7 @@
           [disabled]="chip.disabled || disabled"
           [selectable]="selectable"
           (removed)="removeChip(chip)"
+          (selectionChange)="selectionChange(chip, $event)"
         >
         @if (withAvatar) {
           <img
