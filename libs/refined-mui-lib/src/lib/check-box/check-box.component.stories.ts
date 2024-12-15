@@ -8,14 +8,6 @@ const meta: Meta<CheckBoxComponent> = {
   component: CheckBoxComponent,
   title: 'CheckBoxComponent',
   argTypes: {
-    checked: {
-      control: 'boolean',
-      description: 'Whether the checkbox is checked.',
-      table: {
-        defaultValue: { summary: 'false' },
-        type: { summary: 'boolean' },
-      },
-    },
     disabled: {
       control: 'boolean',
       description: 'Whether the checkbox is disabled.',
