@@ -14,7 +14,8 @@ import { FormsModule, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/f
 
 export interface Task {
   name: string;
-  completed: boolean;
+  checked: boolean;
+  disabled?: boolean;
   subtasks?: Task[];
 }
 
@@ -43,7 +44,6 @@ export class CheckBoxComponent implements ControlValueAccessor {
 
   @Input() displayGroupLabel: boolean = true;
   @Input() groupLabel: string = 'To do list';
-  @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
   @Input() labelPosition: 'before' | 'after' = 'after';
   // @Input() checkboxAction: 'noop' | 'check' | 'check-indeterminate' | undefined;
@@ -60,19 +60,20 @@ export class CheckBoxComponent implements ControlValueAccessor {
   protected _tasks = signal<Task[]>([
     {
       name: 'Option 1',
-      completed: false,
+      checked: false,
       subtasks: [
-        { name: 'Subtask 1', completed: false },
-        { name: 'Subtask 2', completed: false },
-        { name: 'Subtask 3', completed: true }
+        { name: 'Subtask 1', checked: false },
+        { name: 'Subtask 2', checked: false },
+        { name: 'Subtask 3', checked: true }
       ]
     },
     {
       name: 'Parent Task 2',
-      completed: false,
+      checked: false,
+      disabled: true,
       subtasks: [
-        { name: 'Subtask 1', completed: false },
-        { name: 'Subtask 2', completed: true }
+        { name: 'Subtask 1', checked: false },
+        { name: 'Subtask 2', checked: true }
       ]
     }
   ]);
@@ -82,15 +83,15 @@ export class CheckBoxComponent implements ControlValueAccessor {
 
   readonly partiallyComplete = (index: number) => {
     const task = this._tasks()[index];
-    return task.subtasks?.some(subtask => subtask.completed) &&
-      !task.subtasks.every(subtask => subtask.completed);
+    return task.subtasks?.some(subtask => subtask.checked) &&
+      !task.subtasks.every(subtask => subtask.checked);
   };
 
   onCheckboxChange(event: MatCheckboxChange): void {
     const task = this._tasks()[0]; // Assuming you want to emit the first task
     this.taskChange.emit({
       ...task,
-      completed: event.checked
+      checked: event.checked
     });
   }
 
@@ -114,15 +115,15 @@ export class CheckBoxComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  update(completed: boolean, index: number, subtaskIndex?: number) {
+  update(checked: boolean, index: number, subtaskIndex?: number) {
     this._tasks.update(task => {
       if (subtaskIndex === undefined) {
-        task[index].completed = completed;
-        task[index].subtasks?.forEach(subtask => subtask.completed = completed);
+        task[index].checked = checked;
+        task[index].subtasks?.forEach(subtask => subtask.checked = checked);
       } else {
 
-        task[index].subtasks![subtaskIndex].completed = completed;
-        task[index].completed = task[index].subtasks?.every(subtask => subtask.completed) ?? true;
+        task[index].subtasks![subtaskIndex].checked = checked;
+        task[index].checked = task[index].subtasks?.every(subtask => subtask.checked) ?? true;
       }
       this.onChange([...task]);
       this.selectionChange.emit([...task]);

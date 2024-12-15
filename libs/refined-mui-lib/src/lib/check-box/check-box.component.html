@@ -3,7 +3,7 @@
 }
 @for (task of _tasks(); track task; let i = $index) {
   <mat-checkbox
-    [checked]="task.completed"
+    [checked]="task.checked"
     [indeterminate]="partiallyComplete(i)"
     (change)="update($event.checked, i)"
     [disabled]="disabled"
@@ -19,7 +19,7 @@
       @for (subtask of task.subtasks; track subtask; let j = $index) {
         <p>
           <mat-checkbox
-            [checked]="subtask.completed"
+            [checked]="subtask.checked"
             (change)="update($event.checked, i, j)"
             [disabled]="disabled"
             [labelPosition]="labelPosition"
@@ -39,13 +39,13 @@
     <h4>Selected Tasks:</h4>
     <ul>
       @for (task of _tasks(); track task) {
-        @if (task.completed) {
+        @if (task.checked) {
           <li>{{ task.name }}</li>
         }
         @if (task.subtasks?.length) {
           <ul>
             @for (subtask of task.subtasks; track subtask) {
-              @if (subtask.completed) {
+              @if (subtask.checked) {
                 <li>{{ subtask.name }}</li>
               }
             }
