@@ -1,6 +1,8 @@
 @switch (cardType) {
   @case ('default') {
-    <mat-card>
+    <mat-card
+      [appearance]="cardAppearance!"
+      >
       @if (title || subTitle) {
         <mat-card-header>
           @if (title) {
