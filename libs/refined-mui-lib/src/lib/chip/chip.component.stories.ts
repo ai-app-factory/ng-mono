@@ -4,6 +4,9 @@ import { Chip, ChipComponent } from './chip.component';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
+/**
+ * `ChipComponent` is a configurable component that displays a group of chips.
+ */
 const meta: Meta<ChipComponent> = {
   component: ChipComponent,
   title: 'ChipComponent',
