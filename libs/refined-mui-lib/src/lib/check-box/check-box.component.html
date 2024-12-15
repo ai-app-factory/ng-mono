@@ -6,7 +6,7 @@
     [checked]="task.checked"
     [indeterminate]="partiallyComplete(i)"
     (change)="update($event.checked, i)"
-    [disabled]="disabled"
+    [disabled]="task.disabled || disabled"
     [labelPosition]="labelPosition"
     [disableRipple]="disableRipple"
     [disabledInteractive]="disabledInteractive"
@@ -21,7 +21,7 @@
           <mat-checkbox
             [checked]="subtask.checked"
             (change)="update($event.checked, i, j)"
-            [disabled]="disabled"
+            [disabled]="subtask.disabled || disabled"
             [labelPosition]="labelPosition"
             [disableRipple]="disableRipple"
             [disabledInteractive]="disabledInteractive"
