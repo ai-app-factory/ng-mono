@@ -9,8 +9,15 @@ import {
   forwardRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
-import { FormsModule, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {
+  MatCheckboxChange,
+  MatCheckboxModule
+} from '@angular/material/checkbox';
+import {
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  ControlValueAccessor
+} from '@angular/forms';
 
 export interface Task {
   name: string;
