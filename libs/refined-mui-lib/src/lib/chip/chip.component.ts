@@ -138,5 +138,14 @@ export class ChipComponent {
     });
   }
 
+  selectionChange(chip: Chip, event: MatChipSelectionChange) {
+    const isUserInput = event.isUserInput;
+    if (isUserInput) {
+      this.announcer.announce(`${chip.label} 'selected by user'`);
+    }
+    const selected = event.selected;
+    this.announcer.announce(`${chip.label} ${selected ? 'selected' : 'deselected'}`);
+  }
+
 
 }
