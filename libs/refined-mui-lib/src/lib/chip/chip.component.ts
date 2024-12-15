@@ -1,12 +1,34 @@
-import { Component, ChangeDetectionStrategy, Input, inject, signal, EventEmitter, Output} from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  inject,
+  signal,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { MatChipsModule, MatChipInputEvent, MatChipEditedEvent } from '@angular/material/chips';
+import {
+  MatChipsModule,
+  MatChipInputEvent,
+  MatChipEditedEvent,
+  MatChipSelectionChange
+} from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDropList,
+  moveItemInArray
+} from '@angular/cdk/drag-drop';
 
 export interface Chip {
   label: string;
