@@ -34,6 +34,7 @@ export interface Chip {
   label: string;
   imageSrc?: string;
   alt?: string;
+  disabled?: boolean;
 }
 
 @Component({
