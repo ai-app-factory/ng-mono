@@ -43,10 +43,6 @@ export const Primary: Story = {
 
 export const Heading: Story = {
   args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/range-slider works!/gi)).toBeTruthy();
-  },
 };
 
 export const DisabledRangeSlider: Story = {

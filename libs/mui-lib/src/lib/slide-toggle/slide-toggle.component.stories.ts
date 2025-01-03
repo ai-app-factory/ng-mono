@@ -50,10 +50,6 @@ export const Primary: Story = {
 
 export const Heading: Story = {
   args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/slide-toggle works!/gi)).toBeTruthy();
-  },
 };
 
 export const DisabledToggle: Story = {

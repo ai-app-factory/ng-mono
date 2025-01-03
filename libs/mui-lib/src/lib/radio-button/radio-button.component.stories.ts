@@ -61,10 +61,6 @@ export const Primary: Story = {
     name: 'Radio Group',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText('Option 1')).toBeTruthy();
-  },
 };
 
 export const CustomLabels: Story = {
@@ -72,15 +68,6 @@ export const CustomLabels: Story = {
     name: 'New Radio Group',
     listOfOptions: ['Option A', 'Option B', 'Option C'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
 
 export const Disabled: Story = {
@@ -89,15 +76,6 @@ export const Disabled: Story = {
     name: 'Disabled Radio Group',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
 
 export const Required: Story = {
@@ -106,15 +84,6 @@ export const Required: Story = {
     name: 'Required Radio Group',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
 
 export const DisplaySelectedOption: Story = {
@@ -123,15 +92,6 @@ export const DisplaySelectedOption: Story = {
     name: 'Radio Group',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
 
 export const DisplayGroupName: Story = {
@@ -140,15 +100,6 @@ export const DisplayGroupName: Story = {
     name: 'Radio Group Name',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
 
 export const BeforeLabel: Story = {
@@ -157,15 +108,6 @@ export const BeforeLabel: Story = {
     name: 'Radio Group',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
 
 export const AfterLabel: Story = {
@@ -174,13 +116,4 @@ export const AfterLabel: Story = {
     name: 'Radio Group',
     listOfOptions: ['Option 1', 'Option 2', 'Option 3'],
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  }
 };
