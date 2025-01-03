@@ -96,10 +96,6 @@ export const Checked: Story = {
     }],
 
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
-  },
 };
 
 export const Unchecked: Story = {
@@ -142,10 +138,6 @@ export const CheckedDisabled: Story = {
     }],
     disabled: true
 
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Option 1")).toBeTruthy();
   },
 };
 

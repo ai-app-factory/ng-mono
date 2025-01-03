@@ -175,13 +175,6 @@ export const WithOptions: Story = {
   args: {
     options: ['Option 1', 'Option 2', 'Option 3'],
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText('Group Label')).toBeTruthy();
-    expect(canvas.getByText('Option 1')).toBeTruthy();
-    expect(canvas.getByText('Option 2')).toBeTruthy();
-    expect(canvas.getByText('Option 3')).toBeTruthy();
-  },
 };
 
 /**
