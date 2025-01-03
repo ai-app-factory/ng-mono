@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '/home/sud/projects/ng-mono/libs/mui-lib/src/lib/theme.scss' as *;
+@use '../../lib/theme.scss' as *;
 
 // Define variables for height and font-size
 $base-size-percentage: 100%; // Start with 100% for size 1
