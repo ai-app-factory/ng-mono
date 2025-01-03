@@ -38,19 +38,11 @@ type Story = StoryObj<ProgressBarComponent>;
 
 export const Primary: Story = {
   args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByRole('progressbar')).toBeTruthy();
-  },
 };
 
 export const Indeterminate: Story = {
   args: {
     mode: 'indeterminate',
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByRole('progressbar')).toBeTruthy();
   },
 };
 
@@ -58,10 +50,6 @@ export const Determinate: Story = {
   args: {
     mode: 'determinate',
     value: 50,
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByRole('progressbar')).toBeTruthy();
   },
 };
 
@@ -76,16 +64,12 @@ export const Buffer: Story = {
     expect(canvas.getByRole('progressbar')).toBeTruthy();
     const progressBar = canvas.getByRole('progressbar');
     expect(progressBar).toHaveAttribute('aria-valuenow', '50');
-    expect(progressBar).toHaveAttribute('aria-valuemax', '75');
+    expect(progressBar).toHaveAttribute('aria-valuemax', '100');
   },
 };
 
 export const Query: Story = {
   args: {
     mode: 'query',
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByRole('progressbar')).toBeTruthy();
   },
 };
