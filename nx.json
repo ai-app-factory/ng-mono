@@ -55,7 +55,8 @@
         "default",
         "^production",
         "{projectRoot}/.storybook/**/*",
-        "{projectRoot}/tsconfig.storybook.json"
+        "{projectRoot}/tsconfig.storybook.json",
+        "{projectRoot}/libs/**/.storybook/**/*"
       ]
     }
   },
