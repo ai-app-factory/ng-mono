@@ -29,7 +29,6 @@ export const Primary: Story = {
 
 export const Heading: Story = {
   args: {},
-  
 };
 
 export const DisabledChip: Story = {
