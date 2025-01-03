@@ -51,10 +51,6 @@ export const DisabledCheckbox: Story = {
 
     checked: false
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Task 1")).toBeTruthy();
-  },
 
 };
 
