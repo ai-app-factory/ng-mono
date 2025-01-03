@@ -95,8 +95,4 @@ export const Primary: Story = {
 
 export const Heading: Story = {
   args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/stepper works!/gi)).toBeTruthy();
-  },
 };

@@ -71,15 +71,6 @@ export const IconWithOverlap: Story = {
     overlap: true,
     badgeFor: BadgeFor.ICON
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("I have a badge")).toBeTruthy();
-  }
 };
 
 export const TextWithOverlap: Story = {

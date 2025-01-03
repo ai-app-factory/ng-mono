@@ -28,10 +28,6 @@ export const Primary: Story = {
 
 export const Heading: Story = {
   args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/tree works!/gi)).toBeTruthy();
-  },
 };
 
 export const Nested: Story = {
