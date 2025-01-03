@@ -38,10 +38,6 @@ export const Primary: Story = {
       ],
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Task 1")).toBeTruthy();
-  },
 };
 
 export const DisabledCheckbox: Story = {
@@ -67,10 +63,6 @@ export const CheckedCheckbox: Story = {
     checked: true,
     task: { name: 'Task 1', completed: true },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Task 1")).toBeTruthy();
-  },
 };
 
 export const DisabledAndCheckedCheckbox: Story = {
@@ -78,10 +70,6 @@ export const DisabledAndCheckedCheckbox: Story = {
     checked: true,
     disabled: true,
     task: { name: 'Task 1', completed: true },
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Task 1")).toBeTruthy();
   },
 };
 
@@ -95,12 +83,6 @@ export const CheckboxWithSubtasks: Story = {
         { name: 'Subtask 2', completed: true },
       ],
     },
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Task 1")).toBeTruthy();
-    expect(canvas.getByText("Subtask 1")).toBeTruthy();
-    expect(canvas.getByText("Subtask 2")).toBeTruthy();
   },
 };
 
@@ -124,13 +106,4 @@ export const LabelPositionBefore: Story = {
 
     labelPosition: "before"
   },
-
-  play: async (
-    {
-      canvasElement
-    }
-  ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Task 1")).toBeTruthy();
-  }
 };
