@@ -336,7 +336,6 @@ export const EditableChipHusky: Story = {
   // Simulate double-click to edit the chip
   await userEvent.dblClick(chip);
 
-  //
 
   // Simulate typing the new value
   const input = canvas.getByText('Shiba Inu');
