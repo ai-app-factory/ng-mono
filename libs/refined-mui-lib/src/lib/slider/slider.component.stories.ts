@@ -134,7 +134,7 @@ export const Heading: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/slider works!/gi)).toBeTruthy();
+    expect(canvas.getByText("Slider")).toBeTruthy();
   },
 };
 

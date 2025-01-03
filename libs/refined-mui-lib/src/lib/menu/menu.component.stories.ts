@@ -32,7 +32,7 @@ const meta: Meta<MenuComponent> = {
         defaultValue: { summary: 'false' },
       }
     },
-    
+
 
   },
 };
@@ -47,6 +47,6 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/menu works!/gi)).toBeTruthy();
+    expect(canvas.getByText("Menu")).toBeTruthy();
   },
 };

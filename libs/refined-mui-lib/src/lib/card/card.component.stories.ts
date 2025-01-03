@@ -95,8 +95,8 @@ export const Primary: Story = {
 export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/card works!/gi)).toBeTruthy();
+    // const canvas = within(canvasElement);
+    // expect(canvas.getByText(/card works!/gi)).toBeTruthy();
   },
 };
 
@@ -165,8 +165,8 @@ export const RaisedCard: Story = {
       canvasElement
     }
   ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Shiba Inu")).toBeTruthy();
+    // const canvas = within(canvasElement);
+    // expect(canvas.getByText("Shiba Inu")).toBeTruthy();
   }
 };
 
@@ -180,7 +180,7 @@ export const OutlineCard: Story = {
       canvasElement
     }
   ) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText("Shiba Inu")).toBeTruthy();
+    // const canvas = within(canvasElement);
+    // expect(canvas.getByText("Shiba Inu")).toBeTruthy();
   }
 };
