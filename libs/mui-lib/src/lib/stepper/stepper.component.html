@@ -8,7 +8,7 @@
         [headerPosition]="headerPosition">
 
         @for (question of _questions(); track question; let i = $index){
-            <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
+            <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
                 <form [formGroup]="question.formControl">
                     <mat-form-field appearance="fill">
                         <mat-label>{{ question.placeholder }}</mat-label>
@@ -41,7 +41,7 @@
         [disableRipple]="disableRipple">
 
         @for (question of _questions(); track question; let i = $index){
-            <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
+            <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
                 <form [formGroup]="question.formControl">
                     <mat-form-field appearance="fill">
                         <mat-label>{{ question.placeholder }}</mat-label>
