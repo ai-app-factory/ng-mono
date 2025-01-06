@@ -72,6 +72,22 @@ const meta: Meta<DialogComponent> = {
         defaultValue: { summary: 'true' },
       },
     },
+    enterAnimationDuration: {
+      control: 'text',
+      description: 'The duration of the enter animation',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '225ms' },
+      },
+    },
+    exitAnimationDuration: {
+      control: 'text',
+      description: 'The duration of the exit animation',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '195ms' },
+      },
+    },
   },
 };
 export default meta;
@@ -100,5 +116,19 @@ export const CustomSize: Story = {
     width: '600px',
     height: '300px',
     hasBackdrop: true,
+  },
+};
+
+export const WithoutAnimation: Story = {
+  args: {
+    enterAnimationDuration: '0ms',
+    exitAnimationDuration: '0ms',
+  },
+};
+
+export const SlowAnimation: Story = {
+  args: {
+    enterAnimationDuration: '3000ms',
+    exitAnimationDuration: '1500ms',
   },
 };

@@ -1,12 +1,9 @@
 import { 
   Component,
-  Inject,
   ChangeDetectionStrategy,
   Input,
   Output,
   EventEmitter,
-  Signal,
-  computed,  
   inject
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,7 +11,7 @@ import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, MatDialogCon
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
-import { combineLatestInit } from 'rxjs/internal/observable/combineLatest';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'lib-dialog',
@@ -26,6 +23,7 @@ import { combineLatestInit } from 'rxjs/internal/observable/combineLatest';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule,
   ],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.scss',
@@ -42,17 +40,22 @@ export class DialogComponent {
   @Input() height: string = '';
   @Input() hasBackdrop: boolean = true;
 
+  @Input() enterAnimationDuration: string = '225ms';
+  @Input() exitAnimationDuration: string = '195ms';
+
   @Output() confirmed = new EventEmitter<void>();
   @Output() canceled = new EventEmitter<void>();
 
   dialogref!: MatDialogRef<any>;
 
-  openDialog(): void {
+  openDialog(enter: string = '200ms', exit: string = '200ms'): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = this.width;
     dialogConfig.height = this.height;
     dialogConfig.disableClose = this.disableClose;
     dialogConfig.hasBackdrop = this.hasBackdrop;
+    dialogConfig.enterAnimationDuration = this.enterAnimationDuration;
+    dialogConfig.exitAnimationDuration = this.exitAnimationDuration;
 
     this.dialogref = this.dialog.open(DialogTemplateComponent, dialogConfig);
 
@@ -73,14 +76,14 @@ export class DialogComponent {
 
 @Component({
   selector: 'lib-dialog-template',
-  template: `
-    <h2 mat-dialog-title>{{ title }}</h2>
-    <div mat-dialog-content>{{ content }}</div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="close('cancel')">{{ cancelLabel }}</button>
-      <button mat-button (click)="close('confirm')">{{ confirmLabel }}</button>
-    </div>
-    `,
+  standalone: true,
+  templateUrl: './dialog-overview.html',
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class DialogTemplateComponent {
