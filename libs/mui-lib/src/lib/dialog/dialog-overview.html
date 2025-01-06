@@ -1,6 +1,8 @@
 <h2 mat-dialog-title>{{ title }}</h2>
-<div mat-dialog-content>{{ content }}</div>
-<div mat-dialog-actions>
+<div mat-dialog-content [class.mat-typography]="isScrollable">
+    <div [innerHTML]="content"></div>
+</div>
+<div mat-dialog-actions align="end">
   <button mat-button (click)="close('cancel')">{{ cancelLabel }}</button>
   <button mat-button (click)="close('confirm')">{{ confirmLabel }}</button>
 </div>

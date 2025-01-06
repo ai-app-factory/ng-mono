@@ -40,9 +40,14 @@ export class DialogComponent {
   @Input() height: string = '';
   @Input() hasBackdrop: boolean = true;
 
+  // Scrollable content configuration
+  @Input() isScrollable: boolean = false;
+
+  // Animation inputs
   @Input() enterAnimationDuration: string = '225ms';
   @Input() exitAnimationDuration: string = '195ms';
 
+  // Outputs for user actions
   @Output() confirmed = new EventEmitter<void>();
   @Output() canceled = new EventEmitter<void>();
 
@@ -63,6 +68,7 @@ export class DialogComponent {
     this.dialogref.componentInstance.content = this.content;
     this.dialogref.componentInstance.confirmLabel = this.confirmLabel;
     this.dialogref.componentInstance.cancelLabel = this.cancelLabel;
+    this.dialogref.componentInstance.isScrollable = this.isScrollable;
 
     this.dialogref.afterClosed().subscribe((result) => {
       if (result === 'confirm'){
@@ -91,6 +97,7 @@ export class DialogTemplateComponent {
   content: string = '';
   confirmLabel: string = 'confirm';
   cancelLabel: string = 'cancel';
+  isScrollable: boolean = false;
 
   constructor(private dialogRef: MatDialogRef<DialogTemplateComponent>) {}
 
