@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule, FormControl, AbstractControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 export interface Question {
   label: string;
@@ -32,6 +33,7 @@ export interface Question {
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule,
   ],
   providers: [
     {
