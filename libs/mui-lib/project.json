@@ -30,7 +30,6 @@
           "libs/mui-lib/docs"
         ],
         "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
           "libs/mui-lib/src/lib/styles.scss"
         ],
         "stylePreprocessorOptions": {
@@ -52,7 +51,6 @@
         "browserTarget": "mui-lib:build-storybook",
         "compodoc": true,
         "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/rose-red.css",
           "libs/mui-lib/src/lib/styles.scss"
         ],
         "stylePreprocessorOptions": {
