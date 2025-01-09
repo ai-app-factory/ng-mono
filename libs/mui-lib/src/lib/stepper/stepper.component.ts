@@ -1,4 +1,4 @@
-import { 
+import {
   Component,
   ChangeDetectionStrategy,
   signal,
@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 export interface Question {
   label: string;
   placeholder: string;
-  formControl: FormControl;
+  formControl: FormGroup;
   required?: boolean;
   errorMessage: string;
 }
@@ -63,21 +63,21 @@ export class StepperComponent {
     {
       label: 'What is your name?',
       placeholder: 'Name',
-      formControl: new FormControl('', [Validators.required]),
+      formControl: new FormGroup('', [Validators.required]),
       required: false,
       errorMessage: 'Name is required',
     },
     {
       label: 'What is your age?',
       placeholder: 'Age',
-      formControl: new FormControl('', [Validators.required]),
+      formControl: new FormGroup('', [Validators.required]),
       required: true,
       errorMessage: 'Age is required',
     },
     {
       label: 'What is your favorite color?',
       placeholder: 'Color',
-      formControl: new FormControl('', [Validators.required]),
+      formControl: new FormGroup('', [Validators.required]),
       required: true,
       errorMessage: 'Color is required',
     },
@@ -87,7 +87,7 @@ export class StepperComponent {
   @Output() completionChange = new EventEmitter<Question[]>();
 
   constructor(private _formBuilder: FormBuilder) {}
-  
+
   onStepChange(index: number): void {
     const currentQuestion = this._questions()[index];
     this.stepChange.emit(index);

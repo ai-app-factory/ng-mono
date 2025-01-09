@@ -12,12 +12,12 @@
                 <form [formGroup]="question.formControl">
                     <mat-form-field appearance="fill">
                         <mat-label>{{ question.placeholder }}</mat-label>
-                        <input matInput [formControl]="question.formControl" />
+                        <input matInput [formGroup]="question.formControl" />
                     </mat-form-field>
                     <div>
                         @if (i > 0) {
                             <button mat-button matStepperPrevious type="button">Back</button>
-                        } 
+                        }
                         @if (i < _questions().length) {
                             <button mat-button matStepperNext type="button">Next</button>
                         }
@@ -45,7 +45,7 @@
                 <form [formGroup]="question.formControl">
                     <mat-form-field appearance="fill">
                         <mat-label>{{ question.placeholder }}</mat-label>
-                        <input matInput [formControl]="question.formControl" />
+                        <input matInput [formGroup]="question.formControl" />
                     </mat-form-field>
                     @if (i > 0) {
                         <button mat-button matStepperPrevious>Back</button>
