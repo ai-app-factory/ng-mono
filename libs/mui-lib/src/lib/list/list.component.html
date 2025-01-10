@@ -1,0 +1,138 @@
+@switch (_type()) {
+    @case ('basic') {
+        <mat-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item>
+                    {{ item.text }}
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>
+                    No items available
+                </mat-list-item>
+            }
+        </mat-list>
+    }
+
+    @case('multi-line') {
+        <mat-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item>
+                    <h3 mat-line>{{ item.text }}</h3>
+                    <p mat-line>{{ item.subText }}</p>
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>
+                    No items available
+                </mat-list-item>
+            }
+        </mat-list>
+    }
+
+    @case ('navigation') {
+        <mat-nav-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item (click)="item.action && item.action()">
+                    @if (item.icon) {
+                        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+                    }
+                    {{ item.text }}
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>No navigation items available</mat-list-item>
+            }
+        </mat-nav-list>
+    }
+
+    @case ('action') {
+        <mat-action-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item (click)="item.action && item.action()">
+                    @if (item.icon) {
+                        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+                    }
+                    {{ item.text }}
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>No action items available</mat-list-item>
+            }
+        </mat-action-list>
+    }
+
+    @case ('selection') {
+        <mat-selection-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-option [selected]="item.selected">
+                    {{ item.text }}
+                </mat-list-option>
+            }
+            @empty {
+                <mat-list-option disabled>No options available</mat-list-option>
+            }
+        </mat-selection-list>
+    }
+
+    @case('icon') {
+        <mat-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item>
+                    @if(item.icon){ 
+                        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+                    }
+                    {{ item.text }}
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>
+                    No items available
+                </mat-list-item>
+            }
+        </mat-list>
+    }
+
+    @case ('avatar') {
+        <mat-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item>
+                    @if(item.avatarURL){
+                        <img matListAvatar [src]="item.avatarURL" alt="Avatar">
+                    }
+                    {{ item.text }}
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>
+                    No items available
+                </mat-list-item>
+            }
+        </mat-list>
+    }
+
+    @case('section') {
+        <mat-list>
+            @for (section of _listItems(); track section; let i = $index) {
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    {{ section.text }}
+                </mat-list-item>
+            }
+            @empty {
+                <mat-list-item>
+                    No items available
+                </mat-list-item>
+            }
+        </mat-list>
+    }
+
+    @default {
+        <mat-list>
+            <mat-list-item>
+                No items available
+            </mat-list-item>
+        </mat-list>
+    }
+
+}
