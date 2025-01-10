@@ -10,7 +10,7 @@ const meta: Meta<ListComponent> = {
   argTypes: {
     type: {
       control: 'radio',
-      options: ['basic', 'multi-line', 'navigation', 'action', 'selection', 'icon', 'avatar', 'section'],
+      options: ['basic', 'multi-line', 'navigation', 'action', 'selection', 'icon', 'avatar', 'section', 'navigation-complex'],
       description: 'The type of list',
       table: {
         type: { summary: 'basic | multi-line | navigation' },

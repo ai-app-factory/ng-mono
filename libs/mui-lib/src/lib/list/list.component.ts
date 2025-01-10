@@ -10,13 +10,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 
 export interface ListItem {
-  text: string;
+  title: string;
+  text?: string;
   subText?: string;
   icon?: string;
   avatarURL?: string;
   selected?: boolean;
   action?: () => void;
   disabled?: boolean;
+  href?: string;
+  isActive?: boolean;
+  togglePosition?: 'before' | 'after';
 }
 
 @Component({
@@ -46,59 +50,70 @@ export class ListComponent {
     switch (type) {
       case 'basic':
         this._listItems.set([
-          { text: 'Item 1' },
-          { text: 'Item 2' },
-          { text: 'Item 3' },
+          { title: 'Item 1' },
+          { title: 'Item 2' },
+          { title: 'Item 3' },
         ]);
         break;
       case 'multi-line':
         this._listItems.set([
-          { text: 'Item 1', subText: 'Subtext for item 1' },
-          { text: 'Item 2', subText: 'Subtext for item 2' },
-          { text: 'Item 3', subText: 'Subtext for item 3' },
+          { title: 'Item 1', text:'text for item 1', subText: 'Subtext for item 1' },
+          { title: 'Item 2', text:'text for item 2', subText: "Secondary line that will wrap because the list lines is explicitly set to 3 lines. Textinside of a `matListItemTitle` or `matListItemLine` will never wrap." },
+          { title: 'Item 3', text:'text for item 3', subText: 'Subtext for item 3' },
         ]);
         break;
       case 'navigation':
         this._listItems.set([
-          { text: 'Home', icon: 'home', action: () => alert('Navigating to Home') },
-          { text: 'Settings', icon: 'settings', action: () => alert('Navigating to Settings') },
-          { text: 'Profile', icon: 'person', action: () => alert('Navigating to Profile') },
+          { title: 'Link 1', href: '#', isActive: false },
+          { title: 'Link 2', href: '#', isActive: true },
+          { title: 'Link 3', href: '#', isActive: false },
+        ]);
+        break;
+      case 'navigation-complex':
+        this._listItems.set([
+          { title: 'Link 1', href: '#', isActive: false },
+          { title: 'Link 2', href: '#', isActive: true },
+          { title: 'Link 3', href: '#', isActive: false },
         ]);
         break;
       case 'action':
         this._listItems.set([
-          { text: 'Delete', icon: 'delete', action: () => alert('Item deleted') },
-          { text: 'Share', icon: 'share', action: () => alert('Item shared') },
+          { title: 'Delete', icon: 'delete', action: () => alert('Item deleted') },
+          { title: 'Share', icon: 'share', action: () => alert('Item shared') },
         ]);
         break;
       case 'selection':
         this._listItems.set([
-          { text: 'Option 1', selected: false },
-          { text: 'Option 2', selected: false },
-          { text: 'Option 3', selected: false },
+          { title: 'Option 1', selected: true, togglePosition: 'before' },
+          { title: 'Option 2', selected: true, togglePosition: 'before' },
+          { title: 'Option 3', selected: false, togglePosition: 'before' },
         ]);
         break;
       case 'icon':
         this._listItems.set([
-          { text: 'Phone', icon: 'phone' },
-          { text: 'Email', icon: 'email' },
+          { title: 'Phone', icon: 'phone' },
+          { title: 'Email', icon: 'email' },
         ]);
         break;
       case 'avatar':
         this._listItems.set([
-          { text: 'John Doe', avatarURL: 'https://via.placeholder.com/40' },
-          { text: 'Jane Smith', avatarURL: 'https://via.placeholder.com/40' },
+          { title: 'John Doe', avatarURL: 'https://via.placeholder.com/40' },
+          { title: 'Jane Smith', avatarURL: 'https://via.placeholder.com/40' },
         ]);
         break;
       case 'section':
         this._listItems.set([
-          { text: 'Section 1' },
-          { text: 'Section 2' },
-          { text: 'Section 3' },
+          { title: 'Section 1' },
+          { title: 'Section 2' },
+          { title: 'Section 3' },
         ]);
         break;
       default:
         this._listItems.set([]);
     }
+  }
+
+  showInfo(item: ListItem): void {
+    alert(`You selected: ${item.title}`);
   }
 }

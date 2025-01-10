@@ -3,7 +3,7 @@
         <mat-list>
             @for (item of _listItems(); track item; let i = $index) {
                 <mat-list-item>
-                    {{ item.text }}
+                    {{ item.title }}
                 </mat-list-item>
             }
             @empty {
@@ -17,9 +17,10 @@
     @case('multi-line') {
         <mat-list>
             @for (item of _listItems(); track item; let i = $index) {
-                <mat-list-item>
-                    <h3 mat-line>{{ item.text }}</h3>
-                    <p mat-line>{{ item.subText }}</p>
+                <mat-list-item lines="3">
+                    <span matListItemTitle>{{ item.title }}</span>
+                    <span matListItemLine>{{ item.text }}</span>
+                    {{ item.subText }}
                 </mat-list-item>
             }
             @empty {
@@ -33,13 +34,26 @@
     @case ('navigation') {
         <mat-nav-list>
             @for (item of _listItems(); track item; let i = $index) {
-                <mat-list-item (click)="item.action && item.action()">
-                    @if (item.icon) {
-                        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
-                    }
-                    {{ item.text }}
-                </mat-list-item>
+                <a mat-list-item [href]="item.href" [activated]="item.isActive">
+                    {{ item.title }}
+                </a>
             }
+            @empty {
+                <mat-list-item>No navigation items available</mat-list-item>
+            }
+        </mat-nav-list>
+    }
+
+    @case ('navigation-complex') {
+        <mat-nav-list>
+            @for (item of _listItems(); track item; let i = $index) {
+                <mat-list-item [activated]="item.isActive">
+                    <a matListItemTitle [href]="item.href">{{ item.title }}</a>
+                    <button mat-icon-button (click)="showInfo(item)" matListItemMeta>
+                      <mat-icon>info</mat-icon>
+                    </button>
+                  </mat-list-item>
+                }
             @empty {
                 <mat-list-item>No navigation items available</mat-list-item>
             }
@@ -53,7 +67,7 @@
                     @if (item.icon) {
                         <mat-icon matListIcon>{{ item.icon }}</mat-icon>
                     }
-                    {{ item.text }}
+                    {{ item.title }}
                 </mat-list-item>
             }
             @empty {
@@ -65,8 +79,8 @@
     @case ('selection') {
         <mat-selection-list>
             @for (item of _listItems(); track item; let i = $index) {
-                <mat-list-option [selected]="item.selected">
-                    {{ item.text }}
+                <mat-list-option [selected]="item.selected" [togglePosition]="item.togglePosition">
+                    {{ item.title }}
                 </mat-list-option>
             }
             @empty {
@@ -82,7 +96,7 @@
                     @if(item.icon){ 
                         <mat-icon matListIcon>{{ item.icon }}</mat-icon>
                     }
-                    {{ item.text }}
+                    <h3 matListItemTitle>{{item.title }}</h3> 
                 </mat-list-item>
             }
             @empty {
@@ -100,7 +114,7 @@
                     @if(item.avatarURL){
                         <img matListAvatar [src]="item.avatarURL" alt="Avatar">
                     }
-                    {{ item.text }}
+                    {{ item.title }}
                 </mat-list-item>
             }
             @empty {
@@ -116,7 +130,7 @@
             @for (section of _listItems(); track section; let i = $index) {
                 <mat-divider></mat-divider>
                 <mat-list-item>
-                    {{ section.text }}
+                    {{ section.title }}
                 </mat-list-item>
             }
             @empty {
