@@ -4,30 +4,41 @@ on:
   push:
     branches:
       - libs/** # Only run on library changes
+    paths:
+      - 'libs/**'
+    paths-ignore:
+      - 'libs/**/src/**/*.spec.ts'
+      - 'libs/**/src/**/*.spec.tsx'
 
 jobs:
-  build:
+  chromatic:
     runs-on: ubuntu-latest
-
+    name: Run Chromatic
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: "22.x"
 
       - name: Install dependencies
         run: yarn install
 
-      - name: Build
-        run: yarn build
+      - name: Publish Mui Lib to Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_MUI_LIB }}
+          workingDir: libs/mui-lib
 
-      - name: Run Chromatic
-        env:
-          CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}
-        run: yarn chromatic --auto-accept-changes
-
+      - name: Publish Refined Mui Lib to Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REFINED_MUI_LIB }}
+          workingDir: libs/refined-mui-lib
 
 
 
