@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - libs/** # Only run on library changes
-    paths:
-      - 'libs/**'
+    # paths:
+    #   - 'libs/**'
     paths-ignore:
       - 'libs/**/src/**/*.spec.ts'
       - 'libs/**/src/**/*.spec.tsx'
