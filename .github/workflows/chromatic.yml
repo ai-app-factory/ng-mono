@@ -33,12 +33,14 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_MUI_LIB }}
           workingDir: libs/mui-lib
+          storybookBuildDir: dist/storybook/mui-lib
 
       - name: Publish Refined Mui Lib to Chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REFINED_MUI_LIB }}
           workingDir: libs/refined-mui-lib
+          storybookBuildDir: dist/storybook/refined-mui-lib
 
 
 
