@@ -34,7 +34,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_MUI_LIB }}
           workingDir: libs/mui-lib
-          storybookBuildDir: dist/storybook/mui-lib
+          storybookBuildDir:  /home/runner/work/ng-mono/ng-mono/dist/storybook/mui-lib
 
       - name: Build Refined Mui Lib Storybook
         run: yarn nx run refined-mui-lib:build-storybook
@@ -44,4 +44,4 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REFINED_MUI_LIB }}
           workingDir: libs/refined-mui-lib
-          storybookBuildDir: dist/storybook/refined-mui-lib
+          storybookBuildDir:  /home/runner/work/ng-mono/ng-mono/dist/storybook/refined-mui-lib
