@@ -26,28 +26,16 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Generate documentation.json
-        run: yarn nx run mui-lib:compodoc
-
-      - name: Build Mui Lib Storybook
-        run: yarn nx run mui-lib:build-storybook
-
       - name: Publish Mui Lib to Chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_MUI_LIB }}
           workingDir: libs/mui-lib
-          storybookBuildDir: dist/storybook/mui-lib
-
-      - name: Generate documentation.json
-        run: yarn nx run refined-mui-lib:compodoc
-
-      - name: Build Refined Mui Lib Storybook
-        run: yarn nx run refined-mui-lib:build-storybook
+          buildScriptName: yarn nx run mui-lib:build-storybook
 
       - name: Publish Refined Mui Lib to Chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REFINED_MUI_LIB }}
           workingDir: libs/refined-mui-lib
-          storybookBuildDir: dist/storybook/refined-mui-lib
+          buildScriptName: yarn nx run refined-mui-lib:build-storybook
