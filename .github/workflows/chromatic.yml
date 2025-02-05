@@ -3,7 +3,7 @@ name: "Chromatic"
 on:
   push:
     branches:
-      - libs/** # Only run on library changes
+      - libs/refined-mui-lib # Only run on library changes
     paths-ignore:
       - 'libs/**/src/**/*.spec.ts'
       - 'libs/**/src/**/*.spec.tsx'
@@ -26,15 +26,15 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build Mui Lib Storybook
-        run: yarn nx run mui-lib:build-storybook
+      # - name: Build Mui Lib Storybook
+      #   run: yarn nx run mui-lib:build-storybook
 
-      - name: Publish Mui Lib to Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_MUI_LIB }}
-          workingDir: libs/mui-lib
-          storybookBuildDir:  /home/runner/work/ng-mono/ng-mono/dist/storybook/mui-lib
+      # - name: Publish Mui Lib to Chromatic
+      #   uses: chromaui/action@latest
+      #   with:
+      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_MUI_LIB }}
+      #     workingDir: libs/mui-lib
+      #     storybookBuildDir:  /home/runner/work/ng-mono/ng-mono/dist/storybook/mui-lib
 
       - name: Build Refined Mui Lib Storybook
         run: yarn nx run refined-mui-lib:build-storybook
