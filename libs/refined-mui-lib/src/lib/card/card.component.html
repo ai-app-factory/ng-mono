@@ -1,5 +1,5 @@
 @switch (cardType) {
-  @case ('default') {
+  @case ('basic') {
     <mat-card
       [appearance]="cardAppearance!"
       >
@@ -80,7 +80,7 @@
       }
     </mat-card>
   }
-  @case ('with-buttons') {
+  @case ('with-actions') {
     <mat-card>
       @if (title || subTitle) {
         <mat-card-header>
@@ -120,8 +120,6 @@
             <lib-button [label]="action.label" [buttonType]="'mat-raised-button'"></lib-button>
           }
         </mat-card-actions>
-
-
       }
     </mat-card>
   }
