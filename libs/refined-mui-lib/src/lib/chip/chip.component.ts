@@ -58,16 +58,16 @@ export interface Chip {
 export class ChipComponent {
 
   @Input() groupLabel?: string = '';
-  @Input() removable: boolean = true;
-  @Input() disabled: boolean = false;
-  @Input() selectable: boolean = true;
-  @Input() disableRipple: boolean = false;
-  @Input() hideSingleSelectionIndicator: boolean = false;
-  @Input() multipleSelection: boolean = false;
-  @Input() chipType: 'basic' | 'with-drag-drop' | 'with-input' | 'stacked' = 'basic';
-  @Input() editable: boolean = false;
-  @Input() withAvatar: boolean = false;
-  @Input() dropListOrientation: 'horizontal' | 'vertical' = 'horizontal';
+  @Input() removable?: boolean = true;
+  @Input() disabled?: boolean = false;
+  @Input() selectable?: boolean = true;
+  @Input() disableRipple?: boolean = false;
+  @Input() hideSingleSelectionIndicator?: boolean = false;
+  @Input() multipleSelection?: boolean = false;
+  @Input() chipType?: 'basic' | 'with-drag-drop' | 'with-input' | 'stacked' = 'basic';
+  @Input() editable?: boolean = false;
+  @Input() withAvatar?: boolean = false;
+  @Input() dropListOrientation?: 'horizontal' | 'vertical' = 'horizontal';
 
   @Input() set chips(chips: Chip[]) {
     this._chips.set(chips);
