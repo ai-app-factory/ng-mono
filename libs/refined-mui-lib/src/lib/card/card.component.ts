@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ButtonComponent } from '../button/button.component';
@@ -28,12 +28,30 @@ export class CardComponent {
 
   @Input() imageSize?: 'small' | 'medium' | 'large' | 'extra-large' = 'medium';
 
-  @Input() actions?: ButtonComponent[] = [
+  @Input() set actions(actions: ButtonComponent[]) {
+    this._actions.set(actions);
+  }
+  @Input() set chips(chips: ChipComponent[]) {
+    this._chips.set(chips);
+  }
 
-  ];
-  @Input() chips?: ChipComponent[] = [
-  ];
+  @Input() cardWidth?: string = '400px';
 
+  protected _actions = signal<ButtonComponent[]>([
+    { buttonType: 'mat-raised-button',
+      label: 'Action 1',
+      disabled: false,
+    } as ButtonComponent,
+  ]);
 
-  @Input() cardType?: 'default' | 'with-chips' | 'with-buttons' = 'default';
+  protected _chips = signal<ChipComponent[]>([
+    {
+      chips: [{ label: 'Shiba Inu'}],
+      chipType: 'basic',
+      withAvatar: false,
+      removable: false,
+      disabled: false} as ChipComponent,
+  ]);
+
+  @Input() cardType?: 'basic' | 'with-actions' | 'with-chips'  = 'basic';
 }
