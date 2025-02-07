@@ -22,7 +22,20 @@
         "port": 4400,
         "configDir": "libs/ui/material/.storybook",
         "browserTarget": "material:build-storybook",
-        "compodoc": false
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/material/docs"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/ui/material/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/material/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
@@ -37,7 +50,20 @@
         "outputDir": "dist/storybook/material",
         "configDir": "libs/ui/material/.storybook",
         "browserTarget": "material:build-storybook",
-        "compodoc": false
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/material/docs"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/ui/material/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/material/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
