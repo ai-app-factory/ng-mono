@@ -1,1 +1,137 @@
-<p>button works!</p>
+@switch (buttonType) {
+  @case ('mat-raised-button') {
+    <button
+      mat-raised-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('mat-flat-button') {
+    <button
+      mat-flat-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('mat-stroked-button') {
+    <button
+      mat-stroked-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('mat-icon-button') {
+    <button
+      mat-icon-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('mat-fab') {
+    <button
+      mat-fab
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('mat-mini-fab') {
+    <button
+      mat-mini-fab
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('mat-button') {
+    <button
+      mat-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('mat-menu-item') {
+    <button
+      mat-menu-item
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      (click)="onButtonPress()"
+    >
+      @if (icon) {
+        <mat-icon>{{ icon }}</mat-icon>
+        <span>{{ label }}</span>
+      }
+      @else {
+        {{ label }}
+      }
+    </button>
+  }
+  @case ('extended-fab') {
+    <button
+      mat-fab
+      extended
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+      {{ label }}
+    </button>
+  }
+  @case ('web-filled-button') {
+    <md-filled-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [soft-disabled]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </md-filled-button>
+  }
+  @case ('web-outlined-button') {
+    <md-outlined-button
+      [ngClass]="[size, typography, color, shape]"
+      [disabled]="disabled"
+      [soft-disabled]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </md-outlined-button>
+  }
+}
+
