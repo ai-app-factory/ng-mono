@@ -9,7 +9,7 @@
           <mat-chip-row
             (removed)="removeChip(chip)"
             [removable]="removable"
-            [editable]="editable"
+            [editable]="editable!"
             [disabled]="chip.disabled || disabled"
             [disableRipple]="disableRipple"
             (edited)="editChip(chip, $event)"
@@ -75,7 +75,7 @@
   @case ('with-drag-drop') {
     <mat-chip-set
       cdkDropList
-      [cdkDropListOrientation]="dropListOrientation"
+      [cdkDropListOrientation]="dropListOrientation!"
       (cdkDropListDropped)="drop($event)"
     >
       @for (chip of _chips(); track chip) {
