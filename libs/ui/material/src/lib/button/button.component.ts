@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, CUSTOM_ELEMENTS_SCHEMA } from '
 import { CommonModule } from '@angular/common';
 import { MatButton, MatButtonModule, MatButtonConfig } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { BaseComponent } from '../base/base.component';
 @Component({
   selector: 'lib-button',
   standalone: true,
@@ -16,9 +16,9 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './button.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ButtonComponent {
+export class ButtonComponent extends BaseComponent {
   @Input() label: string = 'Button Text';
-  @Input() disabled?: boolean = false;
+  @Input() override disabled?: boolean = false;
   @Input() disabledInteractive?: boolean = false;
   @Input() disableRipple?: boolean = false;
   @Input() buttonType:
@@ -39,11 +39,6 @@ export class ButtonComponent {
 
   @Input() onClick: () => void = () => {};
 
-  @Input() shape?: 'rounded' | 'square' | 'pill' = 'rounded';
-  @Input() color?: 'primary' | 'accent' | 'warn' = 'primary';
-  @Input() typography?: 'body1' | 'body2' | 'button' = 'button';
-  @Input() size?: 'small' | 'medium' | 'large' = 'medium';
-
   @Output() buttonClick = new EventEmitter<any>();
 
   onButtonPress() {
@@ -53,3 +48,5 @@ export class ButtonComponent {
     }
   }
 }
+
+

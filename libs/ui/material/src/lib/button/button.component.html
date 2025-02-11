@@ -2,7 +2,8 @@
   @case ('mat-raised-button') {
     <button
       mat-raised-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -14,7 +15,8 @@
   @case ('mat-flat-button') {
     <button
       mat-flat-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -26,7 +28,8 @@
   @case ('mat-stroked-button') {
     <button
       mat-stroked-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -38,7 +41,8 @@
   @case ('mat-icon-button') {
     <button
       mat-icon-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -50,7 +54,8 @@
   @case ('mat-fab') {
     <button
       mat-fab
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -62,7 +67,8 @@
   @case ('mat-mini-fab') {
     <button
       mat-mini-fab
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -74,7 +80,8 @@
   @case ('mat-button') {
     <button
       mat-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -86,7 +93,8 @@
   @case ('mat-menu-item') {
     <button
       mat-menu-item
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       (click)="onButtonPress()"
     >
@@ -103,7 +111,8 @@
     <button
       mat-fab
       extended
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
       [disabledInteractive]="disabledInteractive"
@@ -115,7 +124,8 @@
   }
   @case ('web-filled-button') {
     <md-filled-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [soft-disabled]="disabledInteractive"
       (click)="onButtonPress()"
@@ -125,7 +135,8 @@
   }
   @case ('web-outlined-button') {
     <md-outlined-button
-      [ngClass]="[size, typography, color, shape]"
+      [ngClass]="classes"
+      [ngStyle]="styles"
       [disabled]="disabled"
       [soft-disabled]="disabledInteractive"
       (click)="onButtonPress()"

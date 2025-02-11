@@ -100,18 +100,15 @@ const meta: Meta<ButtonComponent> = {
       }
     },
     color: {
-      options: ['primary', 'accent', 'warn'],
-      control: {
-        type: 'radio',
-      },
+      control: 'color',
       description: 'The color of the button.',
       table: {
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary:  '#6200ea' },
         type: { summary: 'string' },
       }
     },
     typography: {
-      options: ['body1', 'body2', 'button'],
+      options: ['heading1', 'heading2', 'paragraph'],
       control: {
         type: 'radio',
       },
@@ -122,14 +119,14 @@ const meta: Meta<ButtonComponent> = {
       }
     },
     size: {
-      options: ['small', 'medium', 'large'],
+
       control: {
-        type: 'radio',
+        type: 'number',
       },
       description: 'The size of the button.',
       table: {
         defaultValue: { summary: 'medium' },
-        type: { summary: 'string' },
+        type: { summary: 'number' },
       }
     },
   }
@@ -151,6 +148,10 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+  play: async ({ container }) => {
+    const button = await within(container).findByRole('button');
+    expect(button).toHaveAttribute('disabled');
+  }
 };
 
 /**
@@ -161,6 +162,11 @@ export const IconButton: Story = {
     icon: 'home',
     buttonType: 'mat-icon-button',
   },
+
+  play: async ({ container }) => {
+    const button = await within(container).findByRole('button');
+    expect(button).toHaveAttribute('aria-label', 'home');
+  }
 };
 
 /**
@@ -168,7 +174,7 @@ export const IconButton: Story = {
  */
 export const CustomColor: Story = {
   args: {
-    color: 'accent',
+    color: "#36debd",
   },
 };
 
@@ -204,7 +210,8 @@ export const CustomLabel: Story = {
  */
 export const FlatButton: Story = {
   args: {
-    buttonType: 'mat-flat-button',
+    buttonType: "mat-flat-button",
+    color: "#f6f1f1"
   },
 };
 
@@ -215,7 +222,7 @@ export const FlatButton: Story = {
  */
 export const SmallSize: Story = {
   args: {
-    size: 'small',
+    size: 10,
   },
 };
 
@@ -224,7 +231,7 @@ export const SmallSize: Story = {
  */
 export const LargeSize: Story = {
   args: {
-    size: 'large',
+    size: 100,
   },
 };
 
@@ -233,7 +240,7 @@ export const LargeSize: Story = {
  */
 export const Body1Typography: Story = {
   args: {
-    typography: 'body1',
+    typography: 'heading1',
   },
 
 };
@@ -243,7 +250,7 @@ export const Body1Typography: Story = {
  */
 export const Body2Typography: Story = {
   args: {
-    typography: 'body2',
+    typography: 'heading2',
   },
 
 };
@@ -253,7 +260,7 @@ export const Body2Typography: Story = {
  */
 export const ButtonTypography: Story = {
   args: {
-    typography: 'button',
+    typography: 'paragraph',
   },
 };
 
@@ -263,6 +270,7 @@ export const ButtonTypography: Story = {
 export const StrokedButton: Story = {
   args: {
     buttonType: 'mat-stroked-button',
+    color: "#f4eded"
   },
 };
 
@@ -274,7 +282,7 @@ export const MiniFabButton: Story = {
     buttonType: 'mat-mini-fab',
     shape: "rounded",
     color: "primary",
-    size: "small"
+    size: 2
   },
 };
 
@@ -283,7 +291,7 @@ export const MiniFabButton: Story = {
  */
 export const FabButton: Story = {
   args: {
-    buttonType: 'mat-fab',
+    buttonType: 'mat-fab'
   },
 };
 
@@ -319,7 +327,8 @@ export const WebOutlinedButton: Story = {
  */
 export const WebTonedButton: Story = {
   args: {
-    buttonType: 'web-toned-button',
+    buttonType: "extended-fab",
+    color: "accent"
   },
 };
 
@@ -330,6 +339,7 @@ export const ExtendedFabButton: Story = {
   args: {
     buttonType: 'extended-fab',
     icon: 'settings',
+    color: "warn"
   },
 };
 
@@ -359,6 +369,7 @@ export const DisabledInteractiveButton: Story = {
   args: {
     disabledInteractive: true,
     disabled: true,
+    color: "#efe9e9"
   },
 };
 
