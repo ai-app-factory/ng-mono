@@ -1,0 +1,46 @@
+@mixin base-styles {
+  &.heading1 {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  &.heading2 {
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  &.paragraph {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  &.rounded {
+    border-radius: 8px;
+  }
+  &.square {
+    border-radius: 0;
+  }
+  &.pill {
+    border-radius: 50px;
+  }
+
+  &.custom-size {
+    padding: inherit;
+    font-size: inherit;
+  }
+
+  &.custom-color {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  &.disabled {
+    background-color: gray !important;
+    color: lightgray !important;
+    cursor: not-allowed;
+  }
+}
+
+:host {
+  @include base-styles;
+}
