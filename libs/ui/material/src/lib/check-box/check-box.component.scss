@@ -1,0 +1,5 @@
+@use '../base/base.component' as base;
+
+button-toggle {
+  @include base.base-styles;
+}
