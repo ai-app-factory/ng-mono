@@ -1,0 +1,40 @@
+
+@use '@angular/material' as mat;
+@use '../../lib/theme.scss' as theme;
+
+// Define variables for height and font-size
+$base-size-percentage: 100%; // Start with 100% for size 1
+$size-step-percentage: 50%; // Increase by 10% per step
+
+// Define a mixin for button states
+@mixin button-states($color, $hover-color, $active-color) {
+  background-color: $color;
+  &:hover {
+    background-color: $hover-color;
+  }
+  &:active {
+    background-color: $active-color;
+  }
+}
+
+// Define a mixin for button sizes with complex logic
+
+@mixin dynamic-size($size) {
+  height: calc(#{$base-size-percentage} + (var(--size) - 1) * #{$size-step-percentage});
+  font-size: calc(#{$base-size-percentage} + (var(--size) - 1) * #{$size-step-percentage});
+}
+
+:host {
+  display: block;
+  padding: 8px;
+}
+
+button {
+  --size: 1;	// Default size
+  @include dynamic-size(var(--size));
+
+}
+
+button-color {
+  @include button-states('blue', 'darkblue', 'violet');
+}
