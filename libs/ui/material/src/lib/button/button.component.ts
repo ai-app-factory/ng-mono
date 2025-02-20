@@ -1,6 +1,16 @@
-import { Component, Input, Output, EventEmitter, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  CUSTOM_ELEMENTS_SCHEMA
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButton, MatButtonModule, MatButtonConfig } from '@angular/material/button';
+import {
+  MatButton,
+  MatButtonModule,
+  MatButtonConfig
+} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BaseComponent } from '../base/base.component';
 @Component({
