@@ -12,7 +12,12 @@ export class BaseComponent {
   @Input() disabled?: boolean = false;
 
   get classes() {
-    const baseClasses = [this.typography, this.shape, 'custom-size', 'custom-color'];
+    const baseClasses =
+      [
+        this.typography,
+        this.shape,
+        'custom-size',
+      ];
     if (this.disabled) {
       baseClasses.push('disabled');
     }
