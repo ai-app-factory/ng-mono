@@ -28,7 +28,7 @@ import { BaseComponent } from '../base/base.component';
 })
 export class ButtonComponent extends BaseComponent {
   @Input() label: string = 'Button Text';
-  @Input() override disabled?: boolean = false;
+  @Input() disabled?: boolean = false;
   @Input() disabledInteractive?: boolean = false;
   @Input() disableRipple?: boolean = false;
   @Input() buttonType:
