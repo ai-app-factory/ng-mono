@@ -79,13 +79,13 @@ importers:
         specifier: ~18.2.0
         version: 18.2.4(chokidar@4.0.1)
       '@angular-eslint/eslint-plugin':
-        specifier: ^18.0.1
+        specifier: ^18.3.0
         version: 18.3.1(@typescript-eslint/utils@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
       '@angular-eslint/eslint-plugin-template':
-        specifier: ^18.0.1
+        specifier: ^18.3.0
         version: 18.3.1(@typescript-eslint/utils@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
       '@angular-eslint/template-parser':
-        specifier: ^18.0.1
+        specifier: ^18.3.0
         version: 18.3.1(eslint@8.57.0)(typescript@5.5.4)
       '@angular/cli':
         specifier: ~18.2.0
