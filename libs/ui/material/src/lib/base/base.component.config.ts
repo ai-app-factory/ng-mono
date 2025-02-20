@@ -51,26 +51,4 @@ export const baseComponentArgs: ArgTypes = {
       type: { summary: 'boolean' },
     }
   },
-  theme: {
-    options: [
-      'light',
-      'dark',
-      'rose-red',
-      'pink-bluegrey',
-      'cyan-orange',
-      'deeppurple-amber',
-      'azure-blue',
-      'indigo-pink',
-      'magenta-violet',
-      'purple-green'
-    ],
-    control: {
-      type: 'radio',
-    },
-    description: 'The theme of the component.',
-    table: {
-      defaultValue: { summary: 'light' },
-      type: { summary: 'string' },
-    }
-  }
 };
