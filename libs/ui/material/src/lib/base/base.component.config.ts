@@ -23,14 +23,6 @@ export const baseComponentArgs: ArgTypes = {
       type: { summary: 'string' },
     }
   },
-  color: {
-    control: 'color',
-    description: 'The color of the component.',
-    table: {
-      defaultValue: { summary: '#6200ea' },
-      type: { summary: 'string' },
-    }
-  },
   size: {
     control: {
       type: 'number',
