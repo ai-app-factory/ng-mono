@@ -5,6 +5,7 @@
   <p>
     <mat-checkbox
       [checked]="task.checked"
+      [ngClass]="classes"
       [indeterminate]="partiallyComplete(i)"
       (change)="update($event.checked, i)"
       [disabled]="task.disabled? task.disabled : false || disabled"
@@ -22,6 +23,7 @@
         <p>
           <mat-checkbox
             [checked]="subtask.checked"
+            [ngClass]="classes"
             (change)="update($event.checked, i, j)"
             [disabled]="subtask.disabled? subtask.disabled : false || disabled"
             [labelPosition]="labelPosition? labelPosition : 'after'"
