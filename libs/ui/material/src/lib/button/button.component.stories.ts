@@ -133,11 +133,11 @@ export const IconButton: Story = {
 /**
  * Story to display a button with a custom color
  */
-export const CustomColor: Story = {
-  args: {
-    color: "#36debd",
-  },
-};
+// export const CustomColor: Story = {
+//   args: {
+
+//   },
+// };
 
 /**
  * Story to display a button with a Pill shape
@@ -145,6 +145,7 @@ export const CustomColor: Story = {
 export const PillShape: Story = {
   args: {
     shape: 'pill',
+
   },
 };
 
@@ -172,7 +173,7 @@ export const CustomLabel: Story = {
 export const FlatButton: Story = {
   args: {
     buttonType: "mat-flat-button",
-    color: "#f6f1f1"
+
   },
 };
 
@@ -183,7 +184,7 @@ export const FlatButton: Story = {
  */
 export const SmallSize: Story = {
   args: {
-    size: 10,
+    size: 14,
   },
 };
 
@@ -231,7 +232,7 @@ export const ButtonTypography: Story = {
 export const StrokedButton: Story = {
   args: {
     buttonType: 'mat-stroked-button',
-    color: "#f4eded"
+
   },
 };
 
@@ -242,7 +243,7 @@ export const MiniFabButton: Story = {
   args: {
     buttonType: 'mat-mini-fab',
     shape: "rounded",
-    color: "primary",
+
     size: 2
   },
 };
@@ -288,8 +289,8 @@ export const WebOutlinedButton: Story = {
  */
 export const WebTonedButton: Story = {
   args: {
-    buttonType: "extended-fab",
-    color: "accent"
+    buttonType: "web-toned-button",
+
   },
 };
 
@@ -300,7 +301,7 @@ export const ExtendedFabButton: Story = {
   args: {
     buttonType: 'extended-fab',
     icon: 'settings',
-    color: "warn"
+
   },
 };
 
@@ -330,7 +331,6 @@ export const DisabledInteractiveButton: Story = {
   args: {
     disabledInteractive: true,
     disabled: true,
-    color: "#efe9e9"
   },
 };
 
