@@ -3,6 +3,7 @@ import { ButtonComponent } from './button.component';
 
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import { baseComponentArgs } from '../base/base.component.config';
 
 /**
  * `ButtonComponent` is a custom button component that can be used in Angular applications.
@@ -13,6 +14,7 @@ const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
   title: 'ButtonComponent',
   argTypes: {
+    ...baseComponentArgs,
     label: {
       control: {
         type: 'text',
