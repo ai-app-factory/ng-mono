@@ -45,7 +45,8 @@ export interface Task {
     }
   ]
 })
-export class CheckBoxComponent extends BaseComponent implements ControlValueAccessor  {
+export class CheckBoxComponent
+  extends BaseComponent implements ControlValueAccessor  {
 
   @Input() displayGroupLabel?: boolean = true;
   @Input() groupLabel?: string = 'To do list';
@@ -82,14 +83,10 @@ export class CheckBoxComponent extends BaseComponent implements ControlValueAcce
     },
   ]);
 
-
-
   private onChange: (value: Task[]) => void = () => {};
 
   registerOnTouched(fn: any): void {
   }
-
-
 
   writeValue(value: Task[]): void {
     this._tasks.set(value);
@@ -113,27 +110,27 @@ export class CheckBoxComponent extends BaseComponent implements ControlValueAcce
   };
 
   onCheckboxChange(event: MatCheckboxChange): void {
-    const task = this._tasks()[0]; // Assuming you want to emit the first task
+    const task = this._tasks()[0];
     this.taskChange.emit({
       ...task,
       checked: event.checked
     });
   }
-  
+
   update(checked: boolean, index: number, subtaskIndex?: number) {
     this._tasks.update(task => {
       if (subtaskIndex === undefined) {
         task[index].checked = checked;
         task[index].subtasks?.forEach(subtask => subtask.checked = checked);
       } else {
-
         task[index].subtasks![subtaskIndex].checked = checked;
-        task[index].checked = task[index].subtasks?.every(subtask => subtask.checked) ?? true;
+        task[index].checked = task[index].subtasks?.every(
+          subtask => subtask.checked
+        ) ?? true;
       }
       this.onChange([...task]);
       this.selectionChange.emit([...task]);
       return [...task];
     });
   }
-
 }
