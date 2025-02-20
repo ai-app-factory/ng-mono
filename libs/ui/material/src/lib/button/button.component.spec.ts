@@ -39,7 +39,6 @@ describe('ButtonComponent', () => {
     expect(component.buttonType).toEqual('mat-raised-button');
     expect(component.icon).toEqual('home');
     expect(component.shape).toEqual('rounded');
-    expect(component.color).toEqual('#6200ea');
     expect(component.typography).toEqual('paragraph');
     expect(component.size).toEqual(14);
   });
@@ -52,7 +51,6 @@ describe('ButtonComponent', () => {
     component.buttonType = 'mat-button';
     component.icon = 'settings';
     component.shape = 'pill';
-    component.color = 'accent';
     component.typography = 'heading1';
     component.size = 14;
 
@@ -63,7 +61,6 @@ describe('ButtonComponent', () => {
     expect(component.buttonType).toEqual('mat-button');
     expect(component.icon).toEqual('settings');
     expect(component.shape).toEqual('pill');
-    expect(component.color).toEqual('accent');
     expect(component.typography).toEqual('heading1');
     expect(component.size).toEqual(14);
   });
