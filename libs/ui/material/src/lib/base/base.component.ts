@@ -8,8 +8,7 @@ import { Component, Input } from '@angular/core';
 export class BaseComponent {
   @Input() typography: 'heading1' | 'heading2' | 'paragraph' = 'paragraph';
   @Input() shape: 'rounded' | 'square' | 'pill' = 'rounded';
-  @Input() size: number = 14;
-  @Input() disabled?: boolean = false;
+  @Input() size: number = 20;
 
   get classes() {
     const baseClasses =
