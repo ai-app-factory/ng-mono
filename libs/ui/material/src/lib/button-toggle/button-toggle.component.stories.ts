@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { ButtonToggleComponent } from './button-toggle.component';
-
+import { baseComponentArgs } from '../base/base.component.config';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
@@ -11,6 +11,7 @@ const meta: Meta<ButtonToggleComponent> = {
   component: ButtonToggleComponent,
   title: 'ButtonToggleComponent',
   argTypes: {
+    ...baseComponentArgs,
     displayGroupLabel: {
       control: {
         type: 'boolean',
@@ -146,49 +147,6 @@ const meta: Meta<ButtonToggleComponent> = {
         },
       },
     },
-    color: {
-      control: {
-        type: 'color',
-      },
-      description: 'The color of the button toggle',
-      table: {
-        type: {
-          summary: 'string',
-        },
-        defaultValue: {
-          summary: '#000000',
-        }
-      },
-    },
-    typography: {
-      options: [ 'heading1', 'heading2', 'paragraph' ],
-      control: {
-        type: 'radio',
-      },
-      description: 'The typography of the button toggle',
-      table: {
-        type: {
-          summary: 'string',
-        },
-        defaultValue: {
-          summary: 'paragraph',
-        }
-      },
-    },
-    size: {
-      control: {
-        type: 'number',
-      },
-      description: 'The size of the button toggle',
-      table: {
-        type: {
-          summary: 'number',
-        },
-        defaultValue: {
-          summary: '16',
-        }
-      },
-    }
   }
 };
 export default meta;
