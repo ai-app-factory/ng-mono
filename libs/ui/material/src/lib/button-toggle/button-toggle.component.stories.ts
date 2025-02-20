@@ -184,6 +184,7 @@ export const HideSelectionIndicator: Story = {
 export const DisabledInteractive: Story = {
   args: {
     disabledInteractive: true,
+    disabled: true
   },
 };
 
