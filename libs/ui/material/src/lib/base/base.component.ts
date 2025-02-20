@@ -15,7 +15,7 @@ export class BaseComponent {
       [
         this.typography,
         this.shape,
-        'custom-size',
+        this.size,
       ];
     return baseClasses;
   }
