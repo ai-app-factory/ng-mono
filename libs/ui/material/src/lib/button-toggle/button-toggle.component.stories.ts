@@ -165,6 +165,7 @@ export const Disabled: Story = {
 export const Vertical: Story = {
   args: {
     vertical: true,
+
   },
 };
 
@@ -189,7 +190,7 @@ export const DisabledInteractive: Story = {
 export const CustomLabels: Story = {
   args: {
     buttonToggleLabels: ['One', 'Two', 'Three'],
-    color: "#ca9191",
+
     size: 30
   },
 };
