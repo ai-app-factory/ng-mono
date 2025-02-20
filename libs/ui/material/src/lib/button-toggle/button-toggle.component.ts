@@ -37,7 +37,7 @@ export class ButtonToggleComponent extends BaseComponent {
     this._buttonToggleLabels.set(value);
   }
 
-  @Input() override disabled?: boolean = false;
+  @Input() disabled?: boolean = false;
   @Input() hideSelectionIndicator?: boolean = false;
   @Input() vertical?: boolean = false;
   @Input() disabledInteractive?: boolean = false;
