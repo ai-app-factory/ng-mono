@@ -98,3 +98,51 @@ export const Heading: Story = {
     expect(canvas.getByText('To do list')).toBeVisible();
   },
 };
+
+export const LabelPositionBefore: Story = {
+  args: {
+    labelPosition: "before"
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("To do list")).toBeVisible();
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    labelPosition: "before",
+    disabled: true
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("To do list")).toBeVisible();
+  }
+};
+
+export const CustomGroupLabel: Story = {
+  args: {
+    labelPosition: "before",
+    disabled: false,
+    groupLabel: "My to do list"
+  },
+
+  play: async (
+    {
+      canvasElement
+    }
+  ) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("To do list")).toBeVisible();
+  }
+};
