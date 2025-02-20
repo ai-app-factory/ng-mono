@@ -1,3 +1,38 @@
 @use './themes.scss' as global-themes;
 @use '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+// Define some custom global styles
+.dark-theme {
+  @include mat.all-component-themes(global-themes.$dark-theme);
+  @include mat.core-theme(global-themes.$dark-theme);
+  @include mat.all-component-colors(global-themes.$dark-theme);
+}
+
+.light-theme {
+  @include mat.all-component-themes(global-themes.$light-theme);
+  @include mat.core-theme(global-themes.$light-theme);
+  @include mat.all-component-colors(global-themes.$light-theme);
+}
+
+.rose-red {
+  @include mat.all-component-themes(global-themes.$rose-red);
+  @include mat.core-theme(global-themes.$rose-red);
+  @include mat.all-component-colors(global-themes.$rose-red);
+}
+
+.cyan-orange {
+  @include mat.all-component-themes(global-themes.$cyan-orange);
+  @include mat.core-theme(global-themes.$cyan-orange);
+  @include mat.all-component-colors(global-themes.$cyan-orange);
+}
+
+
+// Default theme
+html {
+  color-scheme: light dark;
+  @include mat.all-component-themes(global-themes.$dark-theme);
+  @include mat.core-theme(global-themes.$dark-theme);
+  @include mat.all-component-colors(global-themes.$dark-theme);
+}
