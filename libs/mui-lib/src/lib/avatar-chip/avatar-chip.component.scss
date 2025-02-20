@@ -1,11 +1,7 @@
 // avatar-chip.component.scss
 @use '@angular/material' as mat;
-@use '../../lib/theme.scss' as *;
-
-
 
 :host {
-    @include mat.all-component-themes($dark-theme);
     display: block;
     padding: 8px;
   }

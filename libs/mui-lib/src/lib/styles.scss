@@ -1,2 +1,63 @@
+@use '@angular/material' as mat;
+@use './theme.scss' as theme;
+
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import '@angular/material/prebuilt-themes/rose-red.css';
+
+@include mat.core();
+
+html {
+    @include mat.all-component-themes(theme.$dark-theme);
+    @include mat.core-theme(theme.$dark-theme);
+    @include mat.all-component-colors(theme.$dark-theme);
+  }
+
+.light-theme {
+    @include mat.all-component-themes(theme.$light-theme);
+    @include mat.core-theme(theme.$light-theme);
+    @include mat.all-component-colors(theme.$light-theme);
+  }
+  
+.dark-theme {
+    @include mat.all-component-themes(theme.$dark-theme);
+    @include mat.core-theme(theme.$dark-theme);
+    @include mat.all-component-colors(theme.$dark-theme);
+  }
+  
+.my-app-theme {
+    @include mat.all-component-themes(theme.$my-app-theme);
+    @include mat.core-theme(theme.$my-app-theme);
+    @include mat.all-component-colors(theme.$my-app-theme);
+  
+  }
+  
+.azure-blue {
+    @import '~@angular/material/prebuilt-themes/azure-blue.css';
+  }
+  
+.cyan-orange {
+    @import '~@angular/material/prebuilt-themes/cyan-orange.css';
+  }
+  
+.indigo-pink {
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+}
+
+.deeppurple-amber {
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+}
+
+.pink-bluegrey {
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+}
+
+.magneta-violet {
+@import '~@angular/material/prebuilt-themes/magneta-violet.css';
+}
+  
+  .purple-green {
+    @import '~@angular/material/prebuilt-themes/purple-green.css';
+  }
+  
+  .rose-red {
+    @import '~@angular/material/prebuilt-themes/rose-red.css';
+  }

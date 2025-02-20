@@ -4,10 +4,11 @@
 
 $pallete: mat.$spring-green-palette;
 
+
 $dark-theme: mat.define-theme((
   color: (
     theme-type: dark,
-    primary: $pallete,
+    primary: mat.$violet-palette,
     tertiary: mat.$orange-palette,
   ),
   typography: (
@@ -16,10 +17,19 @@ $dark-theme: mat.define-theme((
 
 ));
 
+
 // Define a light theme
 $light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$orange-palette,
+  ),
+));
+
+$my-app-theme: mat.define-theme((
   color: (
     theme-type: light,
     primary: $pallete,
   ),
 ));
+
