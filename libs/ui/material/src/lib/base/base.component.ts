@@ -17,9 +17,6 @@ export class BaseComponent {
         this.shape,
         'custom-size',
       ];
-    if (this.disabled) {
-      baseClasses.push('disabled');
-    }
     return baseClasses;
   }
 
