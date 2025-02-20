@@ -89,48 +89,7 @@ const meta: Meta<ButtonComponent> = {
         type: { summary: 'string' },
       }
     },
-    shape: {
-      options: ['rounded', 'square', 'pill'],
-      control: {
-        type: 'radio',
 
-      },
-      description: 'The shape of the button.',
-      table: {
-        defaultValue: { summary: 'rounded' },
-        type: { summary: 'string' },
-      }
-    },
-    color: {
-      control: 'color',
-      description: 'The color of the button.',
-      table: {
-        defaultValue: { summary:  '#6200ea' },
-        type: { summary: 'string' },
-      }
-    },
-    typography: {
-      options: ['heading1', 'heading2', 'paragraph'],
-      control: {
-        type: 'radio',
-      },
-      description: 'The typography of the button.',
-      table: {
-        defaultValue: { summary: 'button' },
-        type: { summary: 'string' },
-      }
-    },
-    size: {
-
-      control: {
-        type: 'number',
-      },
-      description: 'The size of the button.',
-      table: {
-        defaultValue: { summary: 'medium' },
-        type: { summary: 'number' },
-      }
-    },
   }
 };
 export default meta;
