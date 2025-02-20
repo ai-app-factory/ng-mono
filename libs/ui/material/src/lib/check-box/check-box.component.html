@@ -1,5 +1,5 @@
 @if (displayGroupLabel? displayGroupLabel : false) {
-  <h4>{{ groupLabel }}</h4>
+  {{ groupLabel }}
 }
 @for (task of _tasks(); track task; let i = $index) {
   <p>
