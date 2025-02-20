@@ -29,16 +29,6 @@
     font-size: inherit;
   }
 
-  &.custom-color {
-    background-color: inherit;
-    color: inherit;
-  }
-
-  &.disabled {
-    background-color: gray !important;
-    color: lightgray !important;
-    cursor: not-allowed;
-  }
 }
 
 :host {
