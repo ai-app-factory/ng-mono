@@ -8,6 +8,9 @@ $dark-theme: mat.define-theme((
     primary: mat.$green-palette,
     tertiary: mat.$orange-palette,
   ),
+  density: (
+    scale: 0,
+  ),
 ));
 
 $light-theme: mat.define-theme((
