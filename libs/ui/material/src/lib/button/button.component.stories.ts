@@ -253,7 +253,8 @@ export const MiniFabButton: Story = {
  */
 export const FabButton: Story = {
   args: {
-    buttonType: 'mat-fab'
+    buttonType: 'mat-fab',
+    size: 0
   },
 };
 
