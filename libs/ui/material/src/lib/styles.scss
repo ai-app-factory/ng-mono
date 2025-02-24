@@ -26,13 +26,28 @@
   @include mat.all-component-themes(global-themes.$cyan-orange);
   @include mat.core-theme(global-themes.$cyan-orange);
   @include mat.all-component-colors(global-themes.$cyan-orange);
+  color: #000000; // Ensure text is readable on light background
+}
+
+.orange-red {
+  @include mat.all-component-themes(global-themes.$orange-red);
+  @include mat.core-theme(global-themes.$orange-red);
+  @include mat.all-component-colors(global-themes.$orange-red);
+  color: #ffffff; // Ensure text is readable on dark background
+}
+
+.azure-blue {
+  @include mat.all-component-themes(global-themes.$azure-blue);
+  @include mat.core-theme(global-themes.$azure-blue);
+  @include mat.all-component-colors(global-themes.$azure-blue);
+  color: #000000; // Ensure text is readable on light background
+}
+
+.magenta-violet {
+  @include mat.all-component-themes(global-themes.$magenta-violet);
+  @include mat.core-theme(global-themes.$magenta-violet);
+  @include mat.all-component-colors(global-themes.$magenta-violet);
+  color: #ffffff; // Ensure text is readable on dark background
 }
 
 
-// Default theme
-html {
-  // color-scheme: light dark;
-  @include mat.all-component-themes(global-themes.$dark-theme);
-  @include mat.core-theme(global-themes.$dark-theme);
-  @include mat.all-component-colors(global-themes.$dark-theme);
-}
