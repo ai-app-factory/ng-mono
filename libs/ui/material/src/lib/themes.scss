@@ -11,6 +11,14 @@ $dark-theme: mat.define-theme((
   density: (
     scale: 0,
   ),
+  typography: (
+    plain-family: Roboto,
+    brand-family: Open Sans,
+    bold-weight: 900,
+    medium-weight: 500,
+    regular-weight: 300,
+
+  )
 ));
 
 $light-theme: mat.define-theme((
@@ -22,6 +30,14 @@ $light-theme: mat.define-theme((
   density: (
     scale: 0,
   ),
+  typography: (
+    plain-family: Roboto,
+    brand-family: Open Sans,
+    bold-weight: 900,
+    medium-weight: 500,
+    regular-weight: 300,
+
+  )
 ));
 
 $rose-red: mat.define-theme((
@@ -33,6 +49,14 @@ $rose-red: mat.define-theme((
   density: (
     scale: 0,
   ),
+  typography: (
+    plain-family: Roboto,
+    brand-family: Open Sans,
+    bold-weight: 900,
+    medium-weight: 500,
+    regular-weight: 300,
+
+  )
 ));
 
 $cyan-orange: mat.define-theme((
