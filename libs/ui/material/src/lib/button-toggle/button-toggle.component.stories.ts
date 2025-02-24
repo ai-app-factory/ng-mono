@@ -165,13 +165,14 @@ export const Disabled: Story = {
 export const Vertical: Story = {
   args: {
     vertical: true,
-
+    size: 0
   },
 };
 
 export const MultipleSelection: Story = {
   args: {
     selection: 'multiple',
+    size: 0
   },
 };
 
@@ -192,19 +193,21 @@ export const CustomLabels: Story = {
   args: {
     buttonToggleLabels: ['One', 'Two', 'Three'],
 
-    size: 30
+    size: 0
   },
 };
 
 export const NoGroupLabel: Story = {
   args: {
     displayGroupLabel: false,
+    size: 0
   },
 };
 
 export const NoSelectedOptions: Story = {
   args: {
     displaySelectedOptions: false,
+    size: 0
   },
 };
 
