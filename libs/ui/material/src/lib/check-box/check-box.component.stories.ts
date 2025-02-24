@@ -143,6 +143,6 @@ export const CustomGroupLabel: Story = {
     }
   ) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText("To do list")).toBeVisible();
+    expect(canvas.getByText("My to do list")).toBeVisible();
   }
 };
