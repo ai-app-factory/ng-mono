@@ -8,18 +8,21 @@
   @include mat.all-component-themes(global-themes.$dark-theme);
   @include mat.core-theme(global-themes.$dark-theme);
   @include mat.all-component-colors(global-themes.$dark-theme);
+  color: #ffffff; // Ensure text is readable on dark background
 }
 
 .light-theme {
   @include mat.all-component-themes(global-themes.$light-theme);
   @include mat.core-theme(global-themes.$light-theme);
   @include mat.all-component-colors(global-themes.$light-theme);
+  color: #ffffff; // Ensure text is readable on light background
 }
 
 .rose-red {
   @include mat.all-component-themes(global-themes.$rose-red);
   @include mat.core-theme(global-themes.$rose-red);
   @include mat.all-component-colors(global-themes.$rose-red);
+  color: #ffffff; // Ensure text is readable on dark background
 }
 
 .cyan-orange {
