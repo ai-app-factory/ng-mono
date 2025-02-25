@@ -69,4 +69,43 @@ export class ChipComponent {
     'with-input' |
     'stacked' = 'basic';
 
+  @Input() set chips(chips: Chip[]) {
+    this._chips.set(chips);
+  }
+
+  protected _chips = signal<Chip[]>(
+    [
+      {
+        label: 'Shiba Inu',
+        removable: true,
+        withAvatar: true,
+        avatar: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        avatarAlt: 'Shiba Inu',
+        disabled: false,
+        selectable: true,
+        editable: false
+      },
+      {
+        label: 'Labrador',
+        removable: true,
+        withAvatar: true,
+        avatar: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+        avatarAlt: 'Labrador',
+        disabled: true,
+        selectable: true,
+        editable: false
+      },
+      {
+        label: 'Golden Retriever',
+        removable: true,
+        withAvatar: true,
+        avatar: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        avatarAlt: 'Golden Retriever',
+        disabled: false,
+        selectable: true,
+        editable: true
+      },
+    ]
+  );
+
 }
