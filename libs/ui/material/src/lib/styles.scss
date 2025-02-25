@@ -9,34 +9,39 @@
   @include mat.core-theme(global-themes.$dark-theme);
   @include mat.all-component-colors(global-themes.$dark-theme);
   color: #ffffff; // Ensure text is readable on dark background
+  background: #000000;
 }
 
 .light-theme {
   @include mat.all-component-themes(global-themes.$light-theme);
   @include mat.core-theme(global-themes.$light-theme);
   @include mat.all-component-colors(global-themes.$light-theme);
-  color: #ffffff; // Ensure text is readable on light background
+  color: #000000; // Ensure text is readable on light background
+  background: #ffffff;
 }
 
 .rose-red {
   @include mat.all-component-themes(global-themes.$rose-red);
   @include mat.core-theme(global-themes.$rose-red);
   @include mat.all-component-colors(global-themes.$rose-red);
-  color: #ffffff; // Ensure text is readable on dark background
+  color: #000000; // Ensure text is readable on dark background
+  background: #ffffff;
 }
 
 .cyan-orange {
   @include mat.all-component-themes(global-themes.$cyan-orange);
   @include mat.core-theme(global-themes.$cyan-orange);
   @include mat.all-component-colors(global-themes.$cyan-orange);
-  color: #000000; // Ensure text is readable on light background
+  color: #ffffff; // Ensure text is readable on light background
+  background: #000000;
 }
 
 .orange-red {
   @include mat.all-component-themes(global-themes.$orange-red);
   @include mat.core-theme(global-themes.$orange-red);
   @include mat.all-component-colors(global-themes.$orange-red);
-  color: #ffffff; // Ensure text is readable on dark background
+  color: #000000; // Ensure text is readable on dark background
+  background: #ffffff;
 }
 
 .azure-blue {
@@ -44,6 +49,7 @@
   @include mat.core-theme(global-themes.$azure-blue);
   @include mat.all-component-colors(global-themes.$azure-blue);
   color: #000000; // Ensure text is readable on light background
+  background: #ffffff;
 }
 
 .magenta-violet {
@@ -51,6 +57,5 @@
   @include mat.core-theme(global-themes.$magenta-violet);
   @include mat.all-component-colors(global-themes.$magenta-violet);
   color: #ffffff; // Ensure text is readable on dark background
+  background: #000000;
 }
-
-
