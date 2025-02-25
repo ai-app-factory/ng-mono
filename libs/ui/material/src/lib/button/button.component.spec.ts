@@ -82,5 +82,11 @@ describe('ButtonComponent', () => {
     expect(component.size).toEqual(14);
   });
 
+  it('should not be clicked when disabled', () => {
+    component.disabled = true;
+    const buttonClickSpy = jest.spyOn(component.buttonClick, 'emit');
+    expect(buttonClickSpy).not.toHaveBeenCalled();
+  });
+
 
 });
