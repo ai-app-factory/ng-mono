@@ -45,8 +45,28 @@ export interface Chip {
 @Component({
   selector: 'lib-chip',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatChipsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CdkDropList,
+    CdkDrag
+  ],
   templateUrl: './chip.component.html',
   styleUrl: './chip.component.scss',
 })
-export class ChipComponent {}
+export class ChipComponent {
+  @Input() disableRipple: boolean = false;
+  @Input() hideSingleSelectionIndicator?: boolean = false;
+  @Input() multipleSelection?: boolean = false;
+  @Input() chipType?:
+    'basic' |
+    'with-drag-drop' |
+    'with-input' |
+    'stacked' = 'basic';
+
+}
