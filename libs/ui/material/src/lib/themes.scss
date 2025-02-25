@@ -41,8 +41,8 @@ $light-theme: mat.define-theme((
 $rose-red: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$red-palette,
-    tertiary: mat.$rose-palette,
+    primary: mat.$rose-palette,
+    tertiary: mat.$red-palette,
   ),
   density: (
     scale: 0,
