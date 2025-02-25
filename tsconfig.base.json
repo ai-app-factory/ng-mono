@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-mono/material": ["libs/ui/material/src/index.ts"],
       "@ng-mono/ui-lib": ["libs/ui-lib/src/index.ts"]
     }
   },
