@@ -1,1 +1,71 @@
-<p>stepper works!</p>
+@if (orientation === 'horizontal'){
+    <mat-horizontal-stepper
+        #stepper
+        [linear]="linear"
+        (selectionChange)="onStepChange($event.selectedIndex)"
+        [disableRipple]="disableRipple"
+        [labelPosition]="labelPosition"
+        [headerPosition]="headerPosition">
+
+        @for (question of _questions(); track question; let i = $index){
+            <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
+                <form [formGroup]="question.formControl">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ question.placeholder }}</mat-label>
+                        <input matInput [formGroup]="question.formControl" />
+                    </mat-form-field>
+                    <div>
+                        @if (i > 0) {
+                            <button mat-button matStepperPrevious type="button">Back</button>
+                        }
+                        @if (i < _questions().length) {
+                            <button mat-button matStepperNext type="button">Next</button>
+                        }
+                    </div>
+                </form>
+            </mat-step>
+        }
+        <mat-step label="Summary">
+            <p>Thank You!</p>
+            <div>
+                <button mat-button matStepperPrevious type="button">Back</button>
+                <button mat-button type="button" (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+} @else {
+    <mat-vertical-stepper
+        #stepper
+        [linear]="linear"
+        (selectionChange)="onStepChange($event.selectedIndex)"
+        [disableRipple]="disableRipple">
+
+        @for (question of _questions(); track question; let i = $index){
+            <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
+                <form [formGroup]="question.formControl">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ question.placeholder }}</mat-label>
+                        <input matInput [formGroup]="question.formControl" />
+                    </mat-form-field>
+                    @if (i > 0) {
+                        <button mat-button matStepperPrevious>Back</button>
+                    }
+                    @if (i < _questions().length) {
+                        <button mat-button matStepperNext>Next</button>
+                    }
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+        }
+        <mat-step label="Summary">
+            <p>Thank You!</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+}
