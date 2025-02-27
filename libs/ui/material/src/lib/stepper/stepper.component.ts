@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule, FormControl, AbstractControl, Validat
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
 
-export interface Question {
+export interface Step {
   label: string;
   placeholder: string;
   formControl: FormGroup;
@@ -55,11 +55,11 @@ export class StepperComponent {
   @Input() labelPosition: 'bottom' | 'end' = 'end';
   @Input() headerPosition: 'top' | 'bottom' = 'top';
 
-  @Input() set questions(questions: Question[]) {
-    this._questions.set(questions);
+  @Input() set steps(steps: Step[]) {
+    this._steps.set(steps);
   }
 
-  protected _questions = signal<Question[]>([
+  protected _steps = signal<Step[]>([
     {
       label: 'What is your name?',
       placeholder: 'Name',
@@ -84,16 +84,16 @@ export class StepperComponent {
   ]);
 
   @Output() stepChange = new EventEmitter<number>();
-  @Output() completionChange = new EventEmitter<Question[]>();
+  @Output() completionChange = new EventEmitter<Step[]>();
 
   constructor(private _formBuilder: FormBuilder) {}
 
   onStepChange(index: number): void {
-    const currentQuestion = this._questions()[index];
+    const currentQuestion = this._steps()[index];
     this.stepChange.emit(index);
   }
 
   onCompletion(): void {
-    this.completionChange.emit(this._questions());
+    this.completionChange.emit(this._steps());
   }
 }

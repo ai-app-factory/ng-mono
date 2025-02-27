@@ -8,7 +8,7 @@
             [labelPosition]="labelPosition"
             [headerPosition]="headerPosition">
 
-            @for (question of _questions(); track question; let i = $index){
+            @for (question of _steps(); track question; let i = $index){
                 <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
                     <form [formGroup]="question.formControl">
                         <mat-form-field appearance="fill">
@@ -19,7 +19,7 @@
                             @if (i > 0) {
                                 <button mat-button matStepperPrevious type="button">Back</button>
                             }
-                            @if (i < _questions().length) {
+                            @if (i < _steps().length) {
                                 <button mat-button matStepperNext type="button">Next</button>
                             }
                         </div>
@@ -42,7 +42,7 @@
             (selectionChange)="onStepChange($event.selectedIndex)"
             [disableRipple]="disableRipple">
 
-            @for (question of _questions(); track question; let i = $index){
+            @for (question of _steps(); track question; let i = $index){
                 <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
                     <form [formGroup]="question.formControl">
                         <mat-form-field appearance="fill">
@@ -52,7 +52,7 @@
                         @if (i > 0) {
                             <button mat-button matStepperPrevious>Back</button>
                         }
-                        @if (i < _questions().length) {
+                        @if (i < _steps().length) {
                             <button mat-button matStepperNext>Next</button>
                         }
                         <div>
