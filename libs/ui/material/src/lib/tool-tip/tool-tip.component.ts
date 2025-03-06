@@ -1,11 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
+import {CdkScrollable} from '@angular/cdk/scrolling';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'lib-tool-tip',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CdkScrollable,
+    MatButtonModule,
+    MatTooltipModule,
+  ],
   templateUrl: './tool-tip.component.html',
   styleUrl: './tool-tip.component.scss',
 })
-export class ToolTipComponent {}
+export class ToolTipComponent {
+  @Input() tool: string = 'Tool';
+  @Input() tip: string = 'Tip about how to use the tool';
+  @Input() position: TooltipPosition = 'below';
+  @Input() disabled: boolean = false;
+  @Input() showDelay: number = 1000;
+  @Input() hideDelay: number = 10000;
+}
