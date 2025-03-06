@@ -42,6 +42,7 @@ Thumbs.db
 .nx/workspace-data
 
 .angular
-
+/libs/*/docs/
+/libs/*/*/docs/
 
 storybook-static
