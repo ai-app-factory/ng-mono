@@ -22,7 +22,19 @@
         "port": 4400,
         "configDir": "libs/ui/mui-latest/.storybook",
         "browserTarget": "mui-latest:build-storybook",
-        "compodoc": false
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/mui-latest/docs"
+        ],
+        "styles": [
+          "libs/ui/mui-latest/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/mui-latest/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
@@ -37,7 +49,19 @@
         "outputDir": "dist/storybook/mui-latest",
         "configDir": "libs/ui/mui-latest/.storybook",
         "browserTarget": "mui-latest:build-storybook",
-        "compodoc": false
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/mui-latest/docs"
+        ],
+        "styles": [
+          "libs/ui/mui-latest/src/lib/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/mui-latest/src/lib"]
+        }
       },
       "configurations": {
         "ci": {
