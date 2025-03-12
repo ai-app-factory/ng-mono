@@ -1,0 +1,47 @@
+@mixin base-styles {
+  &.h1 {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  &.h2 {
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  &.h3 {
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  &.h4 {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  
+  &.p {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  &.rounded {
+    border-radius: 8px;
+  }
+  &.square {
+    border-radius: 0;
+  }
+  &.pill {
+    border-radius: 50px;
+  }
+
+  &.custom-size {
+    padding: inherit;
+    font-size: inherit;
+  }
+
+}
+
+:host {
+  @include base-styles;
+}
