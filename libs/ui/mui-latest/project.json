@@ -34,7 +34,8 @@
         ],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/mui-latest/src/lib"]
-        }
+        },
+        "experimentalZoneless": true
       },
       "configurations": {
         "ci": {
@@ -61,7 +62,8 @@
         ],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/mui-latest/src/lib"]
-        }
+        },
+        "experimentalZoneless": true
       },
       "configurations": {
         "ci": {
