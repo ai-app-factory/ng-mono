@@ -1,0 +1,6 @@
+@use '../base/base.component' as base;
+
+
+button {
+  @include base.base-styles;
+}
