@@ -1,1 +1,110 @@
-<p>button works!</p>
+@switch (buttonType) {
+  @case ('raised') {
+    <button
+      mat-raised-button
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('flat') {
+    <button
+      mat-flat-button
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('stroked') {
+    <button
+      mat-stroked-button
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('icon') {
+    <button
+      mat-icon-button
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('fab') {
+    <button
+      mat-fab
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('mini-fab') {
+    <button
+      mat-mini-fab
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('basic') {
+    <button
+      mat-button
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      {{ label }}
+    </button>
+  }
+  @case ('extended-fab') {
+    <button
+      mat-fab
+      extended
+      [ngClass]="classes"
+      [ngStyle]="styles"
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+      [disabledInteractive]="disabledInteractive"
+      (click)="onButtonPress()"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+      {{ label }}
+    </button>
+  }
+
+}
