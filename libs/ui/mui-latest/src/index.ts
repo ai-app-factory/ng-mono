@@ -8,3 +8,4 @@ export * from './lib/table/table.component';
 
 export * from './lib/bottom-sheet/bottom-sheet.component';
 
+export * from './lib/button-toggle/button-toggle.component';
