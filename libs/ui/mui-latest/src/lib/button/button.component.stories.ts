@@ -11,6 +11,79 @@ import { baseComponentArgs } from '../base/base.component.args';
 const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
   title: 'ButtonComponent',
+  argTypes: {
+    ...baseComponentArgs,
+    label: {
+      control: {
+        type: 'text',
+      },
+      description: 'The text to display on the button.',
+      table: {
+        defaultValue: { summary: 'Button Text' },
+        type: { summary: 'string' },
+      }
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Whether the button is disabled.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    disabledInteractive: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Whether the button is interactive when disabled.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    disableRipple: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Whether the button has a ripple effect.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    icon: {
+      control: {
+        type: 'text',
+      },
+      description: 'The icon to display on the button.',
+      table: {
+        defaultValue: { summary: 'home' },
+        type: { summary: 'string' },
+      }
+    },
+    buttonType: {
+      options: [
+        'basic',
+        'raised',
+        'fab',
+        'mini-fab',
+        'stroked',
+        'flat',
+        'icon',
+        'extended-fab',
+      ],
+      control: {
+        type: 'select',
+      },
+      description: 'The type of button to display.',
+      table: {
+        defaultValue: { summary: 'raised' },
+        type: { summary: 'string' },
+      }
+    }
+  }
 };
 export default meta;
 type Story = StoryObj<ButtonComponent>;
