@@ -1,8 +1,8 @@
-/* import { Component, AfterViewInit, ViewChild, Input  } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Input  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { PeriodicElement, ELEMENT_DATA } from './models/element-data';
+import { PeriodicElement, ELEMENT_DATA } from './data/element-data';
 
 @Component({
   selector: 'lib-table',
@@ -28,4 +28,4 @@ export class TableComponent implements AfterViewInit {
   }
 
 
-} */
+}
