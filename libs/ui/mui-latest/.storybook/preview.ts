@@ -8,9 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import DocumentationTemplate from './DocumentationTemplate.mdx';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../docs/documentation.json';
-// Enable experimental zoneless mode
-import { provideExperimentalZonelessChangeDetection, importProvidersFrom, ApplicationConfig } from '@angular/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
 // Set up compdoc
 setCompodocJson(docJson);
 
@@ -37,7 +34,6 @@ export const decorators = [
       MatInputModule,
       MatIconModule,
     ],
-    
   }),
   withTheme
 ];
@@ -78,13 +74,6 @@ const preview: Preview = {
     docs: {
       toc: true,
       page: DocumentationTemplate,
-    },
-    angular: {
-      appConfig: {
-        providers: [
-          provideExperimentalZonelessChangeDetection(),
-        ],
-      } as ApplicationConfig,
     },
   },
 };
