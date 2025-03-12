@@ -1,1 +1,11 @@
-<p>tool-tip works!</p>
+<button
+  mat-raised-button #tooltip="matTooltip"
+  matTooltip="{{tip}}"
+  [matTooltipPosition]="position"
+  [matTooltipHideDelay]="hideDelay"
+  [matTooltipShowDelay]="showDelay"
+  [disabled]="disabled"
+  class="example-button"
+>
+  {{tool}}
+</button>
