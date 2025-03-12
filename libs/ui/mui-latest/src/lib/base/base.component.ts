@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'lib-base',
   imports: [CommonModule],
-  templateUrl: './base.component.html',
+  template: '',
   styleUrl: './base.component.scss',
 })
 export class BaseComponent {}
