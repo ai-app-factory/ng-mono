@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import DocumentationTemplate from './DocumentationTemplate.mdx';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../docs/documentation.json';
+import { provideNativeDateAdapter } from '@angular/material/core';
 // Set up compdoc
 setCompodocJson(docJson);
 
@@ -33,6 +34,9 @@ export const decorators = [
       MatFormFieldModule,
       MatInputModule,
       MatIconModule,
+    ],
+    providers: [
+      provideNativeDateAdapter()
     ],
   }),
   withTheme
