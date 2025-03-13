@@ -1,1 +1,55 @@
-<p>button-toggle works!</p>
+@if (displayGroupLabel? displayGroupLabel : false) {
+  <h4>{{groupLabel}}</h4>
+}
+
+@switch (selection) {
+  @case ('single') {
+    <mat-button-toggle-group
+      [vertical]="vertical? vertical : false"
+      [disabledInteractive]="disabledInteractive? disabledInteractive : false"
+      [disabled]="disabled ? disabled : false"
+      [hideSingleSelectionIndicator]="hideSelectionIndicator? hideSelectionIndicator : false"
+      [(ngModel)]="selectedOption"
+    >
+    @if (buttonToggleLabels.length) {
+      @for (option of buttonToggleLabels; track option) {
+        <mat-button-toggle
+          [value]="option"
+        >
+          {{option}}
+        </mat-button-toggle>
+      }
+    }
+    </mat-button-toggle-group>
+  }
+  @case ('multiple') {
+    <mat-button-toggle-group
+      [vertical]="vertical"
+      [disabled]="disabled ? disabled : false"
+      [disabledInteractive]="disabledInteractive ? disabledInteractive : false"
+      [multiple]="true"
+      [hideMultipleSelectionIndicator]="hideSelectionIndicator? hideSelectionIndicator : false"
+      [(ngModel)]="selectedOptions"
+    >
+      @if (buttonToggleLabels.length) {
+        @for (option of buttonToggleLabels; track option) {
+          <mat-button-toggle
+            [value]="option"
+          >
+            {{option}}
+          </mat-button-toggle>
+        }
+      }
+    </mat-button-toggle-group>
+  }
+}
+@if (displaySelectedOptions) {
+  <div>
+    @if (selection === 'single') {
+      <p>Selected option: {{selectedOption}}</p>
+    }
+    @else {
+      <p>Selected options: {{selectedOptions}}</p>
+    }
+  </div>
+}
