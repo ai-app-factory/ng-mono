@@ -103,8 +103,6 @@ export class CheckBoxComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
   }
 
-
-
   writeValue(value: Task[]): void {
     this._tasks.set(value);
   }
