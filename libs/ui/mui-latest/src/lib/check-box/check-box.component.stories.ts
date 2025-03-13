@@ -97,3 +97,43 @@ export const Heading: Story = {
     const canvas = within(canvasElement);
   },
 };
+
+export const LabelPositionBefore: Story = {
+  args: {
+    labelPosition: "before"
+  }
+};
+
+export const WithoutGroupLabel: Story = {
+  args: {
+    labelPosition: "before",
+    displayGroupLabel: false
+  }
+};
+
+export const AllDisabled: Story = {
+  args: {
+    labelPosition: "after",
+    displayGroupLabel: false,
+    disabled: true
+  }
+};
+
+export const DisabledInteractive: Story = {
+  args: {
+    labelPosition: "after",
+    displayGroupLabel: true,
+    disabled: true,
+    disabledInteractive: true
+  }
+};
+
+export const RippleDisabled: Story = {
+  args: {
+    labelPosition: "after",
+    displayGroupLabel: true,
+    disabled: false,
+    disabledInteractive: true,
+    disableRipple: true
+  }
+};
