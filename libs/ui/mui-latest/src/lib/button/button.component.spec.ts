@@ -6,9 +6,9 @@ import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { jest } from '@jest/globals';
 // This test is using the Angular Material Testing Harness
-let loader: HarnessLoader;
+
 describe('ButtonComponent tests with Material Harness', () => {
-  let component: ButtonComponent;
+  let loader: HarnessLoader;
   let fixture: ComponentFixture<ButtonComponent>;
 
   beforeEach(async () => {
