@@ -12,6 +12,106 @@ import { within } from '@storybook/testing-library';
 const meta: Meta<ChipComponent> = {
   component: ChipComponent,
   title: 'ChipComponent',
+  argTypes: {
+    groupLabel: {
+      control: {type: 'text'},
+      description: 'The label of the chip group',
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'string' },
+      }
+    },
+    removable: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips are removable',
+      table: {
+        defaultValue: { summary: 'true' },
+        type: { summary: 'boolean' },
+      }
+    },
+    disabled: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips are disabled',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    selectable: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips are selectable',
+      table: {
+        defaultValue: { summary: 'true' },
+        type: { summary: 'boolean' },
+      }
+    },
+    disableRipple: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips have ripple effect',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    hideSelectionIndicator: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips hide the single selection indicator',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    multipleSelection: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips allow multiple selection',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    chipType: {
+      options: ['basic', 'with-drag-drop', 'with-input', 'stacked'],
+      control: {type: 'radio' },
+      description: 'The type of chips',
+      table: {
+        defaultValue: { summary: 'basic' },
+        type: { summary: 'basic | with-drag-drop | with-input | stacked' },
+      }
+    },
+    editable: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips are editable',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    withAvatar: {
+      control: {type: 'boolean'},
+      description: 'Whether the chips have avatars',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    dropListOrientation: {
+      options: ['horizontal', 'vertical'],
+      control: {type: 'radio' },
+      description: 'The orientation of the chips',
+      table: {
+        defaultValue: { summary: 'horizontal' },
+        type: { summary: 'horizontal | vertical' },
+      }
+    },
+    chips: {
+      control: {type: 'object'},
+      description: 'The chips',
+      table: {
+        defaultValue: { summary: '[]' },
+        type: { summary: 'Chip[]' },
+      }
+    },
+  }
 };
 export default meta;
 type Story = StoryObj<ChipComponent>;
