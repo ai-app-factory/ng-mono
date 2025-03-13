@@ -3,6 +3,10 @@ import { CheckBoxComponent } from './check-box.component';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
+/**
+ * The `CheckBoxComponent` is a component that displays a list of tasks with checkboxes.
+ * This is the enhanced version of the Angular Material Checkbox.
+ */
 const meta: Meta<CheckBoxComponent> = {
   component: CheckBoxComponent,
   title: 'CheckBoxComponent',
