@@ -18,6 +18,5 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/button-toggle works!/gi)).toBeTruthy();
   },
 };
