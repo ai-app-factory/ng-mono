@@ -9,7 +9,7 @@
   @include mat.core-theme(global-themes.$dark-theme);
   @include mat.all-component-colors(global-themes.$dark-theme);
   color: #ffffff; // Ensure text is readable on dark background
-  background: #000000;
+  background-color: #000000;
 }
 
 .light-theme {
@@ -17,7 +17,7 @@
   @include mat.core-theme(global-themes.$light-theme);
   @include mat.all-component-colors(global-themes.$light-theme);
   color: #000000; // Ensure text is readable on light background
-  background: #ffffff;
+  background-color: #ffffff;
 }
 
 .rose-red {
