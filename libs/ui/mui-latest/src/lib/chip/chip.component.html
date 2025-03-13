@@ -1,1 +1,132 @@
-<p>chip works!</p>
+@if (displayGroupLabel? displayGroupLabel : false) {
+  <mat-label>{{groupLabel? groupLabel : ''}}</mat-label>
+}
+@switch (chipType) {
+  @case ('with-input') {
+    <mat-form-field>
+      <mat-chip-grid #chipGrid [formControl]="formControl">
+        @for (chip of _chips(); track chip) {
+          <mat-chip-row
+            (removed)="removeChip(chip)"
+            [removable]="chip.removable ? chip.removable : false || removable? removable : false"
+            [editable]="chip.editable? chip.editable : false || editable? editable! : false"
+            [disabled]="chip.disabled? chip.disabled : false || disabled? disabled : false"
+            [disableRipple]="disableRipple? disableRipple : false"
+            (edited)="editChip(chip, $event)"
+          >
+            @if (chip.withAvatar? chip.withAvatar : false || withAvatar? withAvatar : false) {
+              <img
+                matChipAvatar
+                [src]="chip.avatarSrc"
+                [alt]="chip.avatarAlt"
+              />
+            }
+            {{chip.label}}
+            @if (removable) {
+              <button matChipRemove aria-label="'remove ' + chip.label">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            }
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+      <input
+        placeholder="New Chips..."
+        [matChipInputFor]="chipGrid"
+        (matChipInputTokenEnd)="addChip($event)"
+      />
+    </mat-form-field>
+  }
+
+  @case ('stacked') {
+    <mat-chip-listbox
+      class="mat-mdc-chip-set-stacked"
+      [selectable]="selectable? selectable : false"
+      [hideSingleSelectionIndicator]="hideSelectionIndicator? hideSelectionIndicator : false"
+      [multiple]="multipleSelection? multipleSelection : false"
+    >
+      @for (chip of _chips(); track chip) {
+        <mat-chip-option
+          [disableRipple]="disableRipple? disableRipple : false"
+          [disabled]="chip.disabled? chip.disabled : false || disabled? disabled : false"
+          [selectable]="chip.selectable? chip.selectable : false || selectable? selectable : false"
+          (removed)="removeChip(chip)"
+          (selectionChange)="selectionChange(chip, $event)"
+        >
+        @if (chip.withAvatar? chip.withAvatar : false || withAvatar? withAvatar : false) {
+          <img
+            matChipAvatar
+            [src]="chip.avatarSrc"
+            [alt]="chip.avatarAlt"
+          />
+        }
+          {{chip.label}}
+        @if (removable) {
+          <button matChipRemove aria-label="'remove ' + chip.label">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        }
+        </mat-chip-option>
+      }
+    </mat-chip-listbox>
+
+  }
+
+  @case ('with-drag-drop') {
+    <mat-chip-set
+      cdkDropList
+      [cdkDropListOrientation]="dropListOrientation? dropListOrientation : 'horizontal'"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (chip of _chips(); track chip) {
+        <mat-chip-row
+          cdkDrag
+          [disableRipple]="disableRipple"
+          (removed)="removeChip(chip)"
+          [disabled]="chip.disabled || disabled"
+        >
+          @if (chip.withAvatar? chip.withAvatar : false || withAvatar? withAvatar : false) {
+            <img
+              matChipAvatar
+              [src]="chip.avatarSrc"
+              [alt]="chip.avatarAlt"
+            />
+          }
+            {{chip.label}}
+          @if (removable) {
+            <button matChipRemove aria-label="'remove ' + chip.label">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          }
+        </mat-chip-row>
+      }
+    </mat-chip-set>
+  }
+
+  @case ('basic') {
+    <mat-chip-set>
+      @for (chip of _chips(); track chip) {
+        <mat-chip
+          [disabled]="chip.disabled? chip.disabled : false || disabled? disabled : false"
+          [disableRipple]="disableRipple? disableRipple : false"
+          [removable]="chip.removable? chip.removable : false || removable? removable : false"
+          (removed)="removeChip(chip)"
+        >
+          @if (chip.withAvatar? chip.withAvatar : false || withAvatar? withAvatar : false) {
+            <img
+              matChipAvatar
+              [src]="chip.avatarSrc"
+              [alt]="chip.avatarAlt"
+            />
+          }
+            {{chip.label}}
+          @if (removable) {
+            <button matChipRemove aria-label="'remove ' + chip.label">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          }
+        </mat-chip>
+      }
+    </mat-chip-set>
+  }
+}
