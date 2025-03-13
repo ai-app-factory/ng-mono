@@ -48,7 +48,7 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'indigo-pink',
+    defaultValue: 'dark-theme',
     toolbar: {
       icon: 'paintbrush',
       items: [
