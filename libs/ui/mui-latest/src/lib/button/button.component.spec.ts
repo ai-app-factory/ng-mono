@@ -44,7 +44,6 @@ describe('ButtonComponent tests with Material Harness', () => {
   it('should have correct label', async () => {
     const button = await loader.getHarness(MatButtonHarness);
     fixture.componentInstance.label = 'Test Label';
-    // fixture.detectChanges();
     const text = await button.getText();
     expect(text).toBe('Test Label');
   });
