@@ -1,1 +1,57 @@
-<p>check-box works!</p>
+@if (displayGroupLabel? displayGroupLabel : false) {
+  <h4>{{ groupLabel? groupLabel : '' }}</h4>
+}
+@for (task of _tasks(); track task; let i = $index) {
+  <mat-checkbox
+    [checked]="task.checked? task.checked : false"
+    [indeterminate]="partiallyComplete(i)"
+    (change)="update($event.checked, i)"
+    [disabled]="task.disabled? task.disabled : false || disabled? disabled : false"
+    [labelPosition]="labelPosition? labelPosition : 'after'"
+    [disableRipple]="disableRipple? disableRipple : false"
+    [disabledInteractive]="disabledInteractive? disabledInteractive : false"
+    [required]="required? required : false"
+  >
+    {{ task.name }}
+  </mat-checkbox>
+  @if (task.subtasks?.length) {
+    <ul>
+      @for (subtask of task.subtasks; track subtask; let j = $index) {
+        <p>
+          <mat-checkbox
+            [checked]="subtask.checked? subtask.checked : false"
+            (change)="update($event.checked, i, j)"
+            [disabled]="subtask.disabled? subtask.disabled : false || disabled? disabled : false"
+            [labelPosition]="labelPosition? labelPosition : 'after'"
+            [disableRipple]="disableRipple? disableRipple : false"
+            [disabledInteractive]="disabledInteractive? disabledInteractive : false"
+            [required]="required? required : false"
+          >
+            {{ subtask.name }}
+          </mat-checkbox>
+        </p>
+      }
+    </ul>
+  }
+}
+@if (showSelected? showSelected : false) {
+  <div>
+    <h4>Selected Tasks:</h4>
+    <ul>
+      @for (task of _tasks(); track task) {
+        @if (task.checked) {
+          <li>{{ task.name }}</li>
+        }
+        @if (task.subtasks?.length) {
+          <ul>
+            @for (subtask of task.subtasks; track subtask) {
+              @if (subtask.checked) {
+                <li>{{ subtask.name }}</li>
+              }
+            }
+          </ul>
+        }
+      }
+    </ul>
+  </div>
+}
