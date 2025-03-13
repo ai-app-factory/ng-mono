@@ -3,7 +3,8 @@ import { ButtonComponent } from './button.component';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { jest } from '@jest/globals';
 // This test is using the Angular Material Testing Harness
 let loader: HarnessLoader;
 describe('ButtonComponent tests with Material Harness', () => {
