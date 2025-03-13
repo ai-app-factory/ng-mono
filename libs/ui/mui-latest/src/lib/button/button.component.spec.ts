@@ -12,11 +12,42 @@ describe('ButtonComponent tests with Material Harness', () => {
   let fixture: ComponentFixture<ButtonComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ButtonComponent],
-    }).compileComponents();
+    await TestBed.configureTestingModule(
+      {
+        imports: [
+          ButtonComponent,
+          NoopAnimationsModule
+        ]
+      }
+    ).compileComponents();
+    fixture = TestBed.createComponent(ButtonComponent);
+    loader = TestbedHarnessEnvironment.loader(fixture);
+    fixture.detectChanges();
   });
 
+  it('should be disabled when disabled', async () => {
+    // const button = await loader.getHarness(MatButtonHarness);
+    const button = await loader.getHarness(MatButtonHarness);
+    fixture.componentInstance.disabled = true;
+
+    const disabled = await button.isDisabled();
+    expect(disabled).toBe(true);
+  })
+
+  it('should emit event when clicked', async () => {
+    const button = await loader.getHarness(MatButtonHarness);
+    jest.spyOn(fixture.componentInstance.buttonClick, 'emit');
+    await button.click();
+    expect(fixture.componentInstance.buttonClick.emit).toHaveBeenCalledWith('Button Clicked');
+  });
+
+  it('should have correct label', async () => {
+    const button = await loader.getHarness(MatButtonHarness);
+    fixture.componentInstance.label = 'Test Label';
+    // fixture.detectChanges();
+    const text = await button.getText();
+    expect(text).toBe('Test Label');
+  });
 
 });
 
