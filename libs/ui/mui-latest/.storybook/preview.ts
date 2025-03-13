@@ -18,10 +18,8 @@ export const withTheme = (
 ): any => {
   const selectedTheme = context.globals.theme;
   const body = document.body;
-  body.className = ''; // Clear existing classes
+  body.className = '';
   body.classList.add(selectedTheme);
-  // Apply the selected theme using the service
-
   return Story();
 }
 
