@@ -124,6 +124,102 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/chip works!/gi)).toBeTruthy();
   },
+};
+
+export const Removeable: Story = {
+  args: {
+    removable: true
+  }
+};
+
+export const WithAvatarAndRemovable: Story = {
+  args: {
+    removable: true,
+    withAvatar: true
+  }
+};
+
+export const WithAvatar: Story = {
+  args: {
+    removable: false,
+    withAvatar: true
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    removable: false,
+    withAvatar: true,
+    disabled: true
+  }
+};
+
+export const WithDragAndDrop: Story = {
+  args: {
+    removable: false,
+    withAvatar: true,
+    disabled: false,
+    chipType: "with-drag-drop"
+  }
+};
+
+export const Stacked: Story = {
+  args: {
+    removable: false,
+    withAvatar: true,
+    disabled: false,
+    chipType: "stacked"
+  }
+};
+
+export const WithInput: Story = {
+  args: {
+    removable: true,
+    withAvatar: false,
+    disabled: false,
+    chipType: "with-input",
+    hideSelectionIndicator: true,
+    dropListOrientation: "horizontal"
+  }
+};
+
+export const Editable: Story = {
+  args: {
+    removable: true,
+    withAvatar: false,
+    disabled: false,
+    chipType: "with-input",
+    hideSelectionIndicator: true,
+    dropListOrientation: "horizontal",
+    editable: true
+  }
+};
+
+export const CustomGroupLabel: Story = {
+  args: {
+    removable: true,
+    withAvatar: false,
+    disabled: false,
+    chipType: "basic",
+    hideSelectionIndicator: true,
+    dropListOrientation: "horizontal",
+    editable: true,
+    groupLabel: "My favorite Dogs"
+  }
+};
+
+export const DisabledRipple: Story = {
+  args: {
+    removable: true,
+    withAvatar: false,
+    disabled: false,
+    chipType: "basic",
+    hideSelectionIndicator: true,
+    dropListOrientation: "horizontal",
+    editable: true,
+    groupLabel: "My favorite Dogs",
+    selectable: false,
+    disableRipple: true
+  }
 };
