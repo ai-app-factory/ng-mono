@@ -1,1 +1,39 @@
-<p>badge works!</p>
+@switch (badgeFor) {
+  @case ('icon') {
+    <mat-icon
+        [matBadge]="content"
+        [matBadgeHidden]="hidden? hidden : false"
+        [matBadgeSize]="size? size : 'medium'"
+        [matBadgeOverlap]="overlap? overlap : false"
+        [matBadgePosition]="position? position : 'above after'"
+        [matBadgeDisabled]="disabled? disabled : false"
+      >
+        {{icon}}
+    </mat-icon>
+  }
+  @case ('button') {
+    <button
+        mat-raised-button
+        [matBadge]="content"
+        [matBadgeHidden]="hidden? hidden : false"
+        [matBadgeSize]="size? size : 'medium'"
+        [matBadgeOverlap]="overlap? overlap : false"
+        [matBadgePosition]="position? position : 'above after'"
+        [matBadgeDisabled]="disabled? disabled : false"
+      >
+        {{hostLabel}}
+    </button>
+  }
+  @case ('text') {
+    <span
+        [matBadge]="content"
+        [matBadgeHidden]="hidden? hidden : false"
+        [matBadgeSize]="size? size : 'medium'"
+        [matBadgeOverlap]="overlap? overlap : false"
+        [matBadgePosition]="position? position : 'above after'"
+        [matBadgeDisabled]="disabled? disabled : false"
+      >
+        {{hostLabel}}
+    </span>
+  }
+}
