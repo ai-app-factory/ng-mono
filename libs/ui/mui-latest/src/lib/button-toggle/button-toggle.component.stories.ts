@@ -83,9 +83,80 @@ export const Primary: Story = {
   args: {},
 };
 
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+export const WithGroupLabel: Story = {
+  args: {
+    displayGroupLabel: true,
+    groupLabel: 'Select an option',
+  },
+};
+
+export const WithoutGroupLabel: Story = {
+  args: {
+    displayGroupLabel: false,
+  },
+};
+
+export const MultipleSelection: Story = {
+  args: {
+    selection: 'multiple',
+  },
+};
+
+export const SingleSelection: Story = {
+  args: {
+    selection: 'single',
+  },
+};
+
+export const WithSelectedOptions: Story = {
+  args: {
+    displaySelectedOptions: true,
+  },
+};
+
+export const WithoutSelectedOptions: Story = {
+  args: {
+    displaySelectedOptions: false,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const vertical: Story = {
+  args: {
+    vertical: true,
+  },
+};
+
+export const DisabledInteractive: Story = {
+  args: {
+    disabledInteractive: true,
+    disabled: true,
+  },
+};
+
+export const HideSelectionIndicator: Story = {
+  args: {
+    hideSelectionIndicator: true,
+  },
+};
+
+export const ShowSelectionIndicator: Story = {
+  args: {
+    hideSelectionIndicator: false,
+  },
+};
+
+export const WithCustomOptions: Story = {
+  args: {
+    buttonToggleLabels: [
+      'Option 1',
+      'Option 2',
+      'Option 3',
+    ],
   },
 };
