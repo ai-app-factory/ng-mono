@@ -3,7 +3,6 @@ import { ButtonComponent } from './button.component';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { jest } from '@jest/globals';
 // This test is using the Angular Material Testing Harness
 
@@ -15,8 +14,7 @@ describe('ButtonComponent tests with Material Harness', () => {
     await TestBed.configureTestingModule(
       {
         imports: [
-          ButtonComponent,
-          NoopAnimationsModule
+          ButtonComponent
         ]
       }
     ).compileComponents();
@@ -44,8 +42,7 @@ describe('ButtonComponent tests with Material Harness', () => {
   it('should have correct label', async () => {
     const button = await loader.getHarness(MatButtonHarness);
     fixture.componentInstance.label = 'Test Label';
-    const text = await button.getText();
-    expect(text).toBe('Test Label');
+    expect(await button.getText()).toBe('Test Label');
   });
 
 });
@@ -66,5 +63,34 @@ describe('ButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have the correct icon', () => {
+    expect(component.icon).toBe('home');
+  });
+
+  it('should have the correct button type', () => {
+    expect(component.buttonType).toBe('raised');
+  });
+
+  it('should have the correct label', () => {
+    expect(component.label).toBe('Button Label');
+  });
+
+  it('should have the correct disabled state', () => {
+    expect(component.disabled).toBe(false);
+  });
+
+  it('should have the correct disabled interactive state', () => {
+    expect(component.disabledInteractive).toBe(false);
+  });
+
+  it('should have the correct disable ripple state', () => {
+    expect(component.disableRipple).toBe(false);
+  });
+
+  it('should have flat button type when buttonType is flat', () => {
+    component.buttonType = 'flat';
+    expect(component.buttonType).toBe('flat');
   });
 });
