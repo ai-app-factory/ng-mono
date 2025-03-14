@@ -4,8 +4,8 @@ import { MatButtonHarness } from '@angular/material/button/testing';
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { jest } from '@jest/globals';
-// This test is using the Angular Material Testing Harness
 
+// This test is using the Angular Material Testing Harness
 describe('ButtonComponent tests with Material Harness', () => {
   let loader: HarnessLoader;
   let fixture: ComponentFixture<ButtonComponent>;
