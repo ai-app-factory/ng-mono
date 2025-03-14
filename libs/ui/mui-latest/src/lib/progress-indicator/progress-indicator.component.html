@@ -1,1 +1,17 @@
-<p>progress-indicator works!</p>
+@switch (progressIndicatorType) {
+  @case ('bar') {
+    <mat-progress-bar
+      [mode]="progressBarMode? progressBarMode : 'determinate'"
+      [bufferValue]="bufferValue? bufferValue : 10"
+      [value]="value? value : 10"
+    ></mat-progress-bar>
+  }
+  @case ('spinner') {
+    <mat-spinner
+      [diameter]="diameter? diameter : 50"
+      [strokeWidth]="strokeWidth? strokeWidth : 5"
+      [mode]="progressSpinnerMode? progressSpinnerMode : 'indeterminate'"
+      [value]="value? value : 10"
+    ></mat-spinner>
+  }
+}
