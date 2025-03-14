@@ -24,7 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrl: './tool-tip.component.scss',
 })
 export class ToolTipComponent {
-  @Input() tool: string = 'Tool';
+  @Input() toolLabel: string = 'Tool';
   @Input() tip: string = 'Tip about how to use the tool';
   @Input() position?: TooltipPosition = 'below';
   @Input() disabled?: boolean = false;
