@@ -4,6 +4,10 @@ import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+/**
+ * `SlideToggleComponent` which is enhanced version of `MatSlideToggle`
+ * It also includes `FormGroup` and `FormControl` for reactive forms
+ */
 const meta: Meta<SlideToggleComponent> = {
   component: SlideToggleComponent,
   title: 'SlideToggleComponent',
