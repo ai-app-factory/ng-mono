@@ -101,13 +101,41 @@ export default meta;
 type Story = StoryObj<SlideToggleComponent>;
 
 export const Primary: Story = {
-  args: {},
-};
+  args: {
+    slideToggles: [
+      {
+        label: 'Slide Toggle 1',
+        checked: false,
+        formControlName: 'toggle1',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+      },
+      {
+        label: 'Slide Toggle 2',
+        checked: true,
+        formControlName: 'toggle2',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+      },
+      {
+        label: 'Slide Toggle 3',
+        checked: false,
+        formControlName: 'toggle3',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
 
-export const Heading: Story = {
-  args: {},
+      },
+    ],
+    displayResult: true,
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/slide-toggle works!/gi)).toBeTruthy();
+    expect(canvas.getByText("Slide Toggle 1")).toBeTruthy();
   },
 };
