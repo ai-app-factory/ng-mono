@@ -1,1 +1,42 @@
-<p>slider works!</p>
+@if (sliderType === 'basic') {
+  @if (displayLabel? displayLabel : false) {
+    <p>{{sliderLabel}}</p>
+  }
+  @if (showSliderValues) {
+    <p>Value: {{slider.value}}</p>
+  }
+  <mat-slider
+    [disabled]="disabled? disabled : false"
+    [max]="max? max : 100"
+    [min]="min? min : 0"
+    [step]="step? step : 1"
+    [discrete]="discrete? discrete : false"
+    [showTickMarks]="showTicks? showTicks : false"
+    [displayWith]="formatLabel"
+  >
+    <input matSliderThumb [(ngModel)]="value" #slider (change)="onValueChange()">
+  </mat-slider>
+}
+@else if  (sliderType === 'range') {
+  @if (displayLabel? displayLabel : false) {
+    @if (sliderLabel) {
+      <p>Select from range</p>
+    }
+  }
+  @if (showSliderValues? showSliderValues : false) {
+    <p>{{"Start Value: " + startSlider.value}}</p>
+    <p>{{"End Value: " + endSlider.value}}</p>
+  }
+  <mat-slider
+    [disabled]="disabled? disabled : false"
+    [max]="max? max : 100"
+    [min]="min? min : 0"
+    [step]="step? step : 1"
+    [discrete]="discrete? discrete : false"
+    [showTickMarks]="showTicks? showTicks : false"
+    [displayWith]="formatLabel"
+  >
+    <input matSliderStartThumb [(ngModel)]="startValue" #startSlider (change)="onStartValueChange()">
+    <input matSliderEndThumb [(ngModel)]="endValue" #endSlider (change)="onEndValueChange()">
+  </mat-slider>
+}
