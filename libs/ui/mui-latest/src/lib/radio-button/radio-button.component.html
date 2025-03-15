@@ -1,1 +1,30 @@
-<p>radio-button works!</p>
+@if (displayGroupLabel? displayGroupLabel : false) {
+  <label>{{radioGroupLabel}}</label>
+}
+<mat-radio-group
+  [disabled]="disabled? disabled : false"
+  [required]="required? required : false"
+  [hidden]="hidden? hidden : false"
+  (change)="onRadioChange"
+  [(ngModel)]="selectedOption"
+  [disabledInteractive]="disabledInteractive? disabledInteractive : false"
+>
+  @for (radioButton of _radioButtons(); track radioButton) {
+    <p>
+      <mat-radio-button
+        [value]="radioButton.label"
+        [checked]="radioButton.checked"
+        [disabled]="radioButton.disabled"
+        [required]="radioButton.required"
+        [labelPosition]="radioButton.labelPosition? radioButton.labelPosition : 'after'"
+        [hidden]="radioButton.hidden"
+      >
+        {{radioButton.label}}
+      </mat-radio-button>
+    </p>
+
+  }
+</mat-radio-group>
+@if (showSelectedOption) {
+  <label>Selected option: {{selectedOption}}</label>
+}
