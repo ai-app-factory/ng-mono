@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { SlideToggleComponent } from './slide-toggle.component';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 const meta: Meta<SlideToggleComponent> = {
   component: SlideToggleComponent,
