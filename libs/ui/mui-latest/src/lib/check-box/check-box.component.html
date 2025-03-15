@@ -1,5 +1,5 @@
 @if (displayGroupLabel? displayGroupLabel : false) {
-  <h4>{{ groupLabel? groupLabel : '' }}</h4>
+  <label>{{ groupLabel? groupLabel : '' }}</label>
 }
 @for (task of _tasks(); track task; let i = $index) {
   <mat-checkbox
@@ -36,7 +36,7 @@
 }
 @if (showSelected? showSelected : false) {
   <div>
-    <h4>Selected Tasks:</h4>
+    <label>Selected Tasks:</label>
     <ul>
       @for (task of _tasks(); track task) {
         @if (task.checked) {
