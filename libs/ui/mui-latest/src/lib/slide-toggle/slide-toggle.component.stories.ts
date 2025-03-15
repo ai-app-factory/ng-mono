@@ -11,6 +11,91 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 const meta: Meta<SlideToggleComponent> = {
   component: SlideToggleComponent,
   title: 'SlideToggleComponent',
+  argTypes: {
+    displayGroupLabel: {
+      control: 'boolean',
+      description: 'Whether to Display the group label',
+      table: {
+        defaultValue: { summary: 'true' },
+        type: { summary: 'boolean' },
+      }
+    },
+    groupLabel: {
+      control: 'text',
+      description: 'The group label',
+      table: {
+        defaultValue: { summary: 'select the following' },
+        type: { summary: 'string' },
+      }
+    },
+    hideIcon: {
+      control: 'boolean',
+      description: 'Whether the icon should be hidden',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    labelPosition: {
+
+      options: ['before', 'after'],
+      control: { type: 'radio' },
+      description: 'The position of the label',
+      table: {
+        defaultValue: { summary: 'after' },
+        type: { summary: "'before' | 'after'" },
+      }
+    },
+    required: {
+      control: 'boolean',
+      description: 'Whether the input is required',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the input is disabled',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    slideToggles: {
+      control: 'object',
+      description: 'The slide toggles',
+      table: {
+        defaultValue: { summary: '[]' },
+        type: { summary: 'SlideToggle[]' },
+      }
+    },
+    disableRipple: {
+      control: 'boolean',
+      description: 'Whether to disable the ripple effect',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    disabledInteractive: {
+      control: 'boolean',
+      description: 'Whether the input is disabled interactive',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      }
+    },
+    formGroup: {
+      control: 'object',
+      description: 'The form group',
+      table: {
+        defaultValue: { summary: 'FormGroup' },
+        type: { summary: 'FormGroup' },
+      }
+    }
+
+  }
 };
 export default meta;
 type Story = StoryObj<SlideToggleComponent>;
