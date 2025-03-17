@@ -1,1 +1,100 @@
-<p>list works!</p>
+@switch (listType) {
+  @case ('list') {
+    <mat-list
+      [disabled]="disabled"
+      [disableRipple]="disableRipple"
+    >
+      @for (listItem of _listItems(); track listItem) {
+        <mat-list-item
+          [disabled]="listItem.disabled"
+          [disableRipple]="listItem.disableRipple"
+        >
+          @if (listItem.icon || listItem.avatar) {
+            @if (listItem.icon) {
+              <mat-icon mat-list-icon>{{ listItem.icon }}</mat-icon>
+              <div matListItemTitle>{{listItem.title}}</div>
+              @if (listItem.lines) {
+                @for (line of listItem.lines; track line) {
+                  <div matListItemLine>{{ line }}</div>
+                }
+              }
+            } @else if (listItem.avatar) {
+              <img matListItemAvatar src="{{ listItem.avatar }}" alt="{{ listItem.title }}" />
+              <h3 matListItemTitle>{{listItem.title}}</h3>
+              @if (listItem.lines) {
+                @for (line of listItem.lines; track line) {
+                  <p matListItemLine>{{ line }}</p>
+                }
+              }
+            }
+          } @else {
+            <ng-container >
+              <span matListItemTitle>{{listItem.title}}</span>
+              @if (listItem.lines) {
+                @for (line of listItem.lines; track line) {
+                  <div matListItemLine>{{ line }}</div>
+                }
+              }
+            </ng-container>
+          }
+        </mat-list-item>
+        @if (withDivider) {
+          <mat-divider></mat-divider>
+        }
+      }
+    </mat-list>
+  }
+  @case ('selection') {
+    <form
+      [formGroup]="form"
+    >
+      <mat-selection-list
+      [disabled]="disabled? disabled : false"
+      [disableRipple]="disableRipple"
+      [multiple]="multiple"
+      [formControl]="formControl"
+      >
+      @for (listSelection of _selectionItems(); track listSelection) {
+        <mat-list-option
+          [disabled]="listSelection.disabled"
+          [disableRipple]="listSelection.disableRipple"
+          [selected]="listSelection.selected"
+        >
+          @if (listSelection.icon || listSelection.avatar) {
+            @if (listSelection.icon) {
+              <mat-icon mat-list-icon>{{ listSelection.icon }}</mat-icon>
+              <div matListItemTitle>{{listSelection.title}}</div>
+              @if (listSelection.lines) {
+                @for (line of listSelection.lines; track line) {
+                  <div matListItemLine>{{ line }}</div>
+                }
+              }
+            } @else if (listSelection.avatar) {
+              <img matListItemAvatar src="{{ listSelection.avatar }}" alt="{{ listSelection.title }}" />
+              <h3 matListItemTitle>{{listSelection.title}}</h3>
+              @if (listSelection.lines) {
+                @for (line of listSelection.lines; track line) {
+                  <p matListItemLine>{{ line }}</p>
+                }
+              }
+            }
+          } @else {
+            <ng-container >
+              <span matListItemTitle>{{listSelection.title}}</span>
+              @if (listSelection.lines) {
+                @for (line of listSelection.lines; track line) {
+                  <div matListItemLine>{{ line }}</div>
+                }
+              }
+            </ng-container>
+          }
+        </mat-list-option>
+        @if (withDivider) {
+          <mat-divider></mat-divider>
+        }
+      }
+      </mat-selection-list>
+    </form>
+
+  }
+}
