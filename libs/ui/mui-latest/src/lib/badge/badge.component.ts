@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -41,4 +41,6 @@ export class BadgeComponent {
   @Input() hostLabel?: string = 'I have a badge'
 
   @Input() icon?: string = 'home'
+
+  @Input() template?: TemplateRef<any>;
 }
