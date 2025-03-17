@@ -8,7 +8,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'lib-tool-tip',
-  standalone: true,
   imports: [
     CommonModule,
     MatFormFieldModule,

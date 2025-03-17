@@ -1,7 +1,7 @@
-/* 
+/*
 Add level accessor
-TreeControl is a utility provided by Angular Material that helps manage the state of a tree component, 
-such as the expansion and collapse of nodes. It provides methods and properties to control the tree's behavior 
+TreeControl is a utility provided by Angular Material that helps manage the state of a tree component,
+such as the expansion and collapse of nodes. It provides methods and properties to control the tree's behavior
 and structure. Do we need it? If we use treecontrol we will have problems with accessibility.
 How are we going to connect datasource
 Can we control the expansion/collapse of a single node
@@ -9,13 +9,13 @@ Can we control the expansion/collapse of a single node
 
 
 
-import { 
+import {
   Component,
   signal,
   EventEmitter,
   ChangeDetectionStrategy,
   Input,
-  Output 
+  Output
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTreeModule } from '@angular/material/tree';
@@ -30,7 +30,6 @@ export interface TreeNode {
 
 @Component({
   selector: 'lib-tree',
-  standalone: true,
   imports: [
     CommonModule,
     MatTreeModule,
@@ -59,7 +58,7 @@ export class TreeComponent {
         { name: 'Banana' },
         { name: 'Fruit loops' },
       ],
-    }, 
+    },
     {
       name: 'Vegetables',
       children: [

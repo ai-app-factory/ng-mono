@@ -26,7 +26,6 @@ export interface Step {
 
 @Component({
   selector: 'lib-stepper',
-  standalone: true,
   imports: [
     CommonModule,
     MatStepperModule,

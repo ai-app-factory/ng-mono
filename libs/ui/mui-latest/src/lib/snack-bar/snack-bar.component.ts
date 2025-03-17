@@ -9,7 +9,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'lib-snack-bar',
-  standalone: true,
   imports: [
     CommonModule,
     MatFormFieldModule,

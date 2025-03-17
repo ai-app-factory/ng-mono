@@ -38,7 +38,6 @@ export interface Tab {
  */
 @Component({
   selector: 'lib-tabs',
-  standalone: true,
   imports: [
     CommonModule,
     MatTabsModule,

@@ -6,7 +6,6 @@ import { PeriodicElement, ELEMENT_DATA } from './data/element-data';
 
 @Component({
   selector: 'lib-table',
-  standalone: true,
   imports: [
     CommonModule,
     MatTableModule,
