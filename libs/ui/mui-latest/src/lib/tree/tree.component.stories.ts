@@ -22,15 +22,43 @@ const meta: Meta<TreeComponent> = {
 export default meta;
 type Story = StoryObj<TreeComponent>;
 
-export const Primary: Story = {
-  args: {},
+
+
+export const FlatTree: Story = {
+  args: {
+    treeType: 'flat',
+    nodes: [
+      {
+        name: 'Fruit',
+        children: [
+          { name: 'Apple' },
+          { name: 'Banana' },
+          { name: 'Fruit loops' },
+        ],
+      }, 
+      {
+        name: 'Vegetables',
+        children: [
+          {
+            name: 'Green',
+            children: [
+              { name: 'Broccoli' },
+              { name: 'Brussels sprouts' },
+            ],
+          }, {
+            name: 'Orange',
+            children: [
+              { name: 'Pumpkins' },
+              { name: 'Carrots' },
+            ],
+          }
+        ],
+      }
+    ]
+  },
 };
 
-export const Heading: Story = {
-  args: {},
-};
-
-export const Nested: Story = {
+export const NestedTree: Story = {
   args: {
     treeType: 'nested',
     nodes: [
@@ -49,13 +77,13 @@ export const Nested: Story = {
             name: 'Dogs',
             children: [
               { name: 'Lab' },
-              { name: 'Brreon sprouts' },
+              { name: 'Bulldog' },
             ]
           }, {
-            name: 'Orange',
+            name: 'Cat',
             children: [
-              { name: 'Pumpkins' },
-              { name: 'Carrots' },
+              { name: 'Siamese' },
+              { name: 'Sub-Saharan' },
             ]
           }
         ]
