@@ -27,6 +27,8 @@ export class SnackBarComponent {
   @Input() verticalPosition?: MatSnackBarVerticalPosition = 'bottom';
   @Input() snackbarLabel: string = 'Open snackbar';
   @Input() disabled?: boolean = false;
+  @Input() disabledInteractive?: boolean = false;
+  @Input() disableRipple?: boolean = false;
 
   openSnackBar() {
     this._snackBar.open(this.message, this.action, {
