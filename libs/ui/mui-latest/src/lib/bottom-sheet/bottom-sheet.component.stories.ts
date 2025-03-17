@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { BottomSheetComponent } from './bottom-sheet.component';
 import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/test';
 
 
 const meta: Meta<BottomSheetComponent> = {
