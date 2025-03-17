@@ -22,12 +22,12 @@ export class SnackBarComponent {
   private _snackBar = inject(MatSnackBar);
 
   @Input() message: string = 'This is a snackbar message';
-  @Input() action: string = 'Close';
-  @Input() duration: number = 2000;
-  @Input() horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  @Input() verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  @Input() action?: string = 'Close';
+  @Input() duration?: number = 2000;
+  @Input() horizontalPosition?: MatSnackBarHorizontalPosition = 'center';
+  @Input() verticalPosition?: MatSnackBarVerticalPosition = 'bottom';
   @Input() snackbarLabel: string = 'Open snackbar';
-  @Input() disabled: boolean = false;
+  @Input() disabled?: boolean = false;
 
   openSnackBar() {
     this._snackBar.open(this.message, this.action, {
