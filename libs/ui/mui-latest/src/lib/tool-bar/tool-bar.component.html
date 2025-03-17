@@ -1,1 +1,37 @@
-<p>tool-bar works!</p>
+@switch (toolBarType) {
+  @case ('default') {
+    <mat-toolbar>
+      @for (toolBarRow of _toolBarRows(); track toolBarRow) {
+        <mat-toolbar-row>
+          @if (toolBarRow.leadingIcon) {
+            <button mat-icon-button>
+              <mat-icon>{{ toolBarRow.leadingIcon }}</mat-icon>
+            </button>
+          }
+          <span>{{toolBarRow.title}}</span>
+          <span class="spacer"></span>
+          @if (toolBarRow.trailingIcons) {
+            @for (icon of toolBarRow.trailingIcons; track icon) {
+              <button mat-icon-button>
+                <mat-icon>{{ icon }}</mat-icon>
+              </button>
+            }
+          }
+        </mat-toolbar-row>
+      }
+    </mat-toolbar>
+  }
+  @case ('only-icons') {
+    <mat-toolbar>
+      @for (icons of onlyIconsList; track icons) {
+        <button mat-icon-button>
+          <mat-icon>{{ icons }}</mat-icon>
+        </button>
+        <span class="spacer"></span>
+      }
+    </mat-toolbar>
+  }
+  @case ('with-templates') {
+    
+  }
+}
