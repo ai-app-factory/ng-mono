@@ -61,7 +61,7 @@ const meta: Meta<StepperComponent> = {
       },
     },
     steps: {
-      description: 'Questions for the stepper',
+      description: 'Steps involved in the stepper',
       table: {
         type: { summary: 'Question[]' },
         defaultValue: { summary: '[]' },

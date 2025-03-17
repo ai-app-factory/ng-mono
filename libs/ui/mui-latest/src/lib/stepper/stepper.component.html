@@ -10,20 +10,20 @@
 
             @for (question of _steps(); track question; let i = $index){
                 <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
-                    <form [formGroup]="question.formControl">
-                        <mat-form-field appearance="fill">
-                            <mat-label>{{ question.placeholder }}</mat-label>
-                            <input matInput [formGroup]="question.formControl" />
-                        </mat-form-field>
-                        <div>
-                            @if (i > 0) {
-                                <button mat-button matStepperPrevious type="button">Back</button>
-                            }
-                            @if (i < _steps().length) {
-                                <button mat-button matStepperNext type="button">Next</button>
-                            }
-                        </div>
-                    </form>
+                    <lib-step
+                        [label]="question.label"
+                        [placeholder]="question.placeholder"
+                        [required]="question.required"
+                        [errorMessage]="question.errorMessage"
+                    ></lib-step>
+                    <div>
+                        @if (i > 0) {
+                            <button mat-button matStepperPrevious type="button">Back</button>
+                        }
+                        @if (i < _steps().length) {
+                            <button mat-button matStepperNext type="button">Next</button>
+                        }
+                    </div>
                 </mat-step>
             }
             <mat-step label="Summary">
@@ -44,22 +44,20 @@
 
             @for (question of _steps(); track question; let i = $index){
                 <mat-step [stepControl]="question.formControl" [editable]="editable" [optional]="!question.required" errorMessage={{question.errorMessage}} label="{{question.label}}">
-                    <form [formGroup]="question.formControl">
-                        <mat-form-field appearance="fill">
-                            <mat-label>{{ question.placeholder }}</mat-label>
-                            <input matInput [formGroup]="question.formControl" />
-                        </mat-form-field>
+                    <lib-step
+                        [label]="question.label"
+                        [placeholder]="question.placeholder"
+                        [required]="question.required"
+                        [errorMessage]="question.errorMessage"
+                    ></lib-step>
+                    <div>
                         @if (i > 0) {
                             <button mat-button matStepperPrevious>Back</button>
                         }
                         @if (i < _steps().length) {
                             <button mat-button matStepperNext>Next</button>
                         }
-                        <div>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
+                    </div>
                 </mat-step>
             }
             <mat-step label="Summary">

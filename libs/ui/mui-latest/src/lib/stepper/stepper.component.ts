@@ -11,9 +11,10 @@ import { CommonModule } from '@angular/common';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule, FormControl, AbstractControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule, FormControl, AbstractControl, Validators, FormGroup, FormBuilder, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { StepComponent } from './step.component';
 
 export interface Step {
   label: string;
@@ -34,11 +35,17 @@ export interface Step {
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    StepComponent,
   ],
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { showError: true },
+    },
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => StepperComponent),
+      multi: true,
     },
   ],
   templateUrl: './stepper.component.html',
@@ -86,7 +93,23 @@ export class StepperComponent {
   @Output() stepChange = new EventEmitter<number>();
   @Output() completionChange = new EventEmitter<Step[]>();
 
-  constructor(private _formBuilder: FormBuilder) {}
+  private onChange = (value: any) => {};
+  private onTouched = () => {};
+
+  writeValue(value: any): void {
+  }
+
+  registerOnChange(fn: (value: any) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    // Implement setDisabledState logic if needed
+  }
 
   onStepChange(index: number): void {
     const currentQuestion = this._steps()[index];
