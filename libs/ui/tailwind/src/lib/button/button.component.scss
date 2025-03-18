@@ -1,0 +1,13 @@
+
+.raised {
+  @apply bg-red-400 rounded-full shadow-md;
+}
+@mixin shape($shape) {
+  @if $shape == 'rounded' {
+    @apply rounded-lg;
+  }
+  @else if $shape == 'pill' {
+    @apply rounded-full;
+  }
+}
+
