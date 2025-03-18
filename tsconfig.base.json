@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-mono/mui-latest": ["libs/ui/mui-latest/src/index.ts"]
+      "@ng-mono/mui-latest": ["libs/ui/mui-latest/src/index.ts"],
+      "@ng-mono/tailwind": ["libs/ui/tailwind/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
