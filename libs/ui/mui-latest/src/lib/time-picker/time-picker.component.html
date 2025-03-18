@@ -5,7 +5,13 @@
       <mat-icon matTimepickerToggleIcon>{{ toggleIcon }}</mat-icon>
     </mat-timepicker-toggle>
     <mat-timepicker [interval]="interval" [options]="options" #picker></mat-timepicker>
-    <mat-error *ngIf="formControl.errors?.['matTimepickerParse']">Value isn't a valid time</mat-error>
-    <mat-error *ngIf="formControl.errors?.['matTimepickerMin']">Value is too early</mat-error>
-    <mat-error *ngIf="formControl.errors?.['matTimepickerMax']">Value is too late</mat-error>
-  </mat-form-field>
+    @if (formControl.errors?.['matTimepickerParse']) {
+      <mat-error>Value isn't a valid time</mat-error>
+    }
+    @if (formControl.errors?.['matTimepickerMin']) {
+      <mat-error>Value is too early</mat-error>
+    }
+    @if (formControl.errors?.['matTimepickerMax']) {
+      <mat-error>Value is too late</mat-error>
+    }
+</mat-form-field>
