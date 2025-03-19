@@ -1,4 +1,5 @@
 @switch(datePickerType){
+  
   @case ('single'){
     <mat-form-field>
       <mat-label>{{ label }}</mat-label>
@@ -21,7 +22,8 @@
       <mat-datepicker #picker 
         [touchUi]="touchUi" 
         [startView]="startView" 
-        [startAt]="startDate">
+        [startAt]="startDate"
+        [calendarHeaderComponent] = "customHeader?ExampleHeader:null">
           @if(actionButton){
             <mat-datepicker-actions>
               <button mat-button matDatepickerCancel>cancel</button>
@@ -35,6 +37,7 @@
       <button mat-raised-button (click)="picker.open()">Open</button>
     }
   }
+  
   @case('range'){
     <mat-form-field>
       <mat-label>{{ label }}</mat-label>
@@ -42,7 +45,9 @@
         [rangePicker]="picker" 
         [disabled]="disableInput" 
         [min]="minDate" 
-        [max]="maxDate">
+        [max]="maxDate"
+        [comparisonEnd]="comparisonEnd"
+        [comparisonStart]="comparisonStart">
           <input matStartDate placeholder="Start date">
           <input matEndDate placeholder="End date">
       </mat-date-range-input>

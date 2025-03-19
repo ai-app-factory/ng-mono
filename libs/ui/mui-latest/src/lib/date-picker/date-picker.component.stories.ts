@@ -117,6 +117,22 @@ const meta: Meta<DatePickerComponent> = {
         defaultValue: { summary: 'false' },
       },
     },
+    comparisonStart: {
+      control: 'text',
+      description: 'The comparison start date',
+      table: {
+        type: { summary: 'string | Date' },
+        defaultValue: { summary: 'null' },
+      },
+    },
+    comparisonEnd: {
+      control: 'text',
+      description: 'The comparison end date',
+      table: {
+        type: { summary: 'string | Date' },
+        defaultValue: { summary: 'null' },  
+      },
+    },
   },
 };
 export default meta;
@@ -134,6 +150,36 @@ export const BasicDateRangePicker: Story = {
   args: {
     label: 'Pick a date range',
     datePickerType: 'range',
+    locale: 'en-US',
+  },
+};
+
+export const DatePickerWithComparison: Story = {
+  args: {
+    label: 'Campaign',
+    datePickerType: 'range',
+    comparisonStart: new Date(2025, 2, 1), // January 1, 2023
+    comparisonEnd: new Date(2025, 2, 25), // December 31, 2023
+    locale: 'en-US',
+  },
+};
+
+export const DatePickerWithDynamicRange: Story = {
+  args: {
+    label: 'Pick a date',
+    datePickerType: 'range',
+    useCustomStrategy: true,
+    daysBefore: 3,
+    daysAfter: 5,
+    locale: 'en-US',
+  },
+};
+
+export const DatePickerWithCustomHeader: Story = {
+  args: {
+    label: 'Pick a date',
+    datePickerType: 'single',
+    customHeader: true,
     locale: 'en-US',
   },
 };
