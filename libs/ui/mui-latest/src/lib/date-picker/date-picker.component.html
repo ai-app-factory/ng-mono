@@ -1,7 +1,76 @@
-<mat-form-field>
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+@switch(datePickerType){
+  @case ('single'){
+    <mat-form-field>
+      <mat-label>{{ label }}</mat-label>
+      <input 
+        matInput 
+        [matDatepicker]="picker" 
+        [disabled]="disableInput" 
+        [min]="minDate" 
+        [max]="maxDate">
+        <mat-hint>{{dateFromatString}}</mat-hint>
+          @if (openMethod === 'normal'){
+            <mat-datepicker-toggle 
+              matSuffix [for]="picker" 
+              [disabled]="disableToggle">
+                <mat-icon matDatepickerToggleIcon>
+                  {{ toggleIcon }}
+                </mat-icon>
+            </mat-datepicker-toggle>
+          }
+      <mat-datepicker #picker 
+        [touchUi]="touchUi" 
+        [startView]="startView" 
+        [startAt]="startDate">
+          @if(actionButton){
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>cancel</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+          }
+      </mat-datepicker>
+    </mat-form-field>
+    
+    @if (openMethod === 'button'){
+      <button mat-raised-button (click)="picker.open()">Open</button>
+    }
+  }
+  @case('range'){
+    <mat-form-field>
+      <mat-label>{{ label }}</mat-label>
+      <mat-date-range-input 
+        [rangePicker]="picker" 
+        [disabled]="disableInput" 
+        [min]="minDate" 
+        [max]="maxDate">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        @if (openMethod === 'normal'){
+          <mat-datepicker-toggle 
+            matSuffix [for]="picker" 
+            [disabled]="disableToggle">
+              <mat-icon matDatepickerToggleIcon>
+                {{ toggleIcon }}
+              </mat-icon>
+          </mat-datepicker-toggle>
+        }
+      <mat-date-range-picker #picker 
+        [touchUi]="touchUi" 
+        [startView]="startView" 
+        [startAt]="startDate">
+          @if(actionButton){
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>cancel</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+          }
+      </mat-date-range-picker>
+    </mat-form-field>
+    
+    @if (openMethod === 'button'){
+      <button mat-raised-button (click)="picker.open()">Open</button>
+    }
+  }
+}
