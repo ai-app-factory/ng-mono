@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@ng-mono/mui-latest": ["libs/ui/mui-latest/src/index.ts"],
+      "@ng-mono/tailwindcss": ["libs/ui/tailwindcss/src/index.ts"],
       "@ng-mono/ui-lib": ["libs/ui-lib/src/index.ts"]
     }
   },
