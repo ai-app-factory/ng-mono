@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { TimePickerComponent } from './time-picker.component';
 import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { expect } from '@storybook/test';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const meta: Meta<TimePickerComponent> = {
