@@ -1,0 +1,101 @@
+{
+  "name": "tailwindcss",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/tailwindcss/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/ui/tailwindcss/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui/tailwindcss/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui/tailwindcss/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ui/tailwindcss/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/ui/tailwindcss/.storybook",
+        "browserTarget": "tailwindcss:build-storybook",
+        "experimentalZoneless": true,
+        "styles": ["libs/ui/tailwindcss/src/tailwind.scss"],
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/tailwindcss/docs"
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/tailwindcss",
+        "configDir": "libs/ui/tailwindcss/.storybook",
+        "browserTarget": "tailwindcss:build-storybook",
+        "experimentalZoneless": true,
+        "styles": ["libs/ui/tailwindcss/src/tailwind.scss"],
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/tailwindcss/docs"
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/ui/tailwindcss/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "tailwindcss:build-storybook",
+        "staticFilePath": "dist/storybook/tailwindcss",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "tailwindcss:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
