@@ -259,6 +259,7 @@ export const DatePickerTouchUI: Story = {
   },
 };
 
+
 export const DatePickerForDifferentStartView: Story = {
   args: {
     label: 'Pick a date',
@@ -267,3 +268,13 @@ export const DatePickerForDifferentStartView: Story = {
     locale: 'en-US',
   },
 };
+
+export const DatePickerWithFilter = () => ({
+  component: DatePickerComponent,
+  props: {
+    dateFilter: (d: Date | null) => {
+      const day = (d || new Date()).getDay();
+      return day !== 0 && day !== 6; // Disable weekends
+    },
+  },
+});

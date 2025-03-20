@@ -7,12 +7,13 @@ import {
   inject, 
   Input, 
   Inject, 
-  Injectable
+  Injectable,
+  destroyPlatform
 } from '@angular/core';
 import {
   DateAdapter, 
   MAT_DATE_FORMATS, 
-  provideNativeDateAdapter, 
+  provideNativeDateAdapter,   
   MAT_DATE_LOCALE
 } from '@angular/material/core';
 import {
@@ -30,6 +31,19 @@ import {Subject} from 'rxjs';
 import {startWith, takeUntil} from 'rxjs/operators';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ExampleHeader } from './example-header.component';
+
+
+/* export const DEFAULT_DATE_FORMATS = {
+  parse: {
+    dateInput: 'MM/DD/YYYY',
+  },
+  display: {
+    dateInput: 'MM/DD/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+}; */
 
 @Injectable()
 export class DynamicRangeSelectionStrategy<D> implements MatDateRangeSelectionStrategy<D> {
@@ -57,7 +71,6 @@ export class DynamicRangeSelectionStrategy<D> implements MatDateRangeSelectionSt
 
 @Component({
   selector: 'lib-date-picker',
-  standalone: true,
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -78,6 +91,12 @@ export class DynamicRangeSelectionStrategy<D> implements MatDateRangeSelectionSt
         new DynamicRangeSelectionStrategy(component.daysBefore, component.daysAfter),
       deps: [DatePickerComponent],
     },
+/*    {
+      provide: MAT_DATE_FORMATS,
+      useFactory: (component: DatePickerComponent) =>
+        component.customDateFormats,
+      deps: [DatePickerComponent],
+    },*/
   ],
 })
 export class DatePickerComponent {
@@ -90,24 +109,26 @@ export class DatePickerComponent {
   @Input() disableInput: boolean = false;
   @Input() disableToggle: boolean = false;
 
-  @Input() minDate: string | Date | null = null;
-  @Input() maxDate: string | Date | null = null;
+  @Input() minDate?: string | Date;
+  @Input() maxDate?: string | Date;
 
-  @Input() startDate: string | Date | null = null;
+  @Input() startDate?: string | Date;
 
   @Input() startView: 'month' | 'year' | 'multi-year' = 'month';
 
   @Input() touchUi: boolean = false;
 
-  @Input() comparisonStart: string | Date | null = null;
-  @Input() comparisonEnd: string | Date | null = null;
+  @Input() comparisonStart?: string | Date;
+  @Input() comparisonEnd?: string | Date;
 
   @Input() useCustomStrategy: boolean = false;
 
   @Input() daysBefore: number = 2;
   @Input() daysAfter: number = 2;
 
-  @Input() customHeader: boolean | null = false;
+  @Input() customHeader?: boolean = false;
+
+  @Input() dateFilter: (d: Date | null) => boolean = () => true;
 
   @Input() set locale(value: string) {
     this._adapter.setLocale(value);
@@ -122,7 +143,7 @@ export class DatePickerComponent {
   get dateFromatString(): string {
     switch (this._locale) {
       case 'en-US':
-        return 'MM/YY/YYYY';
+        return 'MM/DD/YYYY';
       case 'bg-BG':
         return 'DD/MM/YYYY';
       case 'fr-FR':
