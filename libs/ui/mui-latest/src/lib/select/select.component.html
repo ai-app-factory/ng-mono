@@ -6,7 +6,13 @@
             <mat-label>{{ placeholder }}</mat-label>
             <mat-select
                 [multiple]="multiple"
-                [disabled]="disabled">
+                [disabled]="disabled"
+                [(ngModel)]="selectedValue">
+                @if (customTriggerText) {
+                    <mat-select-trigger>
+                        {{ getCustomTriggerText() }}
+                    </mat-select-trigger>
+                }
                 @for (item of _groups(); track item; let i = $index) {
                     <mat-option [value]="item.id" [disabled]="item.disabled">{{item.value}}</mat-option>
                 }
@@ -19,7 +25,13 @@
             <mat-label>{{ placeholder }}</mat-label>
             <mat-select
                 [multiple]="multiple"
-                [disabled]="disabled">
+                [disabled]="disabled"
+                [(ngModel)]="selectedValue">
+                @if(customTriggerText) {
+                    <mat-select-trigger>
+                        {{ getCustomTriggerText() }}
+                    </mat-select-trigger>
+                }
                 @for (group of _groups(); track group; let i = $index) {
                     <mat-optgroup [label]="group.value" [disabled]="group.disabled">
                         @for (item of group.groups; track item; let j = $index) {

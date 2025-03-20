@@ -44,6 +44,22 @@ export const WithDisabledOptions: Story = {
   },
 };
 
+export const WithDynamicTriggerText: Story = {
+  args: {
+    label: 'Select an option',
+    placeholder: 'Please select an option',
+    multiple: true, // Enable multiple selection
+    customTriggerText: true, // Enable custom trigger text
+    groups: [
+      { id: 1, value: 'Apple' },
+      { id: 2, value: 'Banana' },
+      { id: 3, value: 'Cherry' },
+      { id: 4, value: 'Date' },
+    ],
+  },
+};
+
+
 export const WithGroups: Story = {
   args: {
     option: 'nested',

@@ -36,6 +36,8 @@ export class SelectComponent {
 
   @Input() option: 'nested' | 'flat' = 'flat';
 
+  @Input() customTriggerText = false;
+
   @Input() set groups(groups: Group[]) {
     this._groups.set(groups);
   }
@@ -58,6 +60,27 @@ export class SelectComponent {
       value: 'Date',
     }
   ]);
+
+  selectedValue?: number | number[] | null = null;
+
+  getCustomTriggerText(): string {
+    if (this.multiple && Array.isArray(this.selectedValue)) {
+      const selectedArray = this.selectedValue; // TypeScript infers this as `number[]`
+      const selectedCount = selectedArray.length;
+
+      if (selectedCount === 0) {
+        return 'No options selected';
+      } else if (selectedCount === 1) {
+        return this._groups().find(group => group.id === selectedArray[0])?.value || '';
+      } else {
+        const firstSelected = this._groups().find(group => group.id === selectedArray[0])?.value || '';
+        return `${firstSelected} (+${selectedCount - 1} ${selectedCount === 2 ? 'other' : 'others'})`;
+      }
+    } else if (!this.multiple && typeof this.selectedValue === 'number') {
+      return this._groups().find(group => group.id === this.selectedValue)?.value || '';
+    }
+    return 'Please select an option';
+  }
 }
 
 
