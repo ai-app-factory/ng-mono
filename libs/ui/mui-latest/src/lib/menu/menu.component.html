@@ -1,1 +1,28 @@
-<p>menu works!</p>
+@switch (menuType) {
+    @case ('icon') {
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>{{ menuIcon }}</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+        @for (item of _menus(); track item) {
+            <button mat-menu-item [disabled]="item.disabled!">
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.label }}</span>
+            </button>
+        }
+        </mat-menu>
+    }
+    @case ('basic') {
+        <button mat-button [matMenuTriggerFor]="menu">{{ menuTitle }}</button>
+        <mat-menu #menu="matMenu">
+            @for (item of _menus(); track item) {
+            <button
+                mat-menu-item
+                [disabled]="item.disabled!"
+            >
+                {{ item.label }}
+            </button>
+            }
+        </mat-menu>
+    }
+}
