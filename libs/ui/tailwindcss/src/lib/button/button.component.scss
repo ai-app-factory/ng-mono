@@ -1,0 +1,104 @@
+// @mixin button-shape($shape) {
+//   @if $shape == 'round' {
+//     @apply rounded-lg;
+//   }
+//   @else if $shape == 'pill' {
+//     @apply rounded-full;
+//   }
+//   @else if $shape == 'square' {
+//     @apply rounded-none;
+//   }
+//   @else {
+//     @apply rounded-md;
+//   }
+// }
+
+// @mixin button-size($size) {
+//   @if $size == 'small' {
+//     @apply text-sm px-3 py-2;
+//   }
+//   @else if $size == 'medium' {
+//     @apply text-md px-4 py-2;
+//   } @else if $size == 'large' {
+//     @apply px-4 py-2 text-lg;
+//   } @else {
+//     @apply px-3 py-1.5 text-base;
+//   }
+// }
+
+// @mixin button-color($color) {
+//   @if $color == 'primary' {
+//     @apply bg-emerald-400 text-white;
+//   }
+//   @else if $color == 'secondary' {
+//     @apply bg-blue-600 text-white;
+//   }
+//   @else if $color == 'success' {
+//     @apply bg-fuchsia-400 text-white;
+//   }
+//   @else if $color == 'danger' {
+//     @apply bg-red-500 text-white;
+//   }
+//   @else if $color == 'warning' {
+//     @apply bg-yellow-400 text-white;
+//   }
+//   @else if $color == 'info' {
+//     @apply bg-cyan-300 text-white;
+//   }
+//   @else if $color == 'light' {
+//     @apply bg-amber-50 text-gray-950;
+//   }
+//   @else if $color == 'dark' {
+//     @apply bg-black text-white;
+//   }
+//   @else {
+//     @apply bg-amber-700 text-gray-800;
+//   }
+// }
+
+// // Base button styles
+
+
+// // Example usage of mixins in classes
+// .button-round {
+//   @include button-shape('round');
+// }
+
+// .button-square {
+//   @include button-shape('square');
+// }
+// .button-pill {
+//   @include button-shape('pill');
+// }
+
+// .button-small {
+//   @include button-size('small');
+// }
+
+// .button-large {
+//   @include button-size('large');
+// }
+
+// .button-medium {
+//   @include button-size('medium');
+// }
+
+// .button-success {
+//   @include button-color('success');
+// }
+
+// .button-primary {
+//   @include button-color('primary');
+// }
+
+// .button-secondary {
+//   @include button-color('secondary');
+// }
+
+// .button-danger {
+//   @include button-color('danger');
+// }
+
+.button {
+  @apply bg-emerald-400;
+}
