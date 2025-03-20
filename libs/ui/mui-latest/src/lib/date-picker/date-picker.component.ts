@@ -87,8 +87,12 @@ export class DynamicRangeSelectionStrategy<D> implements MatDateRangeSelectionSt
     provideNativeDateAdapter(),
     {
       provide: MAT_DATE_RANGE_SELECTION_STRATEGY,
-      useFactory: (component: DatePickerComponent) =>
-        new DynamicRangeSelectionStrategy(component.daysBefore, component.daysAfter),
+      useFactory: (component: DatePickerComponent) => {
+        if (component.useCustomStrategy) {
+          return new DynamicRangeSelectionStrategy(component.daysBefore, component.daysAfter);
+        }
+        return false;
+      },
       deps: [DatePickerComponent],
     },
 /*    {
@@ -123,8 +127,8 @@ export class DatePickerComponent {
 
   @Input() useCustomStrategy: boolean = false;
 
-  @Input() daysBefore: number = 2;
-  @Input() daysAfter: number = 2;
+  @Input() daysBefore?: number;
+  @Input() daysAfter?: number;
 
   @Input() customHeader?: boolean = false;
 
