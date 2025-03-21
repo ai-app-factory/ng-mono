@@ -16,18 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21'
-          cache: 'npm'
+          node-version: "22.x"
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Run unit tests with coverage
         run: |
-          nx run-many --target=test --projects=mui-latest \
+          yarn nx run-many --target=test --projects=mui-latest \
           --coverage --coverageReporters=lcov,text-summary
 
       - name: Upload coverage to Codecov
