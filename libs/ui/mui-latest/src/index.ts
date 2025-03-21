@@ -49,3 +49,5 @@ export * from './lib/tool-tip/tool-tip.component';
 export * from './lib/tree/tree.component';
 
 export * from './lib/badge/badge.component';
+
+export * from './lib/form-field/form-field.component';
