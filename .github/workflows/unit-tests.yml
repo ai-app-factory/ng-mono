@@ -1,0 +1,47 @@
+name: Unit Tests
+on:
+  push:
+    branches:
+      - migrate-version-latest
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  unit-tests:
+    name: Run Unit Tests and Generate Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests with coverage
+        run: |
+          nx run-many --target=test --projects=mui-latest \
+          --coverage --coverageReporters=lcov,text-summary
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/lcov.info
+          flags: mui-latest
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
+      - name: Annotate PR with Coverage Summary
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo "Coverage Summary:" >> $GITHUB_STEP_SUMMARY
+          cat ./coverage/lcov-report/index.html >> $GITHUB_STEP_SUMMARY
+
