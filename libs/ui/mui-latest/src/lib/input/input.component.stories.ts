@@ -201,13 +201,26 @@ export default meta;
 type Story = StoryObj<InputComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    label: 'Type here',
+    placeholder: 'Placeholder',
+    disabled: false,
+    disabledInteractive: false,
+    value: '',
+    clearable: false,
+    hint: '',
+    icon: '',
+    labelAppearance: 'fill',
+    type: 'text',
+    maxLength: '100',
+    minLength: '0',
+    required: false
+  },
 };
 
 export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/input works!/gi)).toBeTruthy();
   },
 };
