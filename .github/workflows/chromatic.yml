@@ -1,12 +1,21 @@
 name: "Chromatic"
 
+# on:
+#   push:
+#     branches:
+#       - migrate-version-latest # Only run on library changes
+#     paths-ignore:
+#       - 'libs/**/src/**/*.spec.ts'
+#       - 'libs/**/src/**/*.spec.tsx'
+
 on:
-  push:
+  pull_request:
     branches:
-      - migrate-version-latest # Only run on library changes
+      - main # Only run on library changes
     paths-ignore:
       - 'libs/**/src/**/*.spec.ts'
       - 'libs/**/src/**/*.spec.tsx'
+
 
 jobs:
   chromatic:
