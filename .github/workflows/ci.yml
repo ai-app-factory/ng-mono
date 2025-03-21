@@ -1,9 +1,9 @@
-name: CI
+name: Nx CI
 
 on:
-  push:
-    branches:
-      - migrate-version-latest
+  # push:
+  #   branches:
+  #     - migrate-version-latest
   pull_request:
     branches:
       - main
