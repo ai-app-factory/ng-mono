@@ -1,1 +1,92 @@
-<p>input works!</p>
+@if (type !== 'password' && type !== 'email') {
+  <mat-form-field
+    [appearance]="labelAppearance? labelAppearance : 'outline'"
+    [floatLabel]="floatLabel? floatLabel : 'auto'"
+
+  >
+    @if (label) {
+      <mat-label>{{ label }}</mat-label>
+    }
+    <input
+      matInput
+      [type]="type? type : 'text'"
+      [placeholder]="placeholder? placeholder : ''"
+      [(ngModel)]="value"
+      (ngModelChange)="valueChange.emit($event)"
+      [disabled]="disabled? disabled! : false"
+      [required]="required? required! : false"
+      [readonly]="readonly? readonly! : false"
+      [maxlength]="maxLength? maxLength : null"
+      [minlength]="minLength? minLength : null"
+    >
+    @if (value && clearable) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="value = ''; valueChange.emit('')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+  </mat-form-field>
+} @else if (type === 'password') {
+  <mat-form-field
+    [appearance]="labelAppearance? labelAppearance : 'outline'"
+    [floatLabel]="floatLabel? floatLabel : 'auto'"
+  >
+    @if (label) {
+      <mat-label>{{ label }}</mat-label>
+    }
+    <input
+      matInput
+      [type]="hidePassword() ? 'password' : 'text'"
+      [placeholder]="placeholder? placeholder : ''"
+      [(ngModel)]="value"
+      (ngModelChange)="valueChange.emit($event)"
+      [disabled]="disabled? disabled! : false"
+      [required]="required? required! : false"
+      [readonly]="readonly? readonly! : false"
+      [formControl]="passwordFormControl"
+    >
+    @if (passwordFormControl.hasError('minlength')) {
+      <mat-error>Password must be at least 8 characters</mat-error>
+    }
+    @if (passwordFormControl.hasError('pattern')) {
+      <mat-error>Password must contain at least one capital letter and one number and one special character</mat-error>
+
+    }
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="Hide password"
+      (click)="toggleShowPassword($event)"
+    >
+      <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+} @else if (type === 'email') {
+  <mat-form-field
+    [appearance]="labelAppearance? labelAppearance : 'outline'"
+    [floatLabel]="floatLabel? floatLabel : 'auto'"
+  >
+    @if (label) {
+      <mat-label>{{ label }}</mat-label>
+    }
+    <input
+      matInput
+      type="email"
+      [placeholder]="placeholder? placeholder : ''"
+      [disabled]="disabled? disabled! : false"
+      [required]="required? required! : false"
+      [readonly]="readonly? readonly! : false"
+      [formControl]="emailFormControl"
+    >
+    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+    }
+    @if (emailFormControl.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+}
