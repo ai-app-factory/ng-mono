@@ -97,7 +97,24 @@ export default meta;
 type Story = StoryObj<ListComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    disabled: false,
+    disableRipple: false,
+    listType: 'list',
+    withDivider: true,
+    listItems: [
+      {
+
+        title: 'Item 1',
+      },
+      {
+        title: 'Item 2',
+      },
+      {
+        title: 'Item 3',
+      },
+    ],
+  },
 };
 
 export const Heading: Story = {
