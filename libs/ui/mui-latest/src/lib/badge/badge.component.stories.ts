@@ -100,13 +100,9 @@ export default meta;
 type Story = StoryObj<BadgeComponent>;
 
 export const Primary: Story = {
-  args: {},
-};
-
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  args: {
+    badgeFor: 'icon',
+    icon: 'home'
   },
 };
 
