@@ -8,7 +8,8 @@ import {
   Input, 
   Inject, 
   Injectable,
-  destroyPlatform
+  destroyPlatform,
+  forwardRef
 } from '@angular/core';
 import {
   DateAdapter, 
@@ -29,7 +30,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {Subject} from 'rxjs';
 import {startWith, takeUntil} from 'rxjs/operators';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators, NG_VALIDATORS, FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ExampleHeader } from './example-header.component';
 
 
@@ -79,12 +80,24 @@ export class DynamicRangeSelectionStrategy<D> implements MatDateRangeSelectionSt
     MatIconModule,
     MatButtonModule,
     ExampleHeader,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     provideNativeDateAdapter(),
+    {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => DatePickerComponent),
+    multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => DatePickerComponent),
+      multi: true,
+    },
     {
       provide: MAT_DATE_RANGE_SELECTION_STRATEGY,
       useFactory: (component: DatePickerComponent) => {
@@ -103,7 +116,7 @@ export class DynamicRangeSelectionStrategy<D> implements MatDateRangeSelectionSt
     },*/
   ],
 })
-export class DatePickerComponent {
+export class DatePickerComponent implements ControlValueAccessor {
   @Input() toggleIcon: string = 'keyboard_arrow_down';
   @Input() datePickerType: 'single' | 'range'  = 'single';
   @Input() actionButton: boolean = false;
@@ -112,6 +125,8 @@ export class DatePickerComponent {
 
   @Input() disableInput: boolean = false;
   @Input() disableToggle: boolean = false;
+
+  @Input() required?: boolean;
 
   @Input() minDate?: string | Date;
   @Input() maxDate?: string | Date;
@@ -158,4 +173,39 @@ export class DatePickerComponent {
         return 'DD/MM/YYYY';
     }
   }
+
+  formControl = new FormControl<Date | Date[] | null>(null);
+
+  private onChange = (value: Date | Date[] | null) => {};
+  private onTouched = () => {};
+
+  writeValue(value: Date | Date[] | null): void {
+    this.formControl.setValue(value);
+  }
+
+  registerOnChange(fn: (value: Date | Date[] | null) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  validate(control: FormControl): { [key: string]: any } | null {
+    return this.formControl.valid ? null : { dateError: { valid: false } };
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    isDisabled ? this.formControl.disable() : this.formControl.enable();
+  }
+
+  ngOnChanges() {
+    const validators = [];
+    if (this.required) {
+      validators.push(Validators.required);
+    }
+      
+    this.formControl.setValidators(validators);
+    this.formControl.updateValueAndValidity();
+    }
 }

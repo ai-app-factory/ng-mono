@@ -9,7 +9,8 @@
         [disabled]="disableInput" 
         [min]="minDate" 
         [max]="maxDate"
-        [matDatepickerFilter]="dateFilter">
+        [matDatepickerFilter]="dateFilter"
+        [formControl]="formControl">
         <mat-hint>{{dateFromatString}}</mat-hint>
           @if (openMethod === 'normal'){
             <mat-datepicker-toggle 
@@ -32,6 +33,9 @@
             </mat-datepicker-actions>
           }
       </mat-datepicker>
+      @if(formControl.hasError('required')) {
+        <mat-error>Please enter a date</mat-error>
+      }
     </mat-form-field>
     
     @if (openMethod === 'button'){

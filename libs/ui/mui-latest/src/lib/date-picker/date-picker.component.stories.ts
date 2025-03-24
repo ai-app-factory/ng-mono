@@ -193,6 +193,15 @@ export const DatePickerWithActionButtons: Story = {
   },
 };
 
+export const DatePickerWithRequiredSelection: Story = {
+  args: {
+    label: 'Pick a date',
+    datePickerType: 'single',
+    required: true,
+    locale: 'en-US',
+  },
+};
+
 export const DatePickerWithToggleButton: Story = {
   args: {
     label: 'Pick a date',
