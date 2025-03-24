@@ -1,10 +1,19 @@
 <mat-form-field>
     <mat-label>{{ label }}</mat-label>
-    <input matInput [formControl]="formControl" [matTimepicker]="picker" [matTimepickerMin]="min" [matTimepickerMax]="max">
+    <input 
+      matInput 
+      [formControl]="formControl" 
+      [matTimepicker]="picker" 
+      [matTimepickerMin]="min" 
+      [matTimepickerMax]="max">
     <mat-timepicker-toggle matSuffix [for]="picker">
       <mat-icon matTimepickerToggleIcon>{{ toggleIcon }}</mat-icon>
     </mat-timepicker-toggle>
-    <mat-timepicker [interval]="interval" [options]="options" #picker></mat-timepicker>
+    <mat-timepicker 
+      [interval]="interval" 
+      [options]="options" 
+      #picker>
+    </mat-timepicker>
     @if (formControl.errors?.['matTimepickerParse']) {
       <mat-error>Value isn't a valid time</mat-error>
     }
