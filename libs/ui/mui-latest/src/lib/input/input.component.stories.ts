@@ -224,3 +224,38 @@ export const Heading: Story = {
     const canvas = within(canvasElement);
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    placeholder: 'Disabled',
+    floatLabel: 'auto',
+  },
+};
+
+export const DisabledInteractive: Story = {
+  args: {
+    disabledInteractive: true,
+    placeholder: 'Disabled Interactive',
+    floatLabel: 'auto',
+    disabled: true
+  },
+};
+
+export const Clearable: Story = {
+  args: {
+    clearable: true,
+    placeholder: 'Clearable',
+    floatLabel: 'auto',
+  },
+};
+
+export const PasswordInput: Story = {
+  args: {
+    type: 'password',
+    hint: 'Password must be at least 8 characters long',
+    label: 'Password',
+    placeholder: 'Enter your password',
+    floatLabel: 'auto',
+  },
+}
