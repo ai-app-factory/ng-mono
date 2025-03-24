@@ -45,6 +45,7 @@ export class SlideToggleComponent {
 
   @Input() set slideToggles(slideToggles: SlideToggle[]) {
     this._slideToggles.set(slideToggles);
+    this.updateFormControls();
   }
 
   @Input() set formGroup(formGroup: FormGroup) {
@@ -86,5 +87,14 @@ export class SlideToggleComponent {
 
   alertFormValues(formGroup: FormGroup) {
     alert(JSON.stringify(formGroup.value, null, 2));
+  }
+
+  private updateFormControls() {
+    const formGroup = this._formGroup();
+    this._slideToggles().forEach(toggle => {
+      if (toggle.formControlName && !formGroup.controls[toggle.formControlName]) {
+        formGroup.addControl(toggle.formControlName, new FormControl(toggle.checked || false));
+      }
+    });
   }
 }
