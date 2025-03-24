@@ -1,6 +1,6 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, signal, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule, ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NG_VALIDATORS, Validators} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,25 +19,36 @@ export interface Group {
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true,
+    },
   ],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectComponent {
+
+export class SelectComponent implements ControlValueAccessor {
 
   @Input() disabled = false;
-
+  @Input() customErrorMessage = 'This field is required';
   @Input() placeholder = 'Please select an option';
-
   @Input() label = 'Select an option';
-
   @Input() multiple = false;
-
+  @Input() required?: boolean;
   @Input() option: 'nested' | 'flat' = 'flat';
-
   @Input() customTriggerText = false;
-
   @Input() set groups(groups: Group[]) {
     this._groups.set(groups);
   }
@@ -62,6 +73,7 @@ export class SelectComponent {
   ]);
 
   selectedValue?: number | number[] | null = null;
+  validationErrors: string[] = [];
 
   getCustomTriggerText(): string {
     if (this.multiple && Array.isArray(this.selectedValue)) {
@@ -81,6 +93,44 @@ export class SelectComponent {
     }
     return 'Please select an option';
   }
+
+  formControl = new FormControl<number | number[] | null>(null);
+
+  private onChange = (value: number | number[] | null) => {};
+  private onTouched = () => {};
+
+  writeValue(value: number | number[] | null): void {
+    this.selectedValue = value;
+    this.formControl.setValue(value);
+  }
+
+  registerOnChange(fn: (value: number | number[] | null) => void): void {
+    this.onChange = fn;
+    this.formControl.valueChanges.subscribe(fn);
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    isDisabled ? this.formControl.disable() : this.formControl.enable();
+  }
+
+  validate() {
+    return this.formControl.valid ? null : { invalid: true };
+  }
+
+  ngOnChanges() {
+    const validators = [];
+    if (this.required) {
+      validators.push(Validators.required);
+    }
+      
+    this.formControl.setValidators(validators);
+    this.formControl.updateValueAndValidity();
+    }
+
 }
 
 

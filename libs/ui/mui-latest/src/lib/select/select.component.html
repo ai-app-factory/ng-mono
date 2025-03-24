@@ -7,7 +7,8 @@
             <mat-select
                 [multiple]="multiple"
                 [disabled]="disabled"
-                [(ngModel)]="selectedValue">
+                [(ngModel)]="selectedValue"
+                [formControl]="formControl">
                 @if (customTriggerText) {
                     <mat-select-trigger>
                         {{ getCustomTriggerText() }}
@@ -17,6 +18,12 @@
                     <mat-option [value]="item.id" [disabled]="item.disabled">{{item.value}}</mat-option>
                 }
             </mat-select>
+            @if (formControl.hasError('required')) {
+                <mat-error>{{ customErrorMessage }}</mat-error>
+            }
+            @if(formControl.hasError('max')) {
+                <mat-error>{{ customErrorMessage }}</mat-error>
+            }
         </mat-form-field>
     }
 
@@ -26,7 +33,8 @@
             <mat-select
                 [multiple]="multiple"
                 [disabled]="disabled"
-                [(ngModel)]="selectedValue">
+                [(ngModel)]="selectedValue"
+                [formControl]="formControl">
                 @if(customTriggerText) {
                     <mat-select-trigger>
                         {{ getCustomTriggerText() }}
@@ -40,6 +48,9 @@
                     </mat-optgroup>
                 }
             </mat-select>
+            @if (formControl.hasError('required')) {
+                <mat-error>{{ customErrorMessage }}</mat-error>
+            }
         </mat-form-field>
     }
 }

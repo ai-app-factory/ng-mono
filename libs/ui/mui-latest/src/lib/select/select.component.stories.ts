@@ -60,6 +60,19 @@ export const WithDynamicTriggerText: Story = {
 };
 
 
+export const WithRequiredSelection: Story = {
+  args: {
+    required: true,
+    customErrorMessage: 'Please select a fruit',
+    groups: [
+      { id: 1, value: 'Apple' },
+      { id: 2, value: 'Banana' },
+      { id: 3, value: 'Cherry' },
+      { id: 4, value: 'Date' },
+    ],
+  },
+};
+
 export const WithGroups: Story = {
   args: {
     option: 'nested',
