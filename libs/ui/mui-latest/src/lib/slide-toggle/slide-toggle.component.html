@@ -9,15 +9,14 @@
     @for (slideToggle of _slideToggles(); track slideToggle; let i = $index) {
       <p>
         <mat-slide-toggle
-          [checked]="slideToggle.checked? slideToggle.checked : false"
-          [formControl]="toggleDisabled()"
-          [labelPosition]="slideToggle.labelPosition? slideToggle.labelPosition : 'after'"
-          [required]="slideToggle.required ? slideToggle.required : false || required? required! : false"
-          (change)="onChange($event, slideToggle.formControlName!)"
-          [formControlName]="slideToggle.formControlName!"
-          [disableRipple]="disableRipple"
-          [disabledInteractive]="disabledInteractive"
-          [hideIcon]="slideToggle.hideIcon ? slideToggle.hideIcon : false || hideIcon? hideIcon : false"
+        [checked]="slideToggle.checked? slideToggle.checked : false"
+        [labelPosition]="slideToggle.labelPosition? slideToggle.labelPosition : 'after'"
+        [required]="slideToggle.required ? slideToggle.required : false || required? required! : false"
+        (change)="onChange($event, slideToggle.formControlName!)"
+        [formControlName]="slideToggle.formControlName!"
+        [disableRipple]="disableRipple"
+        [disabledInteractive]="disabledInteractive"
+        [hideIcon]="slideToggle.hideIcon ? slideToggle.hideIcon : false || hideIcon? hideIcon : false"
         >
           {{slideToggle.label}}
         </mat-slide-toggle>

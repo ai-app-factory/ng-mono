@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SlideToggleComponent } from './slide-toggle.component';
 
 describe('SlideToggleComponent', () => {
@@ -10,14 +8,20 @@ describe('SlideToggleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        ReactiveFormsModule,
-        MatSlideToggleModule,
         SlideToggleComponent
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SlideToggleComponent);
     component = fixture.componentInstance;
+    component.slideToggles = [
+      {
+        label: 'I agree to the terms and conditions',
+        checked: false,
+        disabled: false,
+        formControlName: 'terms'
+      }
+    ]
     fixture.detectChanges();
   });
 

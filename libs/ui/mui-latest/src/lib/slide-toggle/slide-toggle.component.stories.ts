@@ -139,3 +139,80 @@ export const Primary: Story = {
     expect(canvas.getByText("Slide Toggle 1")).toBeTruthy();
   },
 };
+
+export const AllRequired: Story = {
+  args: {
+    slideToggles: [
+      {
+        label: 'Slide Toggle 1',
+        checked: false,
+        formControlName: 'toggle1',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+      },
+      {
+        label: 'Slide Toggle 2',
+        checked: true,
+        formControlName: 'toggle2',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+      },
+      {
+        label: 'Slide Toggle 3',
+        checked: false,
+        formControlName: 'toggle3',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+
+      },
+    ],
+    displayResult: true,
+    formGroup: new FormGroup({
+      toggle1: new FormControl(false, Validators.requiredTrue),
+      toggle2: new FormControl(false, Validators.requiredTrue),
+      toggle3: new FormControl(true, Validators.requiredTrue),
+    }),
+  }
+}
+
+export const OneRequired: Story = {
+  args: {
+    slideToggles: [
+      {
+        label: 'Slide Toggle 1',
+        checked: false,
+        formControlName: 'toggle1',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+      },
+      {
+        label: 'Slide Toggle 2',
+        checked: true,
+        formControlName: 'toggle2',
+        disabled: false,
+        required: false,
+        hideIcon: false,
+        labelPosition: 'after',
+      },
+      {
+        label: 'Slide Toggle 3',
+        checked: false,
+        formControlName: 'toggle3',
+        disabled: false,
+      }],
+    displayResult: true,
+    formGroup: new FormGroup({
+      toggle1: new FormControl(false),
+      toggle2: new FormControl(false),
+      toggle3: new FormControl(true, Validators.requiredTrue),
+    }),
+  }
+}
