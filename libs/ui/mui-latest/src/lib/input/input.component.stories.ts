@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { InputComponent } from './input.component';
+import { InputComponent, FormField } from './input.component';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-
 /**
  * `InputComponent` with inbuilt form validation for email and password.
  * Additional features include `clearable`, `disabled`, `disabledInteractive`, `hint`, `icon`, `label`, `labelAppearance`, `placeholder`, `type`, and `value`.
@@ -11,251 +10,121 @@ const meta: Meta<InputComponent> = {
   component: InputComponent,
   title: 'InputComponent',
   argTypes: {
-    label: {
-      control: {
-        type: 'text',
-      },
-      description: 'The label for the input field.',
+    formField: {
+      control: 'object',
+      description: 'The form field configuration',
       table: {
-        defaultValue: {
-          summary: 'Type here',
-        },
-        type: {
-          summary: 'string',
-        },
-      },
-    },
-    placeholder: {
-      control: {
-        type: 'text',
-      },
-      description: 'The placeholder for the input field.',
-      table: {
-        defaultValue: {
-          summary: 'Placeholder',
-        },
-        type: {
-          summary: 'string',
-        },
-      },
-    },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Whether the input field is disabled.',
-      table: {
-        defaultValue: {
-          summary: 'false',
-        },
-        type: {
-          summary: 'boolean',
-        },
-      },
-    },
-    disabledInteractive: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Whether the input field is disabled and interactive.',
-      table: {
-        defaultValue: {
-          summary: 'false',
-        },
-        type: {
-          summary: 'boolean',
-        },
-      },
-    },
-    value: {
-      control: {
-        type: 'text',
-      },
-      description: 'The value of the input field.',
-      table: {
-        defaultValue: {
-          summary: '',
-        },
-        type: {
-          summary: 'string'
-        },
-      },
-    },
-    clearable: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Whether the input field is clearable.',
-      table: {
-        defaultValue: {
-          summary: 'false',
-        },
-        type: {
-          summary: 'boolean'
-        },
-      },
-    },
-    hint: {
-      control: {
-        type: 'text',
-      },
-      description: 'The hint for the input field.',
-      table: {
-        defaultValue: {
-          summary: '',
-        },
-        type: {
-          summary: 'string'
-        },
-      },
-    },
-    icon: {
-      control: {
-        type: 'text',
-      },
-      description: 'The icon for the input field.',
-      table: {
-        defaultValue: {
-          summary: '',
-        },
-        type: {
-          summary: 'string'
-        },
-      },
-    },
-    labelAppearance: {
-      options: ['fill', 'outline'],
-      control: {
-        type: 'select',
-      },
-      description: 'The appearance of the label.',
-      table: {
-        defaultValue: {
-          summary: 'fill',
-        },
-        type: {
-          summary: 'fill | outline',
-        },
-      },
-    },
-    type: {
-      options: ['text', 'number', 'password', 'email', 'tel', 'url', 'search', 'date', 'time', 'datetime-local', 'month', 'color', 'text-area'],
-      control: {
-        type: 'select',
-      },
-      description: 'The type of the input field.',
-      table: {
-        defaultValue: {
-          summary: 'text',
-        },
-        type: {
-          summary: 'InputType',
-        },
-      },
-    },
-    maxLength: {
-      control: {
-        type: 'text',
-      },
-      description: 'The maximum length of the input field.',
-      table: {
-        defaultValue: {
-          summary: '100',
-        },
-        type: {
-          summary: 'string'
-        },
-      },
+        type: { summary: 'FormField' },
+      }
     },
     minLength: {
-      control: {
-        type: 'text',
-      },
-      description: 'The minimum length of the input field.',
+      control: 'number',
+      description: 'The minimum length of the input',
       table: {
-        defaultValue: {
-          summary: '0',
-        },
-        type: {
-          summary: 'string'
-        },
-      },
+        defaultValue: { summary: '0' },
+        type: { summary: 'number' },
+      }
     },
-    required: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Whether the input field is required.',
+    maxLength: {
+      control: 'number',
+      description: 'The maximum length of the input',
       table: {
-        defaultValue: {
-          summary: 'false',
-        },
-        type: {
-          summary: 'boolean'
-        },
-      },
-    }
+        defaultValue: { summary: '100' },
+        type: { summary: 'number' },
+      }
+    },
+    valueChange: {
+      action: 'valueChange',
+      description: 'Emits the value of the input',
+      table: {
+        type: { summary: 'string' },
+      }
+    },
   }
 };
 export default meta;
 type Story = StoryObj<InputComponent>;
 
-export const Primary: Story = {
+export const Password: Story = {
   args: {
-    label: 'Type here',
-    placeholder: 'Placeholder',
-    disabled: false,
-    disabledInteractive: false,
-    value: '',
-    clearable: false,
-    hint: '',
-    icon: '',
-    labelAppearance: 'fill',
-    type: 'text',
-    maxLength: '100',
-    minLength: '0',
-    required: false
-  },
+    formField: [{
+      type: 'password',
+      label: 'Password',
+      placeholder: 'Enter your password',
+      required: true,
+      hint: 'Make sure you remember',
+      minLength: '8',
+      maxLength: '20',
+      floatLabel: 'auto',
+    }]
+  }
 };
 
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-  },
+export const Email: Story = {
+  args: {
+    formField: [{
+      type: 'email',
+      placeholder: 'Enter your email',
+      required: true,
+      hint: 'We will never share your email with anyone else.',
+    }]
+  }
 };
 
-export const Disabled: Story = {
+export const TextArea: Story = {
   args: {
-    disabled: true,
-    placeholder: 'Disabled',
-    floatLabel: 'auto',
-  },
+    formField: [{
+      type: 'text-area',
+      label: 'Message',
+      placeholder: 'Enter your message',
+      hint: 'Type here your message',
+
+    }]
+  }
 };
 
-export const DisabledInteractive: Story = {
+export const Text: Story = {
   args: {
-    disabledInteractive: true,
-    placeholder: 'Disabled Interactive',
-    floatLabel: 'auto',
-    disabled: true
-  },
+    formField: [{
+      type: 'text',
+      label: 'Name',
+      placeholder: 'Enter your name',
+      hint: 'Type here your name',
+      floatLabel: 'auto',
+    }]
+  }
 };
 
-export const Clearable: Story = {
+export const Number: Story = {
   args: {
-    clearable: true,
-    placeholder: 'Clearable',
-    floatLabel: 'auto',
-  },
+    formField: [{
+      type: 'number',
+      label: 'amount',
+      placeholder: '0',
+      hint: 'add the amount you want to donate',
+      floatLabel: 'always',
+      prefix: {
+        type: 'icon',
+        icon: 'sentiment_very_satisfied'
+      },
+      suffix: {
+        type: 'text',
+        text: '.00'
+      }
+    }]
+  }
 };
 
-export const PasswordInput: Story = {
+export const ClearableText: Story = {
   args: {
-    type: 'password',
-    hint: 'Password must be at least 8 characters long',
-    label: 'Password',
-    placeholder: 'Enter your password',
-    floatLabel: 'auto',
-  },
-}
+    formField: [{
+      type: 'text',
+      label: 'Name',
+      placeholder: 'Enter your name',
+      hint: 'Type here your name',
+      clearable: true,
+      floatLabel: 'always'
+    }]
+  }
+};
+

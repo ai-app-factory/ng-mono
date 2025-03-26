@@ -23,6 +23,34 @@ import {
   MatFormFieldModule
 } from '@angular/material/form-field';
 
+export interface Prefix {
+  type: 'icon' | 'text';
+  text?: string;
+  icon?: string;
+}
+
+export interface Suffix extends Prefix {}
+
+export interface FormField {
+  label?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  disabledInteractive?: boolean;
+  value?: string;
+  type?: InputType;
+  hint?: string;
+  appearance?: MatFormFieldAppearance;
+  clearable?: boolean;
+  maxLength?: string;
+  minLength?: string;
+  hintAlign?: 'start' | 'end';
+  readonly?: boolean;
+  required?: boolean;
+  prefix?: Prefix;
+  suffix?: Suffix;
+  floatLabel?: FloatLabelType;
+}
+
 type InputType =
   'text' |
   'number' |
@@ -53,44 +81,76 @@ type InputType =
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
-  @Input() label?: string = 'Type here';
-  @Input() placeholder?: string = 'Placeholder';
-  @Input() disabled?: boolean = false;
-  @Input() disabledInteractive?: boolean = false;
-  @Input() value?: string = '';
-  @Input() type?: InputType = 'text';
-  @Input() hint?: string = '';
-  @Input() icon?: string = '';
-  @Input() labelAppearance?: MatFormFieldAppearance = 'fill';
-  @Input() clearable?: boolean = false;
-  @Input() maxLength?: string = '100';
+
+  @Input() value: string = '';
   @Input() minLength?: string = '0';
-  @Input() hintAlign?: 'start' | 'end' = 'start';
-  @Input() readonly?: boolean = false;
-  @Input() required?: boolean = false;
-  @Input() isPrefix?: boolean = false;
-  @Input() isSuffix?: boolean = false;
-  @Input() prefixType?: 'icon' | 'text';
-  @Input() suffixType?: 'icon' | 'text';
-  @Input() prefixText?: string = '';
-  @Input() suffixText?: string = '';
-  @Input() prefixIcon?: string = '';
-  @Input() suffixIcon?: string = '';
-  @Input() floatLabel?: FloatLabelType = 'auto';
+  @Input() maxLength?: string = '100';
+
+  @Input() set formField(formField: FormField[]) {
+    this._formField.set(formField);
+  }
+
+  protected _formField = signal<FormField[]>([
+    {
+      label: 'Email',
+      placeholder: 'Enter your email',
+      type: 'email',
+      hint: 'We will nevershare your email with anyone else.',
+      required: true,
+      prefix: {
+        type: 'icon',
+        icon: 'email'
+      },
+      suffix: {
+        type: 'icon',
+        icon: 'visibility_off'
+      },
+      floatLabel: 'auto'
+    },
+    {
+      label: 'Password',
+      placeholder: 'Enter your password',
+      type: 'password',
+      hint: 'Must contain at least one uppercase letter, one number and one special character.',
+      required: true,
+      prefix: {
+        type: 'icon',
+        icon: 'lock'
+      },
+      suffix: {
+        type: 'icon',
+        icon: 'visibility_off'
+      },
+      floatLabel: 'auto'
+    }
+  ]);
+
 
   @Output() valueChange = new EventEmitter<string>();
 
   protected hidePassword = signal(true);
 
-  protected emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  protected emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]);
   protected passwordFormControl = new FormControl('', [
     Validators.minLength(8),
     Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
   ]);
+  
+
 
   onValueChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
-    this.value = inputElement.value?.trim();
+    this._formField.update(formFields => {
+      const updatedFields = [...formFields];
+      const fieldIndex = updatedFields.findIndex(field => field.value === this.value);
+      if (fieldIndex !== -1) {
+        updatedFields[fieldIndex].value = inputElement.value;
+      }
+      return updatedFields;
+    });
     this.valueChange.emit(this.value);
   }
 

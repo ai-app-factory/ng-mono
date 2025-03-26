@@ -1,92 +1,154 @@
-@if (type !== 'password' && type !== 'email') {
+@for (formfield of _formField(); track formfield; let i = $index) {
   <mat-form-field
-    [appearance]="labelAppearance? labelAppearance : 'outline'"
-    [floatLabel]="floatLabel? floatLabel : 'auto'"
-
+    [appearance]="formfield.appearance? formfield.appearance : 'outline'"
+    [floatLabel]="formfield.floatLabel? formfield.floatLabel : 'auto'"
   >
-    @if (label) {
-      <mat-label>{{ label }}</mat-label>
+    @if (formfield.label) {
+      <mat-label>{{ formfield.label }}</mat-label>
     }
-    <input
-      matInput
-      [type]="type? type : 'text'"
-      [placeholder]="placeholder? placeholder : ''"
-      [(ngModel)]="value"
-      (ngModelChange)="valueChange.emit($event)"
-      [disabled]="disabled? disabled! : false"
-      [required]="required? required! : false"
-      [readonly]="readonly? readonly! : false"
-      [maxlength]="maxLength? maxLength : null"
-      [minlength]="minLength? minLength : null"
-    >
-    @if (value && clearable) {
+
+    @switch (formfield.type) {
+      @case ('password') {
+        <input
+          matInput
+          [type]="hidePassword() ? 'password' : 'text'"
+          [placeholder]="formfield.placeholder? formfield.placeholder : ''"
+          [(ngModel)]="formfield.value"
+          (ngModelChange)="valueChange.emit($event)"
+          [disabled]="formfield.disabled? formfield.disabled! : false"
+          [required]="formfield.required? formfield.required! : false"
+          [readonly]="formfield.readonly? false : false"
+          [formControl]="passwordFormControl"
+        >
+      }
+      @case ('email') {
+        <input
+          matInput
+          type="email"
+          [(ngModel)]="formfield.value"
+          (ngModelChange)="valueChange.emit($event)"
+          [placeholder]="formfield.placeholder? formfield.placeholder : ''"
+          [disabled]="formfield.disabled? formfield.disabled! : false"
+          [required]="formfield.required? formfield.required! : false"
+          [readonly]="formfield.readonly? formfield.readonly! : false"
+          [formControl]="emailFormControl"
+        >
+      }
+      @case ('number') {
+        <input
+          matInput
+          type="number"
+          [placeholder]="formfield.placeholder? formfield.placeholder : ''"
+          [(ngModel)]="formfield.value"
+          (ngModelChange)="valueChange.emit($event)"
+          [disabled]="formfield.disabled? formfield.disabled! : false"
+          [required]="formfield.required? formfield.required! : false"
+          [readonly]="formfield.readonly? formfield.readonly! : false"
+          [min]="formfield.minLength? formfield.minLength : null"
+          [max]="formfield.maxLength? formfield.maxLength : null"
+        >
+      }
+      @case ('text-area') {
+        <textarea
+          matInput
+          [placeholder]="formfield.placeholder? formfield.placeholder : ''"
+          [(ngModel)]="formfield.value"
+          (ngModelChange)="valueChange.emit($event)"
+          [disabled]="formfield.disabled? formfield.disabled! : false"
+          [required]="formfield.required? formfield.required! : false"
+          [readonly]="formfield.readonly? formfield.readonly! : false"
+          [maxlength]="formfield.maxLength? formfield.maxLength : null"
+          [minlength]="formfield.minLength? formfield.minLength : null"
+        >
+        </textarea>
+      }
+      @case ('tel') {
+        <input
+          matInput
+          type="tel"
+          [placeholder]="formfield.placeholder? formfield.placeholder : ''"
+          [(ngModel)]="formfield.value"
+          (ngModelChange)="valueChange.emit($event)"
+          [disabled]="formfield.disabled? formfield.disabled! : false"
+          [required]="formfield.required? formfield.required! : false"
+          [readonly]="formfield.readonly? formfield.readonly! : false"
+          [maxlength]="formfield.maxLength? formfield.maxLength : null"
+          [minlength]="formfield.minLength? formfield.minLength : null"
+        >
+      }
+      @default {
+        <input
+          matInput
+          [type]="formfield.type? formfield.type : 'text'"
+          [placeholder]="formfield.placeholder? formfield.placeholder : ''"
+          [(ngModel)]="formfield.value"
+          (ngModelChange)="valueChange.emit($event)"
+          [disabled]="formfield.disabled? formfield.disabled! : false"
+          [required]="formfield.required? formfield.required! : false"
+          [readonly]="formfield.readonly? formfield.readonly! : false"
+          [maxlength]="formfield.maxLength? formfield.maxLength : null"
+          [minlength]="formfield.minLength? formfield.minLength : null"
+        >
+      }
+    }
+    @if (formfield.type === 'password' && passwordFormControl.hasError('minlength')) {
+      <mat-error>Password must be at least 8 characters</mat-error>
+    }
+    @else if (formfield.type === 'password' && passwordFormControl.hasError('pattern')) {
+      <mat-error>Password must contain at least one capital letter and one number and one special character</mat-error>
+    }
+    @else if (formfield.type === 'password' && passwordFormControl.hasError('required')) {
+      <mat-error>Password is <strong>required</strong></mat-error>
+    }
+    @if (formfield.type === 'email' && emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+    }
+    @else if (formfield.type === 'email' && emailFormControl.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+    }
+    @if (formfield.prefix) {
+      @switch (formfield.prefix.type) {
+        @case ('icon') {
+          <mat-icon matPrefix>{{ formfield.prefix.icon }}</mat-icon>
+        }
+        @case ('text') {
+          <span matTextPrefix>{{ formfield.prefix.text }}</span>
+        }
+      }
+    }
+    @if (formfield.suffix) {
+      @switch (formfield.suffix.type) {
+        @case ('icon') {
+          <mat-icon matSuffix>{{ formfield.suffix.icon }}</mat-icon>
+        }
+        @case ('text') {
+          <span matSuffix>{{ formfield.suffix.text }}</span>
+        }
+      }
+    }
+    @if (formfield.type === 'password') {
+      <button
+        matSuffix
+        mat-icon-button
+        [attr.aria-label]="hidePassword() ? 'Show password' : 'Hide password'"
+        (click)="toggleShowPassword($event)"
+      >
+        <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    }
+
+    @if (formfield.value && formfield.clearable) {
       <button
         matSuffix
         mat-icon-button
         aria-label="Clear"
-        (click)="value = ''; valueChange.emit('')"
+        (click)="formfield.value = ''; valueChange.emit('')"
       >
         <mat-icon>close</mat-icon>
       </button>
     }
-  </mat-form-field>
-} @else if (type === 'password') {
-  <mat-form-field
-    [appearance]="labelAppearance? labelAppearance : 'outline'"
-    [floatLabel]="floatLabel? floatLabel : 'auto'"
-  >
-    @if (label) {
-      <mat-label>{{ label }}</mat-label>
-    }
-    <input
-      matInput
-      [type]="hidePassword() ? 'password' : 'text'"
-      [placeholder]="placeholder? placeholder : ''"
-      [(ngModel)]="value"
-      (ngModelChange)="valueChange.emit($event)"
-      [disabled]="disabled? disabled! : false"
-      [required]="required? required! : false"
-      [readonly]="readonly? readonly! : false"
-      [formControl]="passwordFormControl"
-    >
-    @if (passwordFormControl.hasError('minlength')) {
-      <mat-error>Password must be at least 8 characters</mat-error>
-    }
-    @if (passwordFormControl.hasError('pattern')) {
-      <mat-error>Password must contain at least one capital letter and one number and one special character</mat-error>
-
-    }
-    <button
-      matSuffix
-      mat-icon-button
-      aria-label="Hide password"
-      (click)="toggleShowPassword($event)"
-    >
-      <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
-    </button>
-  </mat-form-field>
-} @else if (type === 'email') {
-  <mat-form-field
-    [appearance]="labelAppearance? labelAppearance : 'outline'"
-    [floatLabel]="floatLabel? floatLabel : 'auto'"
-  >
-    @if (label) {
-      <mat-label>{{ label }}</mat-label>
-    }
-    <input
-      matInput
-      type="email"
-      [placeholder]="placeholder? placeholder : ''"
-      [disabled]="disabled? disabled! : false"
-      [required]="required? required! : false"
-      [readonly]="readonly? readonly! : false"
-      [formControl]="emailFormControl"
-    >
-    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-      <mat-error>Please enter a valid email address</mat-error>
-    }
-    @if (emailFormControl.hasError('required')) {
-      <mat-error>Email is <strong>required</strong></mat-error>
+    @if (formfield.hint) {
+      <mat-hint>{{ formfield.hint }}</mat-hint>
     }
   </mat-form-field>
 }
