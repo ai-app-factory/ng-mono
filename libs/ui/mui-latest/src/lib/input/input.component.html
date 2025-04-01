@@ -122,7 +122,12 @@
     @if (formfield.suffix) {
       @switch (formfield.suffix.type) {
         @case ('icon') {
-          <mat-icon matSuffix>{{ formfield.suffix.icon }}</mat-icon>
+          <span
+            mat-icon
+            matSuffix
+          >
+            {{ formfield.suffix.icon }}
+          </span>
         }
         @case ('text') {
           <span matSuffix>{{ formfield.suffix.text }}</span>
