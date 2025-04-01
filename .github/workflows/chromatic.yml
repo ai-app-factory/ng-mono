@@ -3,7 +3,7 @@ name: "Chromatic"
 on:
   push:
     branches:
-      - migrate-version-latest # Only run on library changes
+      - migrate-version-latest
     paths-ignore:
       - 'libs/**/src/**/*.spec.ts'
       - 'libs/**/src/**/*.spec.tsx'
