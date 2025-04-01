@@ -37,7 +37,7 @@ export class SliderComponent {
 
   @Output() value: number = 0;
   @Output() startValue: number = 0;
-  @Output() endValue: number = 0;
+  @Output() endValue: number = 80;
 
   @Output() valueChange = new EventEmitter<number>();
   @Output() startValueChange = new EventEmitter<number>();
