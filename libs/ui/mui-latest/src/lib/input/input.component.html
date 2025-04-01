@@ -118,16 +118,7 @@
     @else if (formfield.type === 'email' && emailFormControl.hasError('required')) {
       <mat-error>Email is <strong>required</strong></mat-error>
     }
-    @if (formfield.prefix) {
-      @switch (formfield.prefix.type) {
-        @case ('icon') {
-          <mat-icon matPrefix>{{ formfield.prefix.icon }}</mat-icon>
-        }
-        @case ('text') {
-          <span matTextPrefix>{{ formfield.prefix.text }}</span>
-        }
-      }
-    }
+
     @if (formfield.suffix) {
       @switch (formfield.suffix.type) {
         @case ('icon') {
