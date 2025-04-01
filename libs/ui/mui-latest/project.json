@@ -4,7 +4,7 @@
   "sourceRoot": "libs/ui/mui-latest/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": ["ui"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
