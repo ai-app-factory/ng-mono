@@ -82,6 +82,13 @@ const meta: Meta<ButtonComponent> = {
         defaultValue: { summary: 'raised' },
         type: { summary: 'string' },
       }
+    },
+    onButtonPress: {
+      action: 'Button Clicked',
+      description: 'Emits when the button is clicked.',
+      table: {
+        type: { summary: 'string' },
+      }
     }
   }
 };
