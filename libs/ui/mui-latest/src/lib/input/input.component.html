@@ -6,6 +6,18 @@
     @if (formfield.label) {
       <mat-label>{{ formfield.label }}</mat-label>
     }
+    @if (formfield.prefix) {
+      @switch (formfield.prefix.type) {
+        @case ('icon') {
+          <span>
+            <mat-icon matPrefix>{{ formfield.prefix.icon }}</mat-icon>
+          </span>
+        }
+        @case ('text') {
+          <span matTextPrefix>{{ formfield.prefix.text }}</span>
+        }
+      }
+    }
 
     @switch (formfield.type) {
       @case ('password') {
