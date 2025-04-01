@@ -43,10 +43,6 @@ export class SliderComponent {
   @Output() startValueChange = new EventEmitter<number>();
   @Output() endValueChange = new EventEmitter<number>();
 
-  protected startSlider: any;
-  protected endSlider: any;
-  protected slider: any;
-
   onValueChange() {
     this.valueChange.emit(this.value);
   }
