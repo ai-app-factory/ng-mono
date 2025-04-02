@@ -23,6 +23,14 @@
         "configDir": "libs/ui/clarity-design/.storybook",
         "browserTarget": "clarity-design:build-storybook",
         "compodoc": false,
+        "styles": [
+          "node_modules/@cds/core/global.min.css",
+          "node_modules/@cds/core/styles/theme.dark.min.css",
+          "node_modules/@clr/ui/clr-ui.min.css"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/clarity-design/src/lib"]
+        }, 
         "experimentalZoneless": true
       },
       "configurations": {
@@ -39,6 +47,14 @@
         "configDir": "libs/ui/clarity-design/.storybook",
         "browserTarget": "clarity-design:build-storybook",
         "compodoc": false,
+        "styles": [
+          "node_modules/@cds/core/global.min.css",
+          "node_modules/@cds/core/styles/theme.dark.min.css",
+          "node_modules/@clr/ui/clr-ui.min.css"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/clarity-design/src/lib"]
+        },
         "experimentalZoneless": true
       },
       "configurations": {
