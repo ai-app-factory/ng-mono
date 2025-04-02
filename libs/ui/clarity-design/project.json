@@ -1,0 +1,71 @@
+{
+  "name": "clarity-design",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/clarity-design/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["ui"],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ui/clarity-design/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/ui/clarity-design/.storybook",
+        "browserTarget": "clarity-design:build-storybook",
+        "compodoc": false,
+        "experimentalZoneless": true
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/clarity-design",
+        "configDir": "libs/ui/clarity-design/.storybook",
+        "browserTarget": "clarity-design:build-storybook",
+        "compodoc": false,
+        "experimentalZoneless": true
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/ui/clarity-design/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "clarity-design:build-storybook",
+        "staticFilePath": "dist/storybook/clarity-design",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "clarity-design:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
