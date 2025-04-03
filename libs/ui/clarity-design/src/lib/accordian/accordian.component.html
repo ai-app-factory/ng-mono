@@ -1,16 +1,30 @@
-<clr-accordion>
-    <clr-accordion-panel>
-      <clr-accordion-title>Item 1</clr-accordion-title>
-      <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
+<body cds-theme="dark">
+<clr-accordion 
+    [clrAccordionMultiPanel]="MultiPanel">
+    @for (panel of _panels(); track panel; let i = $index) {
+      <clr-accordion-panel
+        [(clrAccordionPanelOpen)]="panel.isOpen "
+        [clrAccordionPanelDisabled]="panel.isDisabled ? panel.isDisabled : false"
+        (clrAccordionPanelOpenChange)="togglePanel(i)"
+      >
+        <clr-accordion-title>{{panel.title}}</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>
+            {{panel.content}}
+            @if (panel.showDescription){
+                <clr-accordion-description>
+                    {{panel.description}}
+                </clr-accordion-description>
+                }
+
+            @if (panel.children){
+                <lib-accordian
+                    [MultiPanel]="MultiPanel"
+                    [panels]="panel.children"
+                    [panels]="panel.children">
+                </lib-accordian>
+            }
+        </clr-accordion-content>
     </clr-accordion-panel>
-  
-    <clr-accordion-panel>
-      <clr-accordion-title>Item 2</clr-accordion-title>
-      <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
-    </clr-accordion-panel>
-  
-    <clr-accordion-panel>
-      <clr-accordion-title>Item 3</clr-accordion-title>
-      <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
-    </clr-accordion-panel>
-  </clr-accordion>
+    }
+</clr-accordion>
+</body>
