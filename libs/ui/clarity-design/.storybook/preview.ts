@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import DocumentationTemplate from './DocumentationTemplate.mdx';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../docs/documentation.json';
+import { ClarityModule } from '@clr/angular';
 setCompodocJson(docJson);
 
 export const decorators = [
@@ -19,6 +20,7 @@ export const decorators = [
       MatFormFieldModule,
       MatInputModule,
       MatIconModule,
+      ClarityModule,
     ],
   }),
 ];
