@@ -12,7 +12,7 @@ import { ClarityIcons, userIcon, alarmClockIcon, airplaneIcon } from '@cds/core/
 
 export interface Alert {
   message: string;
-  type: 'info' | 'success' | 'warning' | 'error';
+  type: 'info' | 'success' | 'warning' | 'error' | 'unknown' | 'neutral' | 'loading';
   icon?: string;
   actions?: {
     label: string;
@@ -32,6 +32,7 @@ export interface Alert {
 })
 export class AlertComponent {
   @Input() showActions: boolean = false;
+  @Input() appLevel: boolean = false;
 
   protected _alerts = signal<Alert[]>([]);
 

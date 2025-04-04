@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { AlertComponent } from './alert.component';
+import e from 'express';
 
 const meta: Meta<AlertComponent> = {
   component: AlertComponent,
@@ -177,14 +178,174 @@ export const DifferentTypesofAlerts: Story = {
   },
 };
 
-export const PaginatedAlerts: Story = {
+export const AppLevelAlert: Story = {
   args: {
+    appLevel: true,
     alerts: [
-      { message: 'Alert 1', type: 'info', closable: true },
-      { message: 'Alert 2', type: 'success', closable: true },
-      { message: 'Alert 3', type: 'warning', closable: true },
-      { message: 'Alert 4', type: 'error', closable: true },
+      {
+        message: 'This is an app-level alert.',
+        type: 'info',
+        icon: 'info-standard',
+        closable: false,
+      },
     ],
+  },
+};
+
+export const AppLevelClosableAlert: Story = {
+  args: {
+    appLevel: true,
+    alerts: [
+      {
+        message: 'This is an app-level closable alert.',
+        type: 'unknown',
+        icon: 'info-standard',
+        closable: true,
+      },
+    ],
+  },
+};
+
+export const AppLevelAlertWithActions: Story = {
+  args: {
+    appLevel: true,
+    showActions: true,
+    alerts: [
+      {
+        message: 'This is an app-level alert with actions.',
+        type: 'warning',
+        icon: 'warning-standard',
+        actions: [
+          { label: 'ShutDown', callback: () => alert('ShutDown clicked!') },
+          { label: 'Delete', callback: () => alert('Delete clicked!') },
+        ],
+        closable: false,
+      },
+    ],
+  },
+};
+export const AppLevelAlertWithSmallSize: Story = {
+  args: {
+    appLevel: true,
+    alerts: [
+      {
+        message: 'This is an app-level small alert.',
+        type: 'info',
+        icon: 'info-standard',
+        closable: true,
+        sizeSmall: true,
+      },
+    ],
+  },
+};
+
+export const AppLevelAlertWithLightWeight: Story = {
+  args: {
+    appLevel: true,
+    alerts: [
+      {
+        message: 'This is an app-level lightweight alert.',
+        type: 'info',
+        icon: 'info-standard',
+        closable: true,
+        lightWeight: true,
+      },
+    ],
+  },
+};
+export const AppLevelAlertWithDifferentIcons: Story = {
+  args: {
+    appLevel: true,
+    alerts: [
+      {
+        message: 'This is an app-level info alert.',
+        type: 'info',
+        icon: 'info-standard',
+        closable: true,
+      },
+      {
+        message: 'With Airplane Icon',
+        type: 'success',
+        icon: 'airplane',
+        closable: true,
+      },
+      {
+        message: 'With Alarm Clock Icon',
+        type: 'warning',
+        icon: 'alarm-clock',
+        closable: true,
+      },
+    ],
+  },
+};
+export const AppLevelLongAlertMessage: Story = {
+  args: {
+    appLevel: true,
+    alerts: [
+      {
+        message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 1',
+        type: 'info',
+        icon: 'info-standard',
+        closable: true,
+        actions: [
+          { label: 'Fix', callback: () => alert('Fix clicked!') },
+          { label: 'Ignore', callback: () => alert('Ignore clicked!') },
+        ],
+      },
+    ],
+    showActions: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'This is an app-level alert with a long message.',
+      },
+    },
+  },
+};
+
+export const AppLevelDifferentTypesofAlerts: Story = {
+  args: {
+    appLevel: true,
+    alerts: [
+      {
+        message: 'This is an app-level info alert.',
+        type: 'info',
+        icon: 'info-standard',
+        closable: true,
+      },
+      {
+        message: 'This is an app-level success alert.',
+        type: 'success',
+        icon: 'success-standard',
+        closable: true,
+      },
+      {
+        message: 'This is an app-level warning alert.',
+        type: 'warning',
+        icon: 'warning-standard',
+        closable: true,
+      },
+      {
+        message: 'This is an app-level danger alert.',
+        type: 'error',
+        icon: 'error-standard',
+        closable: true,
+      },
+      {
+        message: 'This is an app-level alert.',
+        type: 'error',
+        icon: 'alert-standard',
+        closable: false,
+      },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'This is an app-level alert with different types.',
+      },
+    },
   },
 };
 

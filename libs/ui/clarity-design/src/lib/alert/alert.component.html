@@ -4,7 +4,7 @@
       <clr-alert
         [clrAlertType]="alert.type"
         [clrAlertClosable]="alert.closable !== false"
-        [clrAlertAppLevel]="alert.appLevel || false"
+        [clrAlertAppLevel]="appLevel"
         [clrAlertLightweight]="alert.lightWeight || false"
         [clrAlertSizeSmall]="alert.sizeSmall || false"
         [clrAlertIcon]="alert.icon || ''"
@@ -16,25 +16,37 @@
           </span>
           @if (alert.actions && showActions) {
             <div class="alert-actions">
-                <clr-dropdown>
-                    <button
-                      clrDropdownTrigger
-                    >
-                      Actions
-                      <cds-icon shape="angle" direction="down"></cds-icon>
-                    </button>
-                    <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
-                      @for (action of alert.actions; track action) {
+                @if(appLevel){
+                    @for (action of alert.actions; track action) {
+                      <button
+                        class="btn alert-action"
+                        type="button"
+                        (click)="action.callback()"
+                      >
+                        {{ action.label }}
+                      </button>
+                    }
+                } @else {
+                    <clr-dropdown>
                         <button
-                          clrDropdownItem
-                          type="button"
-                          (click)="action.callback()"
+                        clrDropdownTrigger
                         >
-                          {{ action.label }}
+                        Actions
+                        <cds-icon shape="angle" direction="down"></cds-icon>
                         </button>
-                      }
-                    </clr-dropdown-menu>
-                  </clr-dropdown>
+                        <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
+                        @for (action of alert.actions; track action) {
+                            <button
+                            clrDropdownItem
+                            type="button"
+                            (click)="action.callback()"
+                            >
+                            {{ action.label }}
+                            </button>
+                        }
+                        </clr-dropdown-menu>
+                    </clr-dropdown>
+                }
             </div>
           }
         </clr-alert-item>
