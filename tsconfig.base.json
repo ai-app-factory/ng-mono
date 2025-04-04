@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-mono/firebase": ["libs/data-access/firebase/src/index.ts"],
       "@ng-mono/mui-latest": ["libs/ui/mui-latest/src/index.ts"],
       "@ng-mono/ui-lib": ["libs/ui-lib/src/index.ts"]
     }
