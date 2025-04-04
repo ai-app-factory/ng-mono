@@ -1,1 +1,44 @@
-<p>alert works!</p>
+<body cds-theme="light">
+<div class="alert-wrapper">
+    @for (alert of _alerts(); track alert; let i = $index) {
+      <clr-alert
+        [clrAlertType]="alert.type"
+        [clrAlertClosable]="alert.closable !== false"
+        [clrAlertAppLevel]="alert.appLevel || false"
+        [clrAlertLightweight]="alert.lightWeight || false"
+        [clrAlertSizeSmall]="alert.sizeSmall || false"
+        [clrAlertIcon]="alert.icon || ''"
+        (clrAlertClosedChange)="closeAlert(i)"
+      >
+        <clr-alert-item>
+          <span class="alert-text">
+            {{ alert.message }}
+          </span>
+          @if (alert.actions && showActions) {
+            <div class="alert-actions">
+                <clr-dropdown>
+                    <button
+                      clrDropdownTrigger
+                    >
+                      Actions
+                      <cds-icon shape="angle" direction="down"></cds-icon>
+                    </button>
+                    <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
+                      @for (action of alert.actions; track action) {
+                        <button
+                          clrDropdownItem
+                          type="button"
+                          (click)="action.callback()"
+                        >
+                          {{ action.label }}
+                        </button>
+                      }
+                    </clr-dropdown-menu>
+                  </clr-dropdown>
+            </div>
+          }
+        </clr-alert-item>
+      </clr-alert>
+    }
+  </div>
+</body>
