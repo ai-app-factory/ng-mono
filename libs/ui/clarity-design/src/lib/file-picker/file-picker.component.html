@@ -1,1 +1,20 @@
-<p>file-picker works!</p>
+<body cds-theme="light">
+<form clrForm [clrLayout]="layout">
+    <clr-file-input-container [clrButtonLabel]="label">
+      <label>File</label>
+      <input
+        type="file"
+        clrFileInput
+        [accept]="accept"
+        [multiple]="multiple"
+        [clrMinFileSize]="minFileSize ? minFileSize : 0"
+        [clrMaxFileSize]="maxFileSize ? maxFileSize : 0"
+        [required]="required"
+        (change)="handleFileInput($event)"
+      />
+      <clr-control-helper>{{ helperText }}</clr-control-helper>
+      <clr-control-success>{{ successText }}</clr-control-success>
+      <clr-control-error *clrIfError="'required'">File is required</clr-control-error>
+    </clr-file-input-container>
+  </form>
+  </body>
