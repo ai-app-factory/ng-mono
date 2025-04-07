@@ -1,1 +1,24 @@
-<p>timeline works!</p>
+<body cds-theme="light">
+    <clr-timeline [clrLayout]="clrLayout">
+        @for (step of _steps(); track step; let i = $index){
+            <clr-timeline-step [clrState]="step.state">
+                @if (step.header){
+                    <clr-timeline-step-header>
+                        <h3>{{ step.header }}</h3>
+                    </clr-timeline-step-header>
+                }
+                @if (step.title){
+                    <clr-timeline-step-title>
+                        <p>{{ step.title }}</p>
+                    </clr-timeline-step-title>
+                }
+                @if (step.description){
+                    <clr-timeline-step-description>
+                        <p>{{ step.description }}</p>
+                    </clr-timeline-step-description>
+                }
+            </clr-timeline-step >
+        }
+
+    </clr-timeline>
+</body>
