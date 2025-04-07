@@ -8,97 +8,100 @@ const meta: Meta<TimelineComponent> = {
   title: 'TimelineComponent',
   argTypes: {
     layout: {
-      control: {
-        type: 'select',
-        options: ['HORIZONTAL', 'VERTICAL'],
+      control: 'select',
+      options: ['HORIZONTAL', 'VERTICAL'],
+      description: 'Layout of the timeline',
+      table: {
+        type: { summary: "'HORIZONTAL' | 'VERTICAL'" },
+        defaultValue: { summary: "'HORIZONTAL'" },
       },
-      defaultValue: 'HORIZONTAL',
     },
     steps: {
-      control: {
-        type: 'object',
+      control: 'object',
+      description: 'Array of timeline steps',
+      table: {
+        type: { summary: 'TimelineStep[]' },
+        defaultValue: { summary: '[]' },
       },
-      defaultValue: [
-        {
-          title: 'Step 1',
-          description: 'Description for step 1',
-          header: 'Header for step 1',
-          state: 'NOT_STARTED',
-        },
-        {
-          title: 'Step 2',
-          description: 'Description for step 2',
-          header: 'Header for step 2',
-          state: 'CURRENT',
-        },
-        {
-          title: 'Step 3',
-          description: 'Description for step 3',
-          header: 'Header for step 3',
-          state: 'SUCCESS',
-        },
-        {
-          title: 'Step 4',
-          description: 'Description for step 4',
-          header: 'Header for step 4',
-          state: 'ERROR',
-        },
-        {
-          title: 'Step 5',
-          description: 'Description for step 5',
-          header: 'Header for step 5',
-          state: 'PROCESSING',
-        },
-      ],
     },
-  },
-};
+  }
+}
 
 export default meta;
 type Story = StoryObj<TimelineComponent>;
 
-export const Primary: Story = {
+export const HorizontalTimeline: Story = {
   args: {
-    layout: 'VERTICAL',
+    layout: 'HORIZONTAL',
     steps: [
       {
-        title: 'Step 1',
-        description: 'Description for step 1',
-        header: 'Header for step 1',
-        state: 'NOT_STARTED',
-      },
-      {
-        title: 'Step 2',
-        description: 'Description for step 2',
-        header: 'Header for step 2',
-        state: 'CURRENT',
-      },
-      {
-        title: 'Step 3',
-        description: 'Description for step 3',
-        header: 'Header for step 3',
+        title: 'Success',
+        description: 'This is step was successful.',
+        header: 'Step 1',
         state: 'SUCCESS',
       },
       {
-        title: 'Step 4',
-        description: 'Description for step 4',
-        header: 'Header for step 4',
+        title: 'Error',
+        description: 'There was an error in this step.',
+        header: 'Step 2',
         state: 'ERROR',
       },
       {
-        title: 'Step 5',
-        description: 'Description for step 5',
-        header: 'Header for step 5',
+        title: 'Processing',
+        description: 'We are processing this step.',
+        header: 'Step 3',
         state: 'PROCESSING',
+      },
+      {
+        title: 'Current',
+        description: 'You are here.',
+        header: 'Step 4',
+        state: 'CURRENT',
+      },
+      {
+        title: 'Not Started',
+        description: 'You have not started this step yet.',
+        header: 'Step 4',
+        state: 'NOT_STARTED',
       },
     ],
   },
 };
 
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/timeline works!/gi)).toBeTruthy();
+export const VerticalTimeline: Story = {
+  args: {
+    layout: 'VERTICAL',
+    steps: [
+      {
+        title: 'Success',
+        description: 'This is step was successful.',
+        header: 'Step 1',
+        state: 'SUCCESS',
+      },
+      {
+        title: 'Error',
+        description: 'There was an error in this step.',
+        header: 'Step 2',
+        state: 'ERROR',
+      },
+      {
+        title: 'Processing',
+        description: 'We are processing this step.',
+        header: 'Step 3',
+        state: 'PROCESSING',
+      },
+      {
+        title: 'Current',
+        description: 'You are here.',
+        header: 'Step 4',
+        state: 'CURRENT',
+      },
+      {
+        title: 'Not Started',
+        description: 'You have not started this step yet.',
+        header: 'Step 4',
+        state: 'NOT_STARTED',
+      },
+    ],
   },
 };

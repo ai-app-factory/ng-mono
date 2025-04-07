@@ -16,6 +16,10 @@ export interface TimelineStep {
   state: 'NOT_STARTED' | 'CURRENT' | 'SUCCESS' | 'ERROR' | 'PROCESSING';
 }
 
+interface MappedTimelineStep extends Omit<TimelineStep, 'state'> {
+  state: ClrTimelineStepState;
+}
+
 @Component({
   selector: 'lib-timeline',
   imports: [CommonModule, ClarityModule],
@@ -26,13 +30,34 @@ export interface TimelineStep {
 export class TimelineComponent {
   @Input() layout: 'HORIZONTAL' | 'VERTICAL' = 'HORIZONTAL';
 
-  protected _steps = signal<TimelineStep[]>([]);
+  protected _steps = signal<MappedTimelineStep[]>([]);
 
   @Input() set steps(steps: TimelineStep[]) {
-    this._steps.set(steps);
+    const mappedSteps = steps.map((step) => ({
+      ...step,
+      state: this.mapState(step.state),
+    }))
+    this._steps.set(mappedSteps);
   }
 
   get clrLayout(): ClrTimelineLayout {
     return this.layout === 'HORIZONTAL' ? ClrTimelineLayout.HORIZONTAL : ClrTimelineLayout.VERTICAL;
+  }
+
+  private mapState(state: TimelineStep['state']): ClrTimelineStepState {
+    switch (state) {
+      case 'NOT_STARTED':
+        return ClrTimelineStepState.NOT_STARTED;
+      case 'CURRENT':
+        return ClrTimelineStepState.CURRENT;
+      case 'SUCCESS':
+        return ClrTimelineStepState.SUCCESS;
+      case 'ERROR':
+        return ClrTimelineStepState.ERROR;
+      case 'PROCESSING':
+        return ClrTimelineStepState.PROCESSING;
+      default:
+        return ClrTimelineStepState.NOT_STARTED;
+    }
   }
 }

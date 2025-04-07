@@ -4,17 +4,17 @@
             <clr-timeline-step [clrState]="step.state">
                 @if (step.header){
                     <clr-timeline-step-header>
-                        <h3>{{ step.header }}</h3>
+                        {{ step.header }}
                     </clr-timeline-step-header>
                 }
                 @if (step.title){
                     <clr-timeline-step-title>
-                        <p>{{ step.title }}</p>
+                        {{ step.title }}
                     </clr-timeline-step-title>
                 }
                 @if (step.description){
                     <clr-timeline-step-description>
-                        <p>{{ step.description }}</p>
+                        {{ step.description }}
                     </clr-timeline-step-description>
                 }
             </clr-timeline-step >
