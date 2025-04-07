@@ -1,1 +1,25 @@
-<p>tool-tip works!</p>
+<body cds-theme="light">
+    @switch (type) {
+        @case('Tool-Tip'){
+            <div>
+                <clr-tooltip>
+                    <cds-icon clrTooltipTrigger [shape]="config.icon || 'info-circle'" [size]="config.iconSize || 24"></cds-icon>
+                        <clr-tooltip-content [clrPosition]="config.position" [clrSize]="config.tooltipSize">
+                            {{ config.content }}
+                        </clr-tooltip-content>
+                </clr-tooltip>
+            </div>
+        }
+
+        @case ('SignPost'){
+            <div>
+                <clr-signpost>
+                    <clr-signpost-content [clrPosition]="config.position">
+                        {{ config.content }}
+                    </clr-signpost-content>
+                </clr-signpost>
+            </div>
+        }
+    }
+    
+</body>
