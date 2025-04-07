@@ -9,3 +9,5 @@ export * from './lib/alert/alert.component';
 export * from './lib/file-picker/file-picker.component';
 
 export * from './lib/timeline/timeline.component';
+
+export * from './lib/tool-tip/tool-tip.component';
