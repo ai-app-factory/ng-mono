@@ -9,11 +9,12 @@ import { ClarityIcons, userIcon, alarmClockIcon, airplaneIcon } from '@cds/core/
 
 
 export interface ToolTipSignPostConfig {
+  title?: string;
   content: string;
   position: 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'top-moddle' | 'bottom-left' | 'bottom-right' | 'right-middle' | 'left-middle';
   icon?: string;
   iconSize?: string | number;
-  tooltipSize: 'xs' | 'md' | 'sm' | 'lg';
+  tooltipSize?: 'xs' | 'md' | 'sm' | 'lg';
 }
 
 @Component({
@@ -35,6 +36,11 @@ export class ToolTipComponent {
   @Input() set config(value: ToolTipSignPostConfig) {
     this._config.set(value);
   }
+
+  constructor() {
+    ClarityIcons.addIcons(userIcon, airplaneIcon, alarmClockIcon);
+  }
+
   get config(): ToolTipSignPostConfig {
     return this._config();
   }

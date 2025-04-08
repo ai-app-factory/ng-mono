@@ -1,10 +1,10 @@
 <body cds-theme="light">
     @switch (type) {
         @case('Tool-Tip'){
-            <div>
+            <div style="padding: 250px; text-align: center">
                 <clr-tooltip>
                     <cds-icon clrTooltipTrigger [shape]="config.icon || 'info-circle'" [size]="config.iconSize || 24"></cds-icon>
-                        <clr-tooltip-content [clrPosition]="config.position" [clrSize]="config.tooltipSize">
+                        <clr-tooltip-content [clrPosition]="config.position" [clrSize]="config.tooltipSize" *clrIfOpen>
                             {{ config.content }}
                         </clr-tooltip-content>
                 </clr-tooltip>
@@ -12,9 +12,13 @@
         }
 
         @case ('SignPost'){
-            <div>
+            <div style="padding: 250px; text-align: center">
                 <clr-signpost>
-                    <clr-signpost-content [clrPosition]="config.position">
+                    @if(config.icon){
+                        <cds-icon [shape]="config.icon || 'user'" [size]="config.iconSize || 24" clrSignpostTrigger></cds-icon>
+                    }
+                    <clr-signpost-content *clrIfOpen [clrPosition]="config.position">
+                        <clr-signpost-title>{{ config.title }}</clr-signpost-title>
                         {{ config.content }}
                     </clr-signpost-content>
                 </clr-signpost>
