@@ -13,12 +13,15 @@ import {
   NG_VALUE_ACCESSOR,
   NG_VALIDATORS,
   Validators,
-  FormControl} from '@angular/forms';
+  FormControl, 
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule} from '@angular/forms';
 import { ClrFileInputModule } from '@clr/angular';
 
 @Component({
   selector: 'lib-file-picker',
-  imports: [CommonModule, ClarityModule, ClrFileInputModule],
+  imports: [CommonModule, ClarityModule, ClrFileInputModule, ReactiveFormsModule],
   templateUrl: './file-picker.component.html',
   styleUrl: './file-picker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,9 +48,14 @@ export class FilePickerComponent {
 
   formControl = new FormControl<File[] | null>(null, this.required ? Validators.required : null);
 
+  protected readonly form = new FormGroup({
+    files: new FormControl<FileList | null>(null),
+  });
+
+
   protected _files = signal<File[]>([]);
 
-  private onChange: (value: File[]) => void = () => {};
+/*   private onChange: (value: File[]) => void = () => {};
   private onTouched: () => void = () => {};
 
   writeValue(value: File[]): void {
@@ -84,5 +92,5 @@ export class FilePickerComponent {
     files.splice(index, 1);
     this._files.set([...files]);
     this.formControl.setValue(files);
-  }
+  } */
 }

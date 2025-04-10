@@ -1,5 +1,5 @@
 <body cds-theme="light">
-<form clrForm [clrLayout]="layout">
+<form clrForm [clrLayout]="layout" [formGroup]="form">
     <clr-file-input-container [clrButtonLabel]="label">
       <label>File</label>
       <input
@@ -10,9 +10,11 @@
         [clrMinFileSize]="minFileSize ? minFileSize : 0"
         [clrMaxFileSize]="maxFileSize ? maxFileSize : 0"
         [required]="required"
-        (change)="handleFileInput($event)"
+        [formControl] = "formControl"
       />
       <clr-control-helper>{{ helperText }}</clr-control-helper>
+      <clr-control-success>Success message</clr-control-success>
+      <clr-control-error>Error message</clr-control-error>
     </clr-file-input-container>
   </form>
   </body>
