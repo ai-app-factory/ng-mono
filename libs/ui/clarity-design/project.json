@@ -22,7 +22,13 @@
         "port": 4400,
         "configDir": "libs/ui/clarity-design/.storybook",
         "browserTarget": "clarity-design:build-storybook",
-        "compodoc": false,
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/clarity-design/docs"
+        ],
         "styles": [
           "node_modules/@cds/core/global.min.css",
           "node_modules/@cds/core/styles/theme.dark.min.css",
@@ -46,7 +52,13 @@
         "outputDir": "dist/storybook/clarity-design",
         "configDir": "libs/ui/clarity-design/.storybook",
         "browserTarget": "clarity-design:build-storybook",
-        "compodoc": false,
+        "compodoc": true,
+        "compodocArgs": [
+          "-e",
+          "json",
+          "-d",
+          "libs/ui/clarity-design/docs"
+        ],
         "styles": [
           "node_modules/@cds/core/global.min.css",
           "node_modules/@cds/core/styles/theme.dark.min.css",
